@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompTIA CySA+ (CS0-003) Practice Exam Simulator</title>
+  <!-- Modern Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+    <!-- TOP NAVIGATION BAR -->
+    <header class="navbar">
+      <div class="nav-brand">
+        <div class="shield-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CySA+ <span class="badge-code">CS0-003</span></span>
+          <span class="brand-sub">CompTIA Cybersecurity Analyst Simulator</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <button class="nav-btn active" id="nav-dashboard-btn" onclick="showScreen('dashboard')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </button>
+        <button class="nav-btn" id="nav-scraper-btn" onclick="openScraperModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Import / Scraper
+        </button>
+      </nav>
+
+      <!-- ACTIVE EXAM HEADER STATUS (Hidden when on dashboard) -->
+      <div class="exam-status-bar hidden" id="exam-status-bar">
+        <div class="timer-card" id="timer-card">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="timer-display">165:00</span>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="pause-timer-btn" onclick="toggleTimerPause()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          Pause
+        </button>
+        <div class="progress-pill">
+          <span id="answered-counter">0/85</span> Answered
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- SCREEN 1: DASHBOARD / CONFIGURATION -->
+      <section id="screen-dashboard" class="screen-view active">
+        <div class="hero-card">
+          <div class="hero-badge">CompTIA Certified Cybersecurity Analyst</div>
+          <h1 class="hero-title">CS0-003 Master Exam Simulator</h1>
+          <p class="hero-desc">
+            Fully realistic exam environment featuring 85 questions, 165-minute timed duration, Performance-Based Questions (PBQs), detailed explanations, and domain vulnerability analysis.
+          </p>
+          
+          <div class="stats-row">
+            <div class="stat-box">
+              <span class="stat-val">85</span>
+              <span class="stat-lbl">Max Questions</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">165m</span>
+              <span class="stat-lbl">Exam Duration</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">750 / 900</span>
+              <span class="stat-lbl">Passing Score</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">4 Domains</span>
+              <span class="stat-lbl">Security Ops & Response</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EXAM MODES GRID -->
+        <h2 class="section-heading">Select Exam Mode</h2>
+        <div class="modes-grid">
+          
+          <!-- Mode 1: Full Exam Simulation -->
+          <div class="mode-card featured">
+            <div class="card-tag">Official Format</div>
+            <div class="mode-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Full Simulated Exam</h3>
+            <p>85 randomized questions (MCQs & PBQs), strict 165-minute timer, no instant answers during exam, final score scaled 100-900.</p>
+            <div class="mode-footer">
+              <button class="btn btn-primary btn-block" onclick="startExam('full')">Start Full Simulation (85 Qs)</button>
+            </div>
+          </div>
+
+          <!-- Mode 2: Quick Practice -->
+          <div class="mode-card">
+            <div class="mode-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Quick Sprint Practice</h3>
+            <p>20 random questions with flexible timing and instant answer feedback after each question.</p>
+            <div class="mode-footer">
+              <button class="btn btn-secondary btn-block" onclick="startExam('quick')">Start Quick Sprint (20 Qs)</button>
+            </div>
+          </div>
+
+          <!-- Mode 3: Domain Focus -->
+          <div class="mode-card">
+            <div class="mode-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Domain Focused Practice</h3>
+            <p>Practice specific CySA+ domains (Security Ops, Vulnerability Mgmt, Incident Response, Reporting).</p>
+            <div class="mode-footer">
+              <select id="domain-select" class="form-select mb-2">
+                <option value="all">All Domains</option>
+                <option value="Domain 1.0: Security Operations">1.0 Security Operations (33%)</option>
+                <option value="Domain 2.0: Vulnerability Management">2.0 Vulnerability Management (30%)</option>
+                <option value="Domain 3.0: Incident Response and Management">3.0 Incident Response & Management (20%)</option>
+                <option value="Domain 4.0: Reporting and Communication">4.0 Reporting & Communication (17%)</option>
+              </select>
+              <button class="btn btn-outline btn-block" onclick="startExam('domain')">Start Domain Quiz</button>
+            </div>
+          </div>
+
+          <!-- Mode 4: PBQ Simulator -->
+          <div class="mode-card">
+            <div class="mode-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3>Performance-Based Questions (PBQs)</h3>
+            <p>Master interactive SIEM log analysis, firewall ACL configurations, and digital forensic order of volatility simulations.</p>
+            <div class="mode-footer">
+              <button class="btn btn-outline btn-block" onclick="startExam('pbq')">Practice PBQs Only</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RECENT HISTORY TABLE -->
+        <div class="history-section" id="history-section">
+          <h2 class="section-heading">Recent Attempt History</h2>
+          <div id="history-container" class="history-container">
+            <p class="text-muted">No exam attempts recorded yet. Click <strong>Start Full Simulation</strong> to begin your practice test!</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 2: ACTIVE EXAM SIMULATOR -->
+      <section id="screen-exam" class="screen-view">
+        <div class="exam-header-bar">
+          <div class="question-meta">
+            <span class="q-number-pill" id="q-number-display">Question 1 of 85</span>
+            <span class="q-domain-pill" id="q-domain-display">Domain 1.0 Security Operations</span>
+            <span class="q-pbq-pill hidden" id="q-pbq-pill">PERFORMANCE-BASED QUESTION</span>
+          </div>
+
+          <div class="exam-actions-top">
+            <label class="flag-checkbox">
+              <input type="checkbox" id="flag-checkbox" onchange="toggleFlagQuestion()">
+              <span class="flag-custom">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                Flag for Review
+              </span>
+            </label>
+
+            <button class="btn btn-ghost btn-sm" id="strikethrough-toggle-btn" onclick="toggleStrikethroughMode()" title="Toggle Option Elimination Mode">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              Strike-through Mode
+            </button>
+
+            <button class="btn btn-secondary btn-sm" onclick="openGridModal()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Question Grid
+            </button>
+          </div>
+        </div>
+
+        <!-- QUESTION BODY CONTAINER -->
+        <div class="question-card" id="question-card">
+          <!-- Dynamic Content rendered by JS -->
+        </div>
+
+        <!-- EXAM BOTTOM CONTROL BAR -->
+        <div class="exam-footer-bar">
+          <button class="btn btn-secondary" id="prev-btn" onclick="navigateQuestion(-1)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Previous
+          </button>
+
+          <div class="footer-center">
+            <button class="btn btn-ghost" onclick="clearCurrentAnswer()">Clear Selection</button>
+          </div>
+
+          <div class="footer-right">
+            <button class="btn btn-secondary" id="next-btn" onclick="navigateQuestion(1)">
+              Next
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button class="btn btn-danger" id="submit-exam-btn" onclick="confirmSubmitExam()">
+              Finish & Submit Exam
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCREEN 3: RESULTS & ANALYTICS DASHBOARD -->
+      <section id="screen-results" class="screen-view">
+        <div class="results-header" id="results-header-banner">
+          <!-- Dynamic Score Banner -->
+        </div>
+
+        <div class="results-grid">
+          <!-- Scaled Score Card -->
+          <div class="score-card">
+            <h3>CompTIA Scaled Score</h3>
+            <div class="scaled-score-display">
+              <span class="score-num" id="final-scaled-score">780</span>
+              <span class="score-max">/ 900</span>
+            </div>
+            <div class="pass-threshold-bar">
+              <div class="threshold-marker" style="left: 72.2%;" title="Passing threshold: 750">
+                <span>Passing (750)</span>
+              </div>
+              <div class="score-fill" id="score-progress-fill" style="width: 80%;"></div>
+            </div>
+            <p class="score-summary-text" id="score-summary-text">Congratulations! You passed the CySA+ (CS0-003) practice exam.</p>
+          </div>
+
+          <!-- Domain Performance Breakdown -->
+          <div class="domain-breakdown-card">
+            <h3>Domain Performance Breakdown</h3>
+            <div class="domain-bars" id="domain-bars-container">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- WEAK AREAS RECOMMENDATIONS -->
+        <div class="recommendation-card" id="recommendations-container">
+          <!-- Rendered via JS -->
+        </div>
+
+        <!-- DETAILED QUESTION REVIEW SECTION -->
+        <div class="review-section">
+          <div class="review-header-bar">
+            <h2>Detailed Question Review & Explanations</h2>
+            <div class="filter-pills">
+              <button class="filter-pill active" onclick="filterReview('all', this)">All Questions</button>
+              <button class="filter-pill" onclick="filterReview('incorrect', this)">Incorrect Only</button>
+              <button class="filter-pill" onclick="filterReview('flagged', this)">Flagged Only</button>
+              <button class="filter-pill" onclick="filterReview('pbq', this)">PBQs</button>
+            </div>
+          </div>
+
+          <div class="review-list" id="review-list-container">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <div class="results-footer">
+          <button class="btn btn-primary" onclick="showScreen('dashboard')">Return to Dashboard</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- QUESTION NAVIGATOR MODAL -->
+    <div class="modal-overlay hidden" id="grid-modal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Exam Question Navigator</h3>
+          <button class="close-btn" onclick="closeGridModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="grid-legend">
+            <span class="legend-item"><span class="box current"></span> Current</span>
+            <span class="legend-item"><span class="box answered"></span> Answered</span>
+            <span class="legend-item"><span class="box flagged"></span> Flagged</span>
+            <span class="legend-item"><span class="box unanswered"></span> Unanswered</span>
+          </div>
+          <div class="question-grid" id="question-grid-container">
+            <!-- Grid buttons generated by JS -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-block" onclick="closeGridModal()">Back to Question</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRAPER & IMPORTER MODAL -->
+    <div class="modal-overlay hidden" id="scraper-modal">
+      <div class="modal-card modal-lg">
+        <div class="modal-header">
+          <h3>Examtopics Scraper & Custom Question Import</h3>
+          <button class="close-btn" onclick="closeScraperModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Import custom scraped questions from Examtopics or JSON datasets directly into your CySA+ practice bank.</p>
+
+          <div class="scraper-instructions">
+            <h4>How to run the Python Scraper:</h4>
+            <div class="code-block">
+              <code>python3 scraper.py --url "https://www.examtopics.com/exams/comptia/cs0-003/" --output scraped_questions.json</code>
+            </div>
+            <p class="text-sm text-muted">This exports a structured JSON question bank ready for upload below.</p>
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="form-label">Upload `scraped_questions.json` file:</label>
+            <input type="file" id="json-file-input" accept=".json" class="form-control" onchange="handleFileUpload(event)">
+          </div>
+
+          <div class="form-group mt-3">
+            <label class="form-label">Or paste JSON content directly:</label>
+            <textarea id="json-paste-input" class="form-control font-mono" rows="6" placeholder='[{"id":"custom-1", "type":"mcq", "domain":"Domain 1.0: Security Operations", "question":"...", "options":["A...","B..."], "answer":"A", "explanation":"..."}]'></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeScraperModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="importPastedJson()">Import Question Bank</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Files -->
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
