@@ -59,7 +59,7 @@ function showScreen(screenId) {
 // START EXAM MODE
 function startExam(mode) {
   state.examMode = mode;
-  state.studyMode = (mode === 'study');
+  state.studyMode = (mode === 'study' || mode === 'domain-study');
   state.currentIndex = 0;
   state.userAnswers = {};
   state.strikethroughs = {};
@@ -93,6 +93,23 @@ function startExam(mode) {
     // Study mode: all MCQ questions, randomized order, no timer
     const mcqOnly = baseBank.filter(q => q.type !== 'pbq');
     state.activeQuestions = shuffleArray(mcqOnly);
+    // Pre-shuffle answer options for each question
+    state.activeQuestions.forEach(q => {
+      if (q.options && q.options.length) {
+        const indices = q.options.map((_, i) => i);
+        state.shuffledOptions[q.id] = shuffleArray(indices);
+      }
+    });
+    state.timeRemaining = 0;
+  } else if (mode === 'domain-study') {
+    // Domain-focused study mode: filter by domain, MCQ only, randomized, no timer, inline reveal
+    const selectedDomain = document.getElementById('domain-select').value;
+    let pool = baseBank.filter(q => q.type !== 'pbq');
+    if (selectedDomain !== 'all') {
+      const filtered = pool.filter(q => q.domain === selectedDomain);
+      pool = filtered.length ? filtered : pool;
+    }
+    state.activeQuestions = shuffleArray(pool);
     // Pre-shuffle answer options for each question
     state.activeQuestions.forEach(q => {
       if (q.options && q.options.length) {

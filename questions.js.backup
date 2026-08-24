@@ -571,7 +571,8 @@ const CYSA_QUESTIONS = [
     "question": "Which of the following is the first step that should be performed when establishing a disaster\nrecovery plan?",
     "options": [
       "A. Agree on the goals and objectives of the plan",
-      "B. Determine the site to be used during a disaster\nC Demonstrate adherence to a standard disaster recovery process",
+      "B. Determine the site to be used during a disaster
+      "C Demonstrate adherence to a standard disaster recovery process",
       "D. Identity applications to be run during a disaster"
     ],
     "answer": "A",
@@ -1914,7 +1915,8 @@ const CYSA_QUESTIONS = [
     "domain": "Domain 1.0: Security Operations",
     "question": "A security analyst is trying to detect connections to a suspicious IP address by collecting the packet\ncaptures from the gateway. Which of the following commands should the security analyst consider\nrunning?",
     "options": [
-      "A.\ngrep [IP address] packets.pcap\nB\ncat packets.pcap | grep [IP Address]",
+      "A.\ngrep [IP address] packets.pcap
+      "B\ncat packets.pcap | grep [IP Address]",
       "C.\ntcpdump -n -r packets.pcap host [IP address]",
       "D.\nstrings packets.pcap | grep [IP Address]"
     ],

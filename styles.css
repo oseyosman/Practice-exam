@@ -1281,6 +1281,13 @@ body {
   transform: translateY(-1px);
 }
 
+/* Domain focus card — two-button row */
+.domain-btn-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
 /* Study features checklist */
 .study-features-list {
   list-style: none;

@@ -135,7 +135,13 @@
                 <option value="Domain 3.0: Incident Response and Management">3.0 Incident Response & Management (20%)</option>
                 <option value="Domain 4.0: Reporting and Communication">4.0 Reporting & Communication (17%)</option>
               </select>
-              <button class="btn btn-outline btn-block" onclick="startExam('domain')">Start Domain Quiz</button>
+              <div class="domain-btn-row">
+                <button class="btn btn-outline" onclick="startExam('domain')">Timed Quiz</button>
+                <button class="btn btn-study" onclick="startExam('domain-study')">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                  Study Mode
+                </button>
+              </div>
             </div>
           </div>
 
