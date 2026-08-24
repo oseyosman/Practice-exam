@@ -6,12 +6,16 @@ let state = {
   userAnswers: {},       // questionId -> answer string/array or PBQ object
   strikethroughs: {},    // questionId -> Set of struck indices
   flagged: new Set(),
-  examMode: 'full',      // 'full', 'quick', 'domain', 'pbq'
+  examMode: 'full',      // 'full', 'quick', 'domain', 'pbq', 'study'
   timeRemaining: 165 * 60, // 165 minutes in seconds
   timerInterval: null,
   isPaused: false,
   strikethroughActive: false,
-  examHistory: []
+  examHistory: [],
+  studyMode: false,         // true when exam mode is 'study'
+  revealedQuestions: new Set(), // questionIds that have been answered & revealed
+  shuffledOptions: {},      // questionId -> shuffled option indices array
+  liveCorrect: 0           // running correct count in study mode
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +36,19 @@ function showScreen(screenId) {
 
   const statusBar = document.getElementById('exam-status-bar');
   if (screenId === 'exam') {
+    // In study mode, hide the timer elements
+    const timerCard = document.getElementById('timer-card');
+    const pauseBtn = document.getElementById('pause-timer-btn');
+    const liveScorePill = document.getElementById('live-score-pill');
+    if (state.studyMode) {
+      timerCard.classList.add('hidden');
+      pauseBtn.classList.add('hidden');
+      liveScorePill.classList.remove('hidden');
+    } else {
+      timerCard.classList.remove('hidden');
+      pauseBtn.classList.remove('hidden');
+      liveScorePill.classList.add('hidden');
+    }
     statusBar.classList.remove('hidden');
   } else {
     statusBar.classList.add('hidden');
@@ -42,17 +59,21 @@ function showScreen(screenId) {
 // START EXAM MODE
 function startExam(mode) {
   state.examMode = mode;
+  state.studyMode = (mode === 'study');
   state.currentIndex = 0;
   state.userAnswers = {};
   state.strikethroughs = {};
   state.flagged.clear();
   state.isPaused = false;
+  state.revealedQuestions = new Set();
+  state.shuffledOptions = {};
+  state.liveCorrect = 0;
 
   let baseBank = [...CYSA_QUESTIONS];
 
   if (mode === 'full') {
     state.activeQuestions = generateFullQuestionBank(baseBank, 85);
-    state.timeRemaining = 165 * 60; // 165 minutes
+    state.timeRemaining = 165 * 60;
   } else if (mode === 'quick') {
     state.activeQuestions = shuffleArray([...baseBank]).slice(0, 20);
     state.timeRemaining = 45 * 60;
@@ -68,12 +89,24 @@ function startExam(mode) {
   } else if (mode === 'pbq') {
     state.activeQuestions = baseBank.filter(q => q.type === 'pbq');
     state.timeRemaining = 30 * 60;
+  } else if (mode === 'study') {
+    // Study mode: all MCQ questions, randomized order, no timer
+    const mcqOnly = baseBank.filter(q => q.type !== 'pbq');
+    state.activeQuestions = shuffleArray(mcqOnly);
+    // Pre-shuffle answer options for each question
+    state.activeQuestions.forEach(q => {
+      if (q.options && q.options.length) {
+        const indices = q.options.map((_, i) => i);
+        state.shuffledOptions[q.id] = shuffleArray(indices);
+      }
+    });
+    state.timeRemaining = 0;
   }
 
   showScreen('exam');
   renderCurrentQuestion();
   updateProgressMeter();
-  startTimer();
+  if (!state.studyMode) startTimer();
 }
 
 // TIMER MANAGEMENT
@@ -166,7 +199,7 @@ function renderCurrentQuestion() {
   updateProgressMeter();
 }
 
-// CREATE MCQ VIEW (Supports Single & Multi-Select + Diagrams)
+// CREATE MCQ VIEW (Supports Single & Multi-Select + Diagrams + Study Mode)
 function createMCQView(q) {
   const wrapper = document.createElement('div');
   wrapper.className = 'mcq-wrapper';
@@ -197,50 +230,117 @@ function createMCQView(q) {
     wrapper.appendChild(imgContainer);
   }
 
+  // Determine the option order (shuffled in study mode, natural otherwise)
+  const isRevealed = state.studyMode && state.revealedQuestions.has(q.id);
+  const optionIndices = (state.studyMode && state.shuffledOptions[q.id])
+    ? state.shuffledOptions[q.id]
+    : q.options.map((_, i) => i);
+
+  // Build a mapping from original index -> display letter (A, B, C, D)
+  // so that answer keys still match even after shuffling
+  const displayLetterMap = {}; // originalIndex -> displayLetter
+  const originalIndexByLetter = {}; // displayLetter -> originalIndex
+  optionIndices.forEach((origIdx, displayPos) => {
+    const displayLetter = String.fromCharCode(65 + displayPos);
+    displayLetterMap[origIdx] = displayLetter;
+    originalIndexByLetter[displayLetter] = origIdx;
+  });
+
+  // In study mode, the stored answer is by original letter (A/B/C/D of original options)
+  // We need to convert when selecting
+  const currentAnswer = state.userAnswers[q.id];
+  const struckSet = state.strikethroughs[q.id] || new Set();
+
+  // Correct answers as original option letters
+  const correctOriginal = Array.isArray(q.answer) ? q.answer : [q.answer];
+
   // Options List
   const optionsList = document.createElement('div');
   optionsList.className = 'options-list';
 
-  const currentAnswer = state.userAnswers[q.id];
-  const struckSet = state.strikethroughs[q.id] || new Set();
+  optionIndices.forEach((origIdx, displayPos) => {
+    const displayLetter = String.fromCharCode(65 + displayPos);
+    const origLetter = String.fromCharCode(65 + origIdx); // original A/B/C/D
+    const optText = q.options[origIdx];
 
-  q.options.forEach((optText, index) => {
-    const optLetter = String.fromCharCode(65 + index); // A, B, C, D...
-    
     let isSelected = false;
     if (q.multiSelect) {
-      isSelected = Array.isArray(currentAnswer) && currentAnswer.includes(optLetter);
+      isSelected = Array.isArray(currentAnswer) && currentAnswer.includes(origLetter);
     } else {
-      isSelected = currentAnswer === optLetter;
+      isSelected = currentAnswer === origLetter;
     }
 
-    const isStruck = struckSet.has(index);
+    const isStruck = struckSet.has(origIdx);
+    const isCorrectAnswer = correctOriginal.includes(origLetter);
+
+    // In study mode after reveal: color-code options
+    let extraClass = '';
+    if (isRevealed) {
+      if (isCorrectAnswer) extraClass = 'study-correct';
+      else if (isSelected && !isCorrectAnswer) extraClass = 'study-wrong';
+    }
 
     const optItem = document.createElement('div');
-    optItem.className = `option-item ${isSelected ? 'selected' : ''} ${isStruck ? 'struck' : ''}`;
-    
-    const controlIcon = q.multiSelect
-      ? `<span class="checkbox-indicator ${isSelected ? 'checked' : ''}">${isSelected ? '✓' : ''}</span>`
-      : `<span class="radio-indicator ${isSelected ? 'checked' : ''}">${isSelected ? '●' : ''}</span>`;
+    optItem.className = `option-item ${isSelected ? 'selected' : ''} ${isStruck ? 'struck' : ''} ${extraClass}`;
+
+    let controlHtml;
+    if (isRevealed) {
+      if (isCorrectAnswer) {
+        controlHtml = `<span class="review-opt-icon correct-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>`;
+      } else if (isSelected) {
+        controlHtml = `<span class="review-opt-icon wrong-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>`;
+      } else {
+        controlHtml = `<span class="review-opt-icon neutral-icon"></span>`;
+      }
+    } else {
+      controlHtml = q.multiSelect
+        ? `<span class="checkbox-indicator ${isSelected ? 'checked' : ''}">${isSelected ? '✓' : ''}</span>`
+        : `<span class="radio-indicator ${isSelected ? 'checked' : ''}">${isSelected ? '●' : ''}</span>`;
+    }
 
     optItem.innerHTML = `
-      ${controlIcon}
-      <span class="option-prefix">${optLetter}.</span>
+      ${controlHtml}
+      <span class="option-prefix">${displayLetter}.</span>
       <div class="option-content">${formatCodeSnippets(optText.replace(/^[A-F]\.\s*/, ''))}</div>
     `;
 
-    optItem.onclick = () => {
-      if (state.strikethroughActive) {
-        toggleStrikethroughOption(q.id, index);
-      } else {
-        selectMCQAnswer(q, optLetter);
-      }
-    };
+    // Disable clicking after reveal in study mode
+    if (!isRevealed) {
+      optItem.onclick = () => {
+        if (state.strikethroughActive) {
+          toggleStrikethroughOption(q.id, origIdx);
+        } else {
+          selectMCQAnswer(q, origLetter);
+        }
+      };
+    } else {
+      optItem.style.cursor = 'default';
+    }
 
     optionsList.appendChild(optItem);
   });
 
   wrapper.appendChild(optionsList);
+
+  // In study mode: show inline explanation after reveal
+  if (isRevealed && q.explanation) {
+    const expBox = document.createElement('div');
+    expBox.className = 'study-inline-explanation';
+    const isCorrect = checkMCQCorrect(q, currentAnswer);
+    expBox.innerHTML = `
+      <div class="study-result-banner ${isCorrect ? 'study-result-correct' : 'study-result-wrong'}">
+        ${isCorrect
+          ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Correct!`
+          : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Incorrect`
+        }
+      </div>
+      <div class="study-explanation-body">
+        <strong>Explanation:</strong> ${formatCodeSnippets(q.explanation)}
+      </div>
+    `;
+    wrapper.appendChild(expBox);
+  }
+
   return wrapper;
 }
 
@@ -351,22 +451,22 @@ function moveOrderItem(qId, fromIdx, direction) {
 }
 
 // SELECTION HANDLERS (Handles Single & Multi-Select)
-function selectMCQAnswer(q, optLetter) {
+function selectMCQAnswer(q, origLetter) {
   if (q.multiSelect) {
     let current = state.userAnswers[q.id];
     if (!Array.isArray(current)) {
       current = [];
     }
     
-    if (current.includes(optLetter)) {
-      current = current.filter(l => l !== optLetter);
+    if (current.includes(origLetter)) {
+      current = current.filter(l => l !== origLetter);
     } else {
       if (current.length < (q.selectCount || 2)) {
-        current.push(optLetter);
+        current.push(origLetter);
       } else {
-        // Replaced earliest selection if limit reached
+        // Replace earliest selection if limit reached
         current.shift();
-        current.push(optLetter);
+        current.push(origLetter);
       }
     }
 
@@ -375,8 +475,23 @@ function selectMCQAnswer(q, optLetter) {
     } else {
       state.userAnswers[q.id] = current;
     }
+
+    // In study mode, auto-reveal once required count is reached
+    if (state.studyMode && Array.isArray(state.userAnswers[q.id]) && state.userAnswers[q.id].length === (q.selectCount || 2)) {
+      if (!state.revealedQuestions.has(q.id)) {
+        state.revealedQuestions.add(q.id);
+        if (checkMCQCorrect(q, state.userAnswers[q.id])) state.liveCorrect++;
+        updateProgressMeter();
+      }
+    }
   } else {
-    state.userAnswers[q.id] = optLetter;
+    state.userAnswers[q.id] = origLetter;
+    // In study mode, immediately reveal the answer
+    if (state.studyMode && !state.revealedQuestions.has(q.id)) {
+      state.revealedQuestions.add(q.id);
+      if (checkMCQCorrect(q, origLetter)) state.liveCorrect++;
+      updateProgressMeter();
+    }
   }
 
   renderCurrentQuestion();
@@ -433,7 +548,18 @@ function navigateQuestion(delta) {
 
 function updateProgressMeter() {
   const count = Object.keys(state.userAnswers).length;
-  document.getElementById('answered-counter').textContent = `${count}/${state.activeQuestions.length}`;
+  const total = state.activeQuestions.length;
+  if (state.studyMode) {
+    const answered = state.revealedQuestions.size;
+    document.getElementById('answered-counter').textContent = `${answered}/${total}`;
+    // Update live score display
+    const liveScoreEl = document.getElementById('live-score-display');
+    if (liveScoreEl) {
+      liveScoreEl.textContent = `✓ ${state.liveCorrect} / ${answered} Correct`;
+    }
+  } else {
+    document.getElementById('answered-counter').textContent = `${count}/${total}`;
+  }
 }
 
 // GRID MODAL
@@ -639,21 +765,56 @@ function renderReviewList(filterType) {
     const item = document.createElement('div');
     item.className = `review-item ${isCorrect ? 'correct' : 'incorrect'}`;
 
-    let answerSummaryHtml = '';
-    if (q.type === 'pbq') {
-      answerSummaryHtml = `<p><strong>PBQ Status:</strong> ${isCorrect ? '<span style="color:var(--success)">Correct Solution</span>' : '<span style="color:var(--danger)">Incorrect Configuration</span>'}</p>`;
-    } else {
+    // Build options HTML for MCQ questions
+    let optionsHtml = '';
+    if (q.type !== 'pbq') {
       const userRaw = state.userAnswers[q.id];
-      let userStr = 'None Selected';
-      if (Array.isArray(userRaw)) userStr = userRaw.sort().join(', ');
-      else if (userRaw) userStr = userRaw;
+      const userSelected = Array.isArray(userRaw) ? userRaw : (userRaw ? [userRaw] : []);
+      const correctAnswers = Array.isArray(q.answer) ? q.answer : [q.answer];
 
-      const correctRaw = q.answer;
-      let correctStr = Array.isArray(correctRaw) ? correctRaw.sort().join(', ') : correctRaw;
+      optionsHtml = '<div class="review-options-list">';
+      (q.options || []).forEach((optText, index) => {
+        const optLetter = String.fromCharCode(65 + index);
+        const isUserSelected = userSelected.includes(optLetter);
+        const isCorrectAnswer = correctAnswers.includes(optLetter);
+        const cleanText = optText.replace(/^[A-F]\.\s*/, '');
 
-      answerSummaryHtml = `
-        <p><strong>Your Selection:</strong> ${userStr} | <strong>Correct Answer:</strong> <span style="color:var(--success); font-weight:700;">${correctStr}</span></p>
-      `;
+        let optClass = 'review-opt';
+        let iconHtml = '';
+
+        if (isCorrectAnswer) {
+          optClass += ' review-opt-correct';
+          iconHtml = `<span class="review-opt-icon correct-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </span>`;
+        } else if (isUserSelected && !isCorrectAnswer) {
+          optClass += ' review-opt-wrong';
+          iconHtml = `<span class="review-opt-icon wrong-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </span>`;
+        } else {
+          iconHtml = `<span class="review-opt-icon neutral-icon"></span>`;
+        }
+
+        optionsHtml += `
+          <div class="${optClass}">
+            ${iconHtml}
+            <span class="review-opt-letter">${optLetter}.</span>
+            <span class="review-opt-text">${formatCodeSnippets(cleanText)}</span>
+          </div>
+        `;
+      });
+      optionsHtml += '</div>';
+    }
+
+    // PBQ answer summary
+    let pbqSummaryHtml = '';
+    if (q.type === 'pbq') {
+      pbqSummaryHtml = `<p style="margin-bottom:0.75rem;"><strong>PBQ Status:</strong> ${isCorrect ? '<span style="color:var(--success)">Correct Solution</span>' : '<span style="color:var(--danger)">Incorrect Configuration</span>'}</p>`;
     }
 
     let imageHtml = '';
@@ -666,13 +827,19 @@ function renderReviewList(filterType) {
     }
 
     item.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
-        <span style="font-weight:700; font-size:0.95rem;">Q${idx + 1}. ${q.domain}</span>
-        <span style="font-weight:700; font-size:0.85rem; color:${isCorrect ? 'var(--success)' : 'var(--danger)'}">${isCorrect ? 'CORRECT (+1)' : 'INCORRECT (0)'}</span>
+      <div class="review-item-header">
+        <span class="review-q-label">Q${idx + 1}. ${q.domain}</span>
+        <span class="review-verdict ${isCorrect ? 'verdict-correct' : 'verdict-incorrect'}">
+          ${isCorrect
+            ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CORRECT (+1)`
+            : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> INCORRECT (0)`
+          }
+        </span>
       </div>
-      <p style="margin-bottom:0.75rem;">${formatCodeSnippets(q.question || q.scenario)}</p>
+      <p class="review-question-text">${formatCodeSnippets(q.question || q.scenario)}</p>
       ${imageHtml}
-      ${answerSummaryHtml}
+      ${pbqSummaryHtml}
+      ${optionsHtml}
       <div class="review-explanation">
         <strong>Explanation:</strong> ${formatCodeSnippets(q.explanation)}
       </div>

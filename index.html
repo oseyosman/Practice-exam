@@ -53,6 +53,9 @@
         <div class="progress-pill">
           <span id="answered-counter">0/85</span> Answered
         </div>
+        <div class="live-score-pill hidden" id="live-score-pill">
+          <span id="live-score-display">✓ 0 / 0 Correct</span>
+        </div>
       </div>
     </header>
 
@@ -145,6 +148,25 @@
             <p>Master interactive SIEM log analysis, firewall ACL configurations, and digital forensic order of volatility simulations.</p>
             <div class="mode-footer">
               <button class="btn btn-outline btn-block" onclick="startExam('pbq')">Practice PBQs Only</button>
+            </div>
+          </div>
+
+          <!-- Mode 5: Study Mode -->
+          <div class="mode-card study-mode-card">
+            <div class="card-tag study-tag">Recommended</div>
+            <div class="mode-icon study-mode-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>Study Mode</h3>
+            <p>Learn as you go — randomized questions &amp; answers, no timer, instant inline feedback after each answer with full explanation.</p>
+            <ul class="study-features-list">
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Answers shown inline immediately</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Live score tracker</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> No time pressure</li>
+              <li><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Randomized questions &amp; options</li>
+            </ul>
+            <div class="mode-footer">
+              <button class="btn btn-study btn-block" onclick="startExam('study')">Start Study Mode</button>
             </div>
           </div>
 
