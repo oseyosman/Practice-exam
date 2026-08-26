@@ -2769,8 +2769,8 @@ const CYSA_QUESTIONS = [
       "C. Disclose to all affected parties in the Chief Operating Officer for discussion and resolution.",
       "D. Verify legal notification requirements of PII and SPII in the legal and human resource departments."
     ],
-    "answer": "A",
-    "explanation": "The CEO should initiate an alert to department managers to speak privately with affected staff. This\nis because the trade secret is confidential and should not be disclosed to the public. Additionally, the\nCEO should verify legal notification requirements of PII and SPII in the legal and human resource\ndepartments to ensure compliance with data protection laws.\nReference: CompTIA CySA+ Study Guide: Exam CS0-002, 2nd Edition, Chapter 4, “Data Protection and\nPrivacy Practices”, page 194; CompTIA CySA+ Certification Exam Objectives Version 4.0, Domain 4.0\n“Compliance and Assessment”, Objective 4.1 “Given a scenario, analyze data as part of a security\nincident”, Sub-objective “Data classification levels”, page 23",
+    answer": "D",
+    "explanation": "If a compromise occurs, the CEO must initiate plans to verify regulatory and legal notification requirements for sensitive data (PII and SPII) with the legal and human resource departments. This ensures compliance with state, federal, or international breach notification laws (such as GDPR or HIPAA) regarding data exposure.",
     "image": null
   },
   {
