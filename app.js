@@ -1,6 +1,7 @@
 // CompTIA CySA+ (CS0-003) Application Engine - Multi-select & Diagram Support
 
 let state = {
+  activeExam: 'cysa',      // 'cysa' or 'secai'
   activeQuestions: [],
   currentIndex: 0,
   userAnswers: {},       // questionId -> answer string/array or PBQ object
@@ -18,9 +19,141 @@ let state = {
   liveCorrect: 0           // running correct count in study mode
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadExamHistory();
+const EXAM_METADATA = {
+  cysa: {
+    title: "CySA+",
+    code: "CS0-003",
+    sub: "CompTIA Cybersecurity Analyst Simulator",
+    passingScore: 750,
+    thresholdLeft: "72.2%",
+    getQuestions: () => CYSA_QUESTIONS,
+    domains: [
+      { value: "Domain 1.0: Security Operations", label: "1.0 Security Operations (33%)" },
+      { value: "Domain 2.0: Vulnerability Management", label: "2.0 Vulnerability Management (30%)" },
+      { value: "Domain 3.0: Incident Response and Management", label: "3.0 Incident Response & Management (20%)" },
+      { value: "Domain 4.0: Reporting and Communication", label: "4.0 Reporting & Communication (17%)" }
+    ],
+    fallbackDomain: "CySA+ General Security",
+    passText: "Congratulations! You met the CompTIA CySA+ passing threshold.",
+    // Dashboard details
+    heroBadge: "CompTIA Certified Cybersecurity Analyst",
+    heroTitle: "CS0-003 Master Exam Simulator",
+    heroDesc: "Fully realistic exam environment featuring 85 questions, 165-minute timed duration, Performance-Based Questions (PBQs), detailed explanations, and domain vulnerability analysis.",
+    maxQuestions: "85",
+    durationText: "165m",
+    passingScoreText: "750 / 900",
+    domainsBadgeVal: "4 Domains",
+    domainsBadgeLbl: "Security Ops & Response",
+    fullExamDesc: "85 randomized questions (MCQs & PBQs), strict 165-minute timer, no instant answers during exam, final score scaled 100-900.",
+    fullExamBtnText: "Start Full Simulation (85 Qs)",
+    fullExamDuration: 165 * 60,
+    fullExamCount: 85
+  },
+  secai: {
+    title: "SecAI+",
+    code: "CY0-001",
+    sub: "CompTIA Security AI Simulator",
+    passingScore: 600,
+    thresholdLeft: "62.5%",
+    getQuestions: () => SECAI_QUESTIONS,
+    domains: [
+      { value: "Domain 1.0: Basic AI Concepts Related to Cybersecurity", label: "1.0 Basic AI Concepts Related to Cybersecurity (17%)" },
+      { value: "Domain 2.0: Securing AI Systems", label: "2.0 Securing AI Systems (40%)" },
+      { value: "Domain 3.0: AI-Assisted Security", label: "3.0 AI-Assisted Security (24%)" },
+      { value: "Domain 4.0: AI Governance, Risk, and Compliance", label: "4.0 AI Governance, Risk, and Compliance (19%)" }
+    ],
+    fallbackDomain: "SecAI+ General Security",
+    passText: "Congratulations! You met the CompTIA SecAI+ passing threshold.",
+    // Dashboard details
+    heroBadge: "CompTIA Certified Security AI Professional (CY0-001)",
+    heroTitle: "CY0-001 Master Exam Simulator",
+    heroDesc: "Fully realistic exam environment featuring maximum 60 questions, 60-minute timed duration, multiple-choice, Performance-Based Questions (PBQs), and AI security analysis.",
+    maxQuestions: "Max 60",
+    durationText: "60m",
+    passingScoreText: "600 / 900",
+    domainsBadgeVal: "4 Domains",
+    domainsBadgeLbl: "AI Security & Governance",
+    fullExamDesc: "60 randomized questions (MCQs & PBQs), strict 60-minute timer, no instant answers during exam, final score scaled 100-900.",
+    fullExamBtnText: "Start Full Simulation (60 Qs)",
+    fullExamDuration: 60 * 60,
+    fullExamCount: 60
+  }
+};
+
+function switchActiveExam(examKey) {
+  state.activeExam = examKey;
+  localStorage.setItem('active_exam_choice', examKey);
+
+  const meta = EXAM_METADATA[examKey];
+  if (!meta) return;
+
+  // Update navbar branding
+  const titleDisplay = document.getElementById('brand-title-display');
+  const subDisplay = document.getElementById('brand-sub-display');
+  if (titleDisplay) {
+    titleDisplay.innerHTML = `${meta.title} <span class="badge-code" id="brand-code-display">${meta.code}</span>`;
+  }
+  if (subDisplay) {
+    subDisplay.textContent = meta.sub;
+  }
+
+  // Update hero banner texts
+  const heroBadge = document.getElementById('hero-badge');
+  const heroTitle = document.getElementById('hero-title');
+  const heroDesc = document.getElementById('hero-desc');
+  if (heroBadge) heroBadge.textContent = meta.heroBadge;
+  if (heroTitle) heroTitle.textContent = meta.heroTitle;
+  if (heroDesc) heroDesc.textContent = meta.heroDesc;
+
+  // Update stat boxes
+  const statMaxQs = document.getElementById('stat-max-qs');
+  const statDuration = document.getElementById('stat-duration');
+  const statPassing = document.getElementById('stat-passing');
+  const statDomainsVal = document.getElementById('stat-domains-val');
+  const statDomainsLbl = document.getElementById('stat-domains-lbl');
+  if (statMaxQs) statMaxQs.textContent = meta.maxQuestions;
+  if (statDuration) statDuration.textContent = meta.durationText;
+  if (statPassing) statPassing.textContent = meta.passingScoreText;
+  if (statDomainsVal) statDomainsVal.textContent = meta.domainsBadgeVal;
+  if (statDomainsLbl) statDomainsLbl.textContent = meta.domainsBadgeLbl;
+
+  // Update Full Exam card info
+  const fullExamDesc = document.getElementById('full-exam-desc');
+  const fullExamBtn = document.getElementById('full-exam-btn');
+  if (fullExamDesc) fullExamDesc.textContent = meta.fullExamDesc;
+  if (fullExamBtn) fullExamBtn.textContent = meta.fullExamBtnText;
+
+  // Update domain focused card description
+  const descEl = document.getElementById('domain-practice-desc');
+  if (descEl) {
+    descEl.textContent = `Practice specific ${meta.title} domains (${meta.domains.map(d => d.value.split(':')[0].replace('Domain ', '')).join(', ')}).`;
+  }
+
+  // Populate domain select options
+  const selectEl = document.getElementById('domain-select');
+  if (selectEl) {
+    let html = `<option value="all">All Domains</option>`;
+    meta.domains.forEach(d => {
+      html += `<option value="${d.value}">${d.label}</option>`;
+    });
+    selectEl.innerHTML = html;
+  }
+
+  // Reload history table to show relevant info
   renderHistoryTable();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedExam = localStorage.getItem('active_exam_choice') || 'cysa';
+  state.activeExam = savedExam;
+
+  loadExamHistory();
+
+  const selectDropdown = document.getElementById('active-exam-select');
+  if (selectDropdown) {
+    selectDropdown.value = savedExam;
+  }
+  switchActiveExam(savedExam);
 });
 
 // NAVIGATION SCREEN SWITCHER
@@ -69,11 +202,14 @@ function startExam(mode) {
   state.shuffledOptions = {};
   state.liveCorrect = 0;
 
-  let baseBank = [...CYSA_QUESTIONS];
+  const meta = EXAM_METADATA[state.activeExam];
+  let baseBank = meta ? [...meta.getQuestions()] : [...CYSA_QUESTIONS];
 
   if (mode === 'full') {
-    state.activeQuestions = generateFullQuestionBank(baseBank, 85);
-    state.timeRemaining = 165 * 60;
+    const qCount = meta ? meta.fullExamCount : 85;
+    const duration = meta ? meta.fullExamDuration : 165 * 60;
+    state.activeQuestions = generateFullQuestionBank(baseBank, qCount);
+    state.timeRemaining = duration;
   } else if (mode === 'quick') {
     state.activeQuestions = shuffleArray([...baseBank]).slice(0, 20);
     state.timeRemaining = 45 * 60;
@@ -129,7 +265,7 @@ function startExam(mode) {
 // TIMER MANAGEMENT
 function startTimer() {
   if (state.timerInterval) clearInterval(state.timerInterval);
-  
+
   updateTimerDisplay();
   state.timerInterval = setInterval(() => {
     if (!state.isPaused) {
@@ -182,7 +318,7 @@ function renderCurrentQuestion() {
   // Header meta
   document.getElementById('q-number-display').textContent = `Question ${state.currentIndex + 1} of ${state.activeQuestions.length}`;
   document.getElementById('q-domain-display').textContent = q.domain || "CySA+ General Security";
-  
+
   const pbqPill = document.getElementById('q-pbq-pill');
   if (q.type === 'pbq') {
     pbqPill.classList.remove('hidden');
@@ -205,7 +341,7 @@ function renderCurrentQuestion() {
 
   // Footer Button states
   document.getElementById('prev-btn').disabled = state.currentIndex === 0;
-  
+
   const nextBtn = document.getElementById('next-btn');
   if (state.currentIndex === state.activeQuestions.length - 1) {
     nextBtn.classList.add('hidden');
@@ -347,9 +483,9 @@ function createMCQView(q) {
     expBox.innerHTML = `
       <div class="study-result-banner ${isCorrect ? 'study-result-correct' : 'study-result-wrong'}">
         ${isCorrect
-          ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Correct!`
-          : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Incorrect`
-        }
+        ? `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Correct!`
+        : `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Incorrect`
+      }
       </div>
       <div class="study-explanation-body">
         <strong>Explanation:</strong> ${formatCodeSnippets(q.explanation)}
@@ -411,7 +547,7 @@ function createDropdownFieldsPBQ(q) {
 
     const select = document.createElement('select');
     select.className = 'form-select';
-    
+
     select.innerHTML = `<option value="">-- Select Response --</option>` +
       field.options.map(opt => `<option value="${opt}" ${userPbqState[field.id] === opt ? 'selected' : ''}>${opt}</option>`).join('');
 
@@ -474,7 +610,7 @@ function selectMCQAnswer(q, origLetter) {
     if (!Array.isArray(current)) {
       current = [];
     }
-    
+
     if (current.includes(origLetter)) {
       current = current.filter(l => l !== origLetter);
     } else {
@@ -612,7 +748,7 @@ function closeGridModal() {
 function confirmSubmitExam() {
   const answeredCount = Object.keys(state.userAnswers).length;
   const totalCount = state.activeQuestions.length;
-  
+
   if (answeredCount < totalCount) {
     const confirm = window.confirm(`You have answered ${answeredCount} of ${totalCount} questions. Are you sure you want to finish and submit?`);
     if (!confirm) return;
@@ -669,10 +805,13 @@ function submitExam() {
   const totalQs = state.activeQuestions.length;
   const rawPercentage = (correctCount / totalQs) * 100;
   const scaledScore = Math.round(100 + (rawPercentage / 100) * 800);
-  const isPass = scaledScore >= 750;
+  const meta = EXAM_METADATA[state.activeExam];
+  const passingScore = meta ? meta.passingScore : 750;
+  const isPass = scaledScore >= passingScore;
 
   const historyEntry = {
-    date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}),
+    date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    exam: state.activeExam,
     mode: state.examMode,
     score: scaledScore,
     percentage: Math.round(rawPercentage),
@@ -689,17 +828,37 @@ function submitExam() {
 function renderResultsScreen(score, isPass, domainScores, correctCount, totalQs) {
   const headerBanner = document.getElementById('results-header-banner');
   headerBanner.className = `results-header ${isPass ? 'pass' : 'fail'}`;
-  
+
+  const meta = EXAM_METADATA[state.activeExam];
+  const passText = meta ? meta.passText : "Congratulations!";
+
   headerBanner.innerHTML = `
     <div class="results-icon">${isPass ? '✓' : '✕'}</div>
     <div>
       <h1 style="font-family:var(--font-display); font-size:1.8rem;">${isPass ? 'Exam Passed!' : 'Exam Needs Improvement'}</h1>
-      <p style="color:var(--text-muted);">${isPass ? 'Congratulations! You met the CompTIA CySA+ passing threshold.' : 'Keep practicing! Review your weak domains below before your real exam.'}</p>
+      <p style="color:var(--text-muted);">${isPass ? passText : 'Keep practicing! Review your weak domains below before your real exam.'}</p>
     </div>
   `;
 
+  // Update threshold marker
+  const marker = document.querySelector('.threshold-marker');
+  if (marker && meta) {
+    marker.style.left = meta.thresholdLeft;
+    marker.title = `Passing threshold: ${meta.passingScore}`;
+    const span = marker.querySelector('span');
+    if (span) span.textContent = `Passing (${meta.passingScore})`;
+  }
+
+  // Update final score text paragraph
+  const summaryTextEl = document.getElementById('score-summary-text');
+  if (summaryTextEl && meta) {
+    summaryTextEl.textContent = isPass
+      ? `Congratulations! You passed the ${meta.title} (${meta.code}) practice exam.`
+      : `You did not meet the passing score of ${meta.passingScore} for the ${meta.title} (${meta.code}) exam. Review the recommendations below to improve your score.`;
+  }
+
   document.getElementById('final-scaled-score').textContent = score;
-  
+
   const scorePercent = Math.min(100, Math.max(0, ((score - 100) / 800) * 100));
   document.getElementById('score-progress-fill').style.width = `${scorePercent}%`;
 
@@ -848,9 +1007,9 @@ function renderReviewList(filterType) {
         <span class="review-q-label">Q${idx + 1}. ${q.domain}</span>
         <span class="review-verdict ${isCorrect ? 'verdict-correct' : 'verdict-incorrect'}">
           ${isCorrect
-            ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CORRECT (+1)`
-            : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> INCORRECT (0)`
-          }
+        ? `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CORRECT (+1)`
+        : `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> INCORRECT (0)`
+      }
         </span>
       </div>
       <p class="review-question-text">${formatCodeSnippets(q.question || q.scenario)}</p>
@@ -870,7 +1029,7 @@ function renderReviewList(filterType) {
 function loadExamHistory() {
   const saved = localStorage.getItem('cysa_exam_history');
   if (saved) {
-    try { state.examHistory = JSON.parse(saved); } catch (e) {}
+    try { state.examHistory = JSON.parse(saved); } catch (e) { }
   }
 }
 
@@ -892,6 +1051,7 @@ function renderHistoryTable() {
       <thead>
         <tr style="border-bottom:1px solid var(--border-color); text-align:left; color:var(--text-muted);">
           <th style="padding:0.75rem;">Date & Time</th>
+          <th style="padding:0.75rem;">Exam</th>
           <th style="padding:0.75rem;">Exam Mode</th>
           <th style="padding:0.75rem;">Scaled Score</th>
           <th style="padding:0.75rem;">Accuracy</th>
@@ -902,9 +1062,11 @@ function renderHistoryTable() {
   `;
 
   state.examHistory.slice(0, 5).forEach(h => {
+    const examCode = h.exam ? h.exam.toUpperCase() : 'CYSA';
     html += `
       <tr style="border-bottom:1px solid var(--border-color);">
         <td style="padding:0.75rem;">${h.date}</td>
+        <td style="padding:0.75rem; font-weight:700; color:var(--text-muted);">${examCode}</td>
         <td style="padding:0.75rem; text-transform:capitalize;">${h.mode}</td>
         <td style="padding:0.75rem; font-weight:700; font-family:var(--font-display);">${h.score} / 900</td>
         <td style="padding:0.75rem;">${h.percentage}%</td>
@@ -931,7 +1093,7 @@ function handleFileUpload(event) {
   if (!file) return;
 
   const reader = new FileReader();
-  reader.onload = function(e) {
+  reader.onload = function (e) {
     try {
       const parsed = JSON.parse(e.target.result);
       importQuestionsData(parsed);

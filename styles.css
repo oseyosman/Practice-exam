@@ -1379,3 +1379,37 @@ body {
   background: rgba(15, 23, 42, 0.6);
 }
 
+/* Exam Selector Dropdown */
+.exam-selector-wrapper {
+  margin-left: 1.5rem;
+  margin-right: auto;
+}
+
+.exam-select-dropdown {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-light);
+  padding: 0.4rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  backdrop-filter: blur(8px);
+}
+
+.exam-select-dropdown:hover, .exam-select-dropdown:focus {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+}
+
+.exam-select-dropdown option {
+  background: #0f172a;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+}
+
+

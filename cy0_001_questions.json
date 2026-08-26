@@ -1,0 +1,260 @@
+[
+  {
+    "id": "cy0-1",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 4.0: AI Governance, Risk, and Compliance",
+    "question": "Which of the following job roles in an organizational governance structure develops a model from business use cases?",
+    "options": [
+      "A. Platform architect",
+      "B. AI risk analyst",
+      "C. Machine learning operations (MLOps) engineer",
+      "D. Data scientist"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #1. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-2",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An administrator, who works for a financial institution, is required to implement data security controls for data at rest within AI systems that involve data disclosure. Which of the following is the most suitable control?",
+    "options": [
+      "A. Data lineage",
+      "B. Rate limits",
+      "C. Encryption",
+      "D. Masking"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #2. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-3",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security engineer needs to monitor an AI-based system for runtime operations. The engineer is mostly concerned about the visibility of internal activity. Which of the following is the most appropriate monitoring solution?",
+    "options": [
+      "A. Deploying a security information and event management (SIEM) tool",
+      "B. Implementing a web application firewall (WAF) with header logging",
+      "C. Relying on vendor model controls and monitoring prompt inputs",
+      "D. Enabling stack call and debugging level traces at the function level"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #3. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-4",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "Which of the following should an auditor reference when reviewing a company’s human resources AI systems for legal non-compliance?",
+    "options": [
+      "A. Organization for Economic Cooperation and Development (OECD) standard",
+      "B. National Institute of Standards and Technology (NIST) AI Risk Management Framework 9RMF)",
+      "C. European Union (EU) AI Act",
+      "D. International Organization for Standardization (ISO)"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #4. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-5",
+    "type": "mcq",
+    "multiSelect": true,
+    "selectCount": 2,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An airline corporation wants to implement a chatbot application using a large language model (LLM) so its customers:\n\nCan ask question and receive answers about flight details.\n\nHave the option to upload files.\n\nWhich of the following security controls should the airline use to protect against malicious input and unauthorized use beyond the service-level agreement? (Choose two.)",
+    "options": [
+      "A. Prompt guardrails",
+      "B. Role-based access controls",
+      "C. Firewall rules",
+      "D. Model token quotas"
+    ],
+    "answer": [
+      "A",
+      "D"
+    ],
+    "explanation": "Source: ITExams CY0-001 Question #5. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-6",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security operations center (SOC) has a very high volume of logs and alerts. The manager proposes the implementation of machine learning (ML) system to help with triage. Which of the following tasks is most suitable?",
+    "options": [
+      "A. Applying filters on specific alerts",
+      "B. Automatically patching vulnerable systems",
+      "C. Identifying and classifying alerts",
+      "D. Summarizing the content of alerts"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #6. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-7",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 1.0: Basic AI Concepts Related to Cybersecurity",
+    "question": "An organization recently created a custom model that integrates with a language model (LLM). The developer notices that the application programming interface (API) costs have increased. Which of the following is the best control to reduce cost?",
+    "options": [
+      "A. Implementing prompt templates",
+      "B. Increasing central processing unit (CPU) and memory",
+      "C. Reducing the model size",
+      "D. Adjusting token limits"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #7. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-8",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security administrator needs to improve an AI model. During an initial investigation, the administrator notices that two successive login features are recorded every day, and then a successful login occurs after a specific time interval. All the successful login attempts have been during office hours.\n\nWhich of the following techniques should the administrator use to improve the AI model’s security?",
+    "options": [
+      "A. Access management",
+      "B. Pattern recognition",
+      "C. Signature matching",
+      "D. Vulnerability analysis"
+    ],
+    "answer": "B",
+    "explanation": "Source: ITExams CY0-001 Question #8. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-9",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following is the most concerning risk for a company that allows corporate end users to use public-facing large language models (LLMs)?",
+    "options": [
+      "A. Inaccuracies due to hallucinations",
+      "B. Out-of-date acceptable use policies",
+      "C. Data security regulatory violations",
+      "D. Malicious code generation"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #9. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-10",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following requires developers to harden infrastructure to protect AI systems?",
+    "options": [
+      "A. Intake processes",
+      "B. Acceptable use policies",
+      "C. Development guidelines",
+      "D. Configuration standards"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #10. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-11",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following is the best example of an AI model that is trained to identify multiple points from input using a neural network to provide output for authentication?",
+    "options": [
+      "A. Facial recognition",
+      "B. Encryption key",
+      "C. Open Authorization (OAuth)",
+      "D. Bounding box"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #11. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-12",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An organization is developing and implementing AI features into a customer service application. Which of the following practices should the organization put the place before releasing the application for customer trials?",
+    "options": [
+      "A. Data masking and sanitization",
+      "B. External compliance audits",
+      "C. Approved AI vendor lists",
+      "D. Third-party risk management"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #12. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-13",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An internal user enters a client credit card number into an internal generative machine learning (ML) model:\n\n#User prompt: Customer Jane Doe has a new credit card that she wants to add to her account. The number is 5555-5555-5555-5555\n\nWhich of the following is the most effective way to prevent prompt injection attacks against a large language model (LLM)?",
+    "options": [
+      "A. Guardrails",
+      "B. Antivirus",
+      "C. Web application firewall (WAF)",
+      "D. Role-based access control"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #13. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-14",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "A security alert triggers an agentic system. An analyst notices the following payload in the logs”\n\nThe alert includes multiple shell commands that are not typically run as part of any hardening. Which of the following is the most effective control to implement?",
+    "options": [
+      "A. Adding logic that includes approved strings before running the shell commands",
+      "B. Deprecating model usage and retaining the model with safer parameters",
+      "C. Modifying the application to ignore the SECURITY_UPDATE tag",
+      "D. Using only approved libraries when interacting with agentic systems"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #14. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-15",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A global security operations center (SOC) wants to adapt and leverage the strength of AI in order to enhance its security operations. Which of the following is the best way to enhance the global SOC functions?",
+    "options": [
+      "A. Generate code and execute in production to help save time.",
+      "B. Enable a personal assistant that can act in the global SOC with no human intervention.",
+      "C. Use open-source models in production to help the efficiency of threat detection and threat analysis.",
+      "D. Summarize alerts to easily gain insights on the environment."
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #15. Community-verified answer.",
+    "image": null
+  }
+]

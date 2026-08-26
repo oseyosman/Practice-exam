@@ -1,4 +1,4 @@
-// CompTIA CySA+ (CS0-003) Question Bank - JustCerts Full Set (377 Questions)
+// CompTIA CySA+ (CS0-003) Questions
 const CYSA_QUESTIONS = [
   {
     "id": "pbq-1",
@@ -158,7 +158,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "This answer matches the description of the zero-day threat. The attack vector is network (AV:N), the\nattack complexity is low (AC:L), no privileges are required (PR:N), no user interaction is required\n(UI:N), the scope is unchanged (S:U), the confidentiality and integrity impacts are high (C:H/I:H), and\nthe availability impact is low (A:L). Official Reference: https://nvd.nist.gov/vuln-metrics/cvss",
-    "image": null
+    "image": "images/page_3_img_2.jpeg"
   },
   {
     "id": "q-jc-2",
@@ -175,7 +175,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Data loss prevention (DLP) is a tool that can prevent the exposure of PII outside of an organization by\nmonitoring, detecting, and blocking sensitive data in motion, in use, or at rest.",
-    "image": null
+    "image": "images/page_3_img_2.jpeg"
   },
   {
     "id": "q-jc-3",
@@ -214,7 +214,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "A vulnerability scan report should include information about the affected hosts, such as their IP\naddresses, hostnames, operating systems, and services. It should also include a risk score for each\nvulnerability, which indicates the severity and potential impact of the vulnerability on the host and\nthe organization. Official Reference: https://www.first.org/cvss/",
-    "image": null
+    "image": "images/page_3_img_2.jpeg"
   },
   {
     "id": "q-jc-5",
@@ -265,7 +265,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "An on-path attack is a type of man-in-the-middle attack where an attacker intercepts and modifies\nnetwork traffic between two parties. In this case, someone with internal access may be performing\nan on-path attack by forcing users into port 80, which is used for HTTP communication, instead of\nport 443, which is used for HTTPS communication. This would allow the attacker to compromise the\nuser accounts and access the company’s internal portal.",
-    "image": null
+    "image": "images/page_6_img_3.jpeg"
   },
   {
     "id": "q-jc-9",
@@ -282,7 +282,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "A Business Continuity Plan (BCP) is specifically designed to ensure that mission-critical services remain AVAILABLE and operational during an incident or disruption. It defines procedures, alternate sites, failover strategies, and resource priorities to keep the business running. A Disaster Recovery Plan (DRP) focuses on restoring IT systems AFTER a disaster has occurred, not maintaining availability during one. Vulnerability management and asset management plans do not directly address service availability during incidents.",
-    "image": null
+    "image": "images/page_6_img_3.jpeg"
   },
   {
     "id": "q-jc-10",
@@ -372,7 +372,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "A social engineering attack is a type of cyberattack that relies on manipulating human psychology\nrather than exploiting technical vulnerabilities. A social engineering attack may involve deceiving,\npersuading, or coercing users into performing actions that benefit the attacker, such as clicking on\nmalicious links, divulging sensitive information, or granting access to restricted resources. An\nobfuscated link is a link that has been disguised or altered to hide its true destination or purpose.\nObfuscated links are often used by attackers to trick users into visiting malicious websites or\ndownloading malware. In this case, an incident response analyst notices multiple emails traversing\nthe network that target only the administrators of the company. The email contains a concealed URL\nthat leads to an unknown website in another country. This indicates that the analyst is witnessing a\nsocial engineering attack using obfuscated links.",
-    "image": null
+    "image": "images/page_10_img_2.jpeg"
   },
   {
     "id": "q-jc-15",
@@ -389,7 +389,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "Application security scanning is a process that involves testing and analyzing applications for security\nvulnerabilities, such as injection flaws, broken authentication, cross-site scripting, and insecure\nconfiguration. Application security scanning can help identify and fix security issues before they\nbecome exploitable by attackers. Using application security scanning as part of the pipeline for the\ncontinuous integration/continuous delivery (CI/CD) flow can help mitigate the problem of finding the\nsame vulnerabilities in a critical application during security scanning. This is because application\nsecurity scanning can be integrated into the development lifecycle and performed automatically and\nfrequently as part of the CI/CD process.",
-    "image": null
+    "image": "images/page_10_img_2.jpeg"
   },
   {
     "id": "q-jc-16",
@@ -406,7 +406,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Proprietary systems are systems that are owned and controlled by a specific vendor or manufacturer,\nand that use proprietary standards or protocols that are not compatible with other systems.\nProprietary systems can pose a challenge for vulnerability management, as they may not allow users\nto access or modify their configuration, update their software, or patch their vulnerabilities. In this\ncase, two of the critical systems cannot be upgraded due to a vendor appliance that the company\ndoes not have access to. This indicates that these systems and associated vulnerabilities are\nexamples of proprietary systems as inhibitors to remediation",
-    "image": null
+    "image": "images/page_10_img_2.jpeg"
   },
   {
     "id": "q-jc-17",
@@ -571,12 +571,13 @@ const CYSA_QUESTIONS = [
     "question": "Which of the following is the first step that should be performed when establishing a disaster\nrecovery plan?",
     "options": [
       "A. Agree on the goals and objectives of the plan",
-      "B. Determine the site to be used during a disaster\nC Demonstrate adherence to a standard disaster recovery process",
+      "B. Determine the site to be used during a disaster",
+      "C. Demonstrate adherence to a standard disaster recovery process",
       "D. Identity applications to be run during a disaster"
     ],
     "answer": "A",
     "explanation": "The first step that should be performed when establishing a disaster recovery plan is to agree on the\ngoals and objectives of the plan. The goals and objectives of the plan should define what the plan\naims to achieve, such as minimizing downtime, restoring critical functions, ensuring data integrity, or\nmeeting compliance requirements. The goals and objectives of the plan should also be aligned with\nthe business needs and priorities of the organization and be measurable and achievable.",
-    "image": null
+    "image": "images/page_16_img_2.jpeg"
   },
   {
     "id": "q-jc-27",
@@ -593,7 +594,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The next step in the remediation process after applying a software patch is validation. Validation is a\nprocess that involves verifying that the patch has been successfully applied, that it has fixed the\nvulnerability, and that it has not caused any adverse effects on the system or application functionality\nor performance. Validation can be done using various methods, such as scanning, testing,\nmonitoring, or auditing.",
-    "image": null
+    "image": "images/page_16_img_2.jpeg"
   },
   {
     "id": "q-jc-28",
@@ -627,7 +628,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "A single pane of glass is a term that describes a unified view or interface that integrates multiple\ntools or data sources into one dashboard or console. A single pane of glass can help improve security\noperations by providing visibility, correlation, analysis, and alerting capabilities across various\nsecurity controls and systems. A single pane of glass can also help reduce complexity, improve\nefficiency, and enhance decision making for security analysts. In this case, a security program was\nable to achieve a 30% improvement in MTTR by integrating security controls into a SIEM, which\nprovides a single pane of glass for security operations. Official Reference:\nhttps://www.eccouncil.org/cybersecurity-exchange/threat-intelligence/cyber-kill-chain-seven-steps-\ncyberattack",
-    "image": null
+    "image": "images/page_16_img_2.jpeg"
   },
   {
     "id": "q-jc-30",
@@ -815,7 +816,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Weaponization is a factor that describes how an adversary develops or acquires an exploit or payload\nthat can take advantage of a vulnerability and deliver a malicious effect. Weaponization can increase\nthe severity or impact of a vulnerability, as it makes it easier or more likely for an attacker to exploit\nit successfully and cause damage or harm. Weaponization can also indicate the level of sophistication\nor motivation of an attacker, as well as the availability or popularity of an exploit or payload in the\ncyber threat landscape. In this case, an older CVE with a vulnerability score of 7.1 was elevated to a\nscore of 9.8 due to a widely available exploit being used to deliver ransomware. This indicates that\nweaponization was the reason for this escalation.",
-    "image": null
+    "image": "images/page_24_img_2.jpeg"
   },
   {
     "id": "q-jc-41",
@@ -1105,7 +1106,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "The best action that the SOC manager can recommend to help ensure new employees are\naccountable for following the company policy is to require all new employees to sign a user\nagreement to acknowledge the company security policy. A user agreement is a document that\ndefines the rights and responsibilities of the users regarding the use of the company’s systems,\nnetworks, or resources, as well as the consequences of violating the company’s security policy.\nSigning a user agreement can help ensure new employees are aware of and agree to comply with the\ncompany security policy, as well as hold them accountable for any breaches or incidents caused by\ntheir actions or inactions.",
-    "image": null
+    "image": "images/page_33_img_2.jpeg"
   },
   {
     "id": "q-jc-58",
@@ -1122,7 +1123,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "An information sharing organization is a group or network of organizations that share threat\nintelligence, best practices, or lessons learned related to cybersecurity issues or incidents. An\ninformation sharing organization can help security analysts learn about new ransomware campaigns\nor other emerging threats, as well as get recommendations or guidance on how to prevent, detect,\nor respond to them. An information sharing organization can also help security analysts collaborate\nor coordinate with other organizations in the same industry or region that may face similar threats or\nchallenges.",
-    "image": null
+    "image": "images/page_33_img_2.jpeg"
   },
   {
     "id": "q-jc-59",
@@ -1139,7 +1140,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The most likely reason to include lessons learned in an after-action report is to identify areas of\nimprovement in the incident response process. The lessons learned process is a way of reviewing and\nevaluating the incident response activities and outcomes, as well as identifying and documenting any\nstrengths, weaknesses, gaps, or best practices. Identifying areas of improvement in the incident\nresponse process can help enhance the security posture, readiness, or capability of the organization\nfor future incidents, as well as provide feedback or recommendations on how to address any issues\nor challenges.",
-    "image": null
+    "image": "images/page_33_img_2.jpeg"
   },
   {
     "id": "q-jc-60",
@@ -1224,7 +1225,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The shell script function that could help identify possible network addresses from different source\nnetworks belonging to the same company and region is:\nfunction y() { dig $(dig -x $1 | grep PTR | tail -n 1 | awk -F ”.in-addr” ’{print\n$1}’).origin.asn.cymru.com TXT +short }\nThis function takes an IP address as an argument and performs two DNS lookups using the dig\ncommand. The first lookup uses the -x option to perform a reverse DNS lookup and get the hostname\nassociated with the IP address. The second lookup uses the origin.asn.cymru.com domain to get the\nautonomous system number (ASN) and other information related to the IP address, such as the\ncountry code, registry, or allocation date. The function then prints the IP address and the ASN\ninformation, which can help identify any network addresses that belong to the same ASN or region",
-    "image": null
+    "image": "images/page_37_img_2.jpeg"
   },
   {
     "id": "q-jc-65",
@@ -1241,7 +1242,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The function that would help the analyst identify IP addresses from the same country is:\nfunction x() { info=$(geoiplookup $1) && echo “$1 | $info” }\nThis function takes an IP address as an argument and uses the geoiplookup command to get the\ngeographic location information associated with the IP address, such as the country name, country\ncode, region, city, or latitude and longitude. The function then prints the IP address and the\ngeographic location information, which can help identify any IP addresses that belong to the same\ncountry.",
-    "image": null
+    "image": "images/page_37_img_2.jpeg"
   },
   {
     "id": "q-jc-66",
@@ -1275,7 +1276,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The most likely vulnerability in this system is hard-coded credential. Hard-coded credential is a\npractice of embedding or storing a username, password, or other sensitive information in the source\ncode or configuration file of a system or application. Hard-coded credential can pose a serious\nsecurity risk, as it can expose the system or application to unauthorized access, data theft, or\ncompromise if the credential is discovered or leaked by an attacker. Hard-coded credential can also\nmake it difficult to change or update the credential if needed, as it may require modifying the code\nor file and redeploying the system or application.",
-    "image": null
+    "image": "images/page_37_img_2.jpeg"
   },
   {
     "id": "q-jc-68",
@@ -1292,7 +1293,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The best practice that the company should follow with this proxy is to decommission the proxy.\nDecommissioning the proxy involves removing or disposing of the proxy from the rack and the\nnetwork, as well as deleting or wiping any data or configuration on the proxy. Decommissioning the\nproxy can help eliminate the vulnerability on the proxy, as well as reduce the attack surface,\ncomplexity, or cost of maintaining the network. Decommissioning the proxy can also free up space or\nresources for other devices or systems that are in use or needed by the company.",
-    "image": null
+    "image": "images/page_39_img_2.jpeg"
   },
   {
     "id": "q-jc-69",
@@ -1326,7 +1327,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "A well-defined timeline of the events is the most important factor to ensure accurate incident\nresponse reporting, as it provides a clear and chronological account of what happened, when it\nhappened, who was involved, and what actions were taken. A timeline helps to identify the root\ncause of the incident, the impact and scope of the damage, the effectiveness of the response, and\nthe lessons learned for future improvement. A timeline also helps to communicate the incident to\nrelevant stakeholders, such as management, legal, regulatory, or media entities. The other factors\nare also important for incident response reporting, but they are not as essential as a well-defined\ntimeline. Official Reference:\nhttps://www.ibm.com/topics/incident-response\nhttps://www.crowdstrike.com/cybersecurity-101/incident-response/incident-response-steps/",
-    "image": null
+    "image": "images/page_39_img_2.jpeg"
   },
   {
     "id": "q-jc-71",
@@ -1343,7 +1344,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Geoblocking is the best mitigation technique for unusual network scanning activity coming from a\ncountry that the company does not do business with, as it can prevent any potential attacks or data\nbreaches from that country. Geoblocking is the practice of restricting access to websites or services\nbased on geographic location, usually by blocking IP addresses associated with a certain country or\nregion. Geoblocking can help reduce the overall attack surface and protect against malicious actors\nwho may be trying to exploit vulnerabilities or steal information. The other options are not as\neffective as geoblocking, as they may not block all the possible sources of the scanning activity, or\nthey may not address the root cause of the problem. Official Reference:\nhttps://www.blumira.com/geoblocking/\nhttps://www.avg.com/en/signal/geo-blocking",
-    "image": null
+    "image": "images/page_41_img_2.jpeg"
   },
   {
     "id": "q-jc-72",
@@ -1360,7 +1361,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Making a forensic image of the device and creating a SRA-I hash is the best step to preserve\nevidence, as it creates an exact copy of the device’s data and verifies its integrity. A forensic image is\na bit-by-bit copy of the device’s storage media, which preserves all the information on the device,\nincluding deleted or hidden files. A SRA-I hash is a cryptographic value that is calculated from the\nforensic image, which can be used to prove that the image has not been altered or tampered with.\nThe other options are not as effective as making a forensic image and creating a SRA-I hash, as they\nmay not capture all the relevant data, or they may not provide sufficient verification of the\nevidence’s authenticity. Official Reference:\nhttps://www.sans.org/blog/forensics-101-acquiring-an-image-with-ftk-imager/\nhttps://swailescomputerforensics.com/digital-forensics-imaging-hash-value/",
-    "image": null
+    "image": "images/page_41_img_2.jpeg"
   },
   {
     "id": "q-jc-73",
@@ -1462,7 +1463,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Beaconing is the best term to describe the activity that is taking place, as it refers to the periodic\ncommunication between an infected host and a blocklisted external server. Beaconing is a common\ntechnique used by malware to establish a connection with a command-and-control (C2) server, which\ncan provide instructions, updates, or exfiltration capabilities to the malware. Beaconing can vary in\nfrequency, duration, and payload, depending on the type and sophistication of the malware. The\nother terms are not as accurate as beaconing, as they describe different aspects of malicious activity.\nData exfiltration is the unauthorized transfer of data from a compromised system to an external\ndestination, such as a C2 server or a cloud storage service. Data exfiltration can be a goal or a\nconsequence of malware infection, but it does not necessarily involve blocklisted servers or\nconsistent requests. Rogue device is a device that is connected to a network without authorization or\nproper security controls. Rogue devices can pose a security risk, as they can introduce malware,\nbypass firewalls, or access sensitive data. However, rogue devices are not necessarily infected with\nmalware or communicating with blocklisted servers. Scanning is the process of probing a network or\na system for vulnerabilities, open ports, services, or other information. Scanning can be performed\nby legitimate administrators or malicious actors, depending on the intent and authorization.\nScanning does not imply consistent requests or blocklisted servers, as it can target any network or\nsystem.",
-    "image": null
+    "image": "images/page_46_img_2.jpeg"
   },
   {
     "id": "q-jc-79",
@@ -1615,7 +1616,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "A security analyst’s concern is that any discovered vulnerabilities in the OS that is approaching the\nend-of-life date will not be remediated by the vendor, leaving the system exposed to potential\nattacks. The other options are not directly related to the security analyst’s role or responsibility.\nVerified Reference: CompTIA Cybersecurity Analyst (CySA+) Certification Exam Objectives, page 9,\nsection 2.21",
-    "image": null
+    "image": "images/page_54_img_2.jpeg"
   },
   {
     "id": "q-jc-88",
@@ -1632,7 +1633,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "High GPU utilization is the most likely indicator that cryptomining is occurring, as it reflects the\nintensive computational work that is required to solve the complex mathematical problems involved\nin mining cryptocurrencies. Cryptomining is the process of generating new units of a cryptocurrency\nby using computing power to verify transactions and create new blocks on the blockchain.\nCryptomining can be done legitimately by individuals or groups who participate in a mining pool and\nshare the rewards, or illegitimately by threat actors who use malware or scripts to hijack the\ncomputing resources of unsuspecting victims and use them for their own benefit. This practice is\ncalled cryptojacking, and it can cause performance degradation, increased power consumption, and\nsecurity risks for the affected systems. Cryptomining typically relies on the GPU (graphics processing\nunit) rather than the CPU (central processing unit), as the GPU is better suited for parallel processing\nand can handle more calculations per second. Therefore, a high GPU utilization rate can be a sign\nthat cryptomining is taking place on a system, especially if there is no other explanation for the\nincreased workload. The other options are not as indicative of cryptomining as high GPU utilization,\nas they can have other causes or explanations. Bandwidth consumption can be affected by many\nfactors, such as network traffic, streaming services, downloads, or updates. It is not directly related\nto cryptomining, which does not require a lot of bandwidth to communicate with the mining pool or\nthe blockchain network. Unauthorized changes can be a result of many types of malware or\ncyberattacks, such as ransomware, spyware, or trojans. They are not specific to cryptomining, which\ndoes not necessarily alter any files or settings on the system, but rather uses its processing power.\nUnusual traffic spikes can also be caused by various factors, such as legitimate surges in demand,\ndistributed denial-of-service attacks, or botnets. They are not indicative of cryptomining, which does\nnot generate a lot of traffic or requests to or from the system.",
-    "image": null
+    "image": "images/page_54_img_2.jpeg"
   },
   {
     "id": "q-jc-89",
@@ -1870,7 +1871,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Generating a hash value and making a backup image is the best method to ensure the data on the\ndevice is not modified, as it creates a verifiable copy of the original data that can be used for forensic\nanalysis. Encrypting the device, protecting it with a password, or performing a memory scan dump\ndo not prevent the data from being altered or deleted. Verified Reference: CompTIA CySA+ CS0-002\nCertification Study Guide, page 3291",
-    "image": null
+    "image": "images/page_66_img_2.jpeg"
   },
   {
     "id": "q-jc-103",
@@ -1887,7 +1888,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "A digital certificate is a document that contains the public key and identity information of a web\nserver, and is signed by a trusted third-party authority called a certificate authority (CA). A digital\ncertificate allows the web server to establish a secure connection with the clients using the HTTPS\nprotocol, and also verifies the authenticity of the web server. A self-signed certificate is a digital\ncertificate that is not signed by a CA, but by the web server itself. A self-signed certificate can cause\nissues with the website, as it may not be trusted by the clients or their browsers. Clients may receive\nwarnings or errors when trying to access the website, indicating that the site could not be trusted or\nthat the connection is not secure. Official Reference:\nhttps://www.comptia.org/blog/the-new-comptia-cybersecurity-analyst-your-questions-answered\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.techtarget.com/searchsecurity/quiz/Sample-CompTIA-CySA-test-questions-with-\nanswers",
-    "image": null
+    "image": "images/page_66_img_2.jpeg"
   },
   {
     "id": "q-jc-104",
@@ -1914,9 +1915,10 @@ const CYSA_QUESTIONS = [
     "domain": "Domain 1.0: Security Operations",
     "question": "A security analyst is trying to detect connections to a suspicious IP address by collecting the packet\ncaptures from the gateway. Which of the following commands should the security analyst consider\nrunning?",
     "options": [
-      "A.\ngrep [IP address] packets.pcap\nB\ncat packets.pcap | grep [IP Address]",
-      "C.\ntcpdump -n -r packets.pcap host [IP address]",
-      "D.\nstrings packets.pcap | grep [IP Address]"
+      "A. grep [IP address] packets.pcap",
+      "B. cat packets.pcap | grep [IP Address]",
+      "C. tcpdump -n -r packets.pcap host [IP address]",
+      "D. strings packets.pcap | grep [IP Address]"
     ],
     "answer": "C",
     "explanation": "tcpdump is a command-line tool that can capture and analyze network packets from a given interface\nor file. The -n option prevents tcpdump from resolving hostnames, which can speed up the analysis.\nThe -r option reads packets from a file, in this case packets.pcap. The host [IP address] filter specifies\nthat tcpdump should only display packets that have the given IP address as either the source or the\ndestination. This command can help the security analyst detect connections to a suspicious IP\naddress by collecting the packet captures from the gateway. Official Reference:\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.techtarget.com/searchsecurity/quiz/Sample-CompTIA-CySA-test-questions-with-\nanswers\nhttps://www.reddit.com/r/CompTIA/comments/tmxx84/passed_cysa_heres_my_experience_and_h\now_i_studied/",
@@ -1993,7 +1995,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "SLA stands for Service Level Agreement, which is a contract that defines the various levels of\nmaintenance to be provided by an external business vendor in a secure environment. An SLA\nspecifies the expectations, responsibilities, and obligations of both parties, such as the scope, quality,\navailability, and performance of the service, as well as the metrics and methods for measuring and\nreporting the service level. An SLA also outlines the penalties or remedies for any breach or failure of\nthe service level. An SLA can help ensure that the external business vendor delivers the service in a\ntimely, consistent, and secure manner, and that the customer receives the service that meets their\nneeds and requirements. Official Reference:\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.comptia.org/certifications/cybersecurity-analyst\nhttps://www.comptia.org/blog/the-new-comptia-cybersecurity-analyst-your-questions-answered",
-    "image": null
+    "image": "images/page_71_img_2.jpeg"
   },
   {
     "id": "q-jc-110",
@@ -2010,7 +2012,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Transfer is the risk management principle that is accomplished by purchasing cyber insurance.\nTransfer is a strategy that involves shifting the risk or its consequences to another party, such as an\ninsurance company, a vendor, or a partner. Transfer does not eliminate the risk, but it reduces the\npotential impact or liability of the risk for the original party. Cyber insurance is a type of insurance\nthat covers the losses and damages resulting from cyberattacks, such as data breaches, ransomware,\ndenial-of-service attacks, or network disruptions. Cyber insurance can help transfer the risk of cyber\nincidents by providing financial compensation, legal assistance, or recovery services to the insured\nparty. Official Reference:\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.comptia.org/certifications/cybersecurity-analyst\nhttps://www.comptia.org/blog/the-new-comptia-cybersecurity-analyst-your-questions-answered",
-    "image": null
+    "image": "images/page_71_img_2.jpeg"
   },
   {
     "id": "q-jc-111",
@@ -2146,7 +2148,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Mean time to contain is the metric that the cybersecurity team lead should include in the weekly\nexecutive briefs, as it measures how long it takes to stop the spread of malware that enters the\nnetwork. Mean time to contain is the average time it takes to isolate and neutralize an incident or a\nthreat, such as malware, from the time it is detected. Mean time to contain is an important metric\nfor evaluating the effectiveness and efficiency of the incident response process, as well as the\npotential impact and damage of the incident or threat. A lower mean time to contain indicates a\nfaster and more successful response, which can reduce the risk and cost of the incident or threat.\nMean time to contain can also be compared with other metrics, such as mean time to detect or\nmean time to remediate, to identify gaps or areas for improvement in the incident response process.",
-    "image": null
+    "image": "images/page_77_img_2.jpeg"
   },
   {
     "id": "q-jc-119",
@@ -2163,7 +2165,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "Time synchronization is the process of ensuring that all systems in a network have the same accurate\ntime, which is essential for correlating data points from different sources. If the system has an issue\nwith time synchronization, the analyst may have difficulty matching events that occurred at the same\ntime or in a specific order. Access rights, network segmentation, and invalid playbook are not directly\nrelated to the issue of correlating data points. Verified Reference: [CompTIA CySA+ CS0-002\nCertification Study Guide], page 23",
-    "image": null
+    "image": "images/page_77_img_2.jpeg"
   },
   {
     "id": "q-jc-125",
@@ -2180,7 +2182,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Multifactor authentication (MFA) is a security method that requires users to provide two or more\npieces of evidence to verify their identity, such as a password, a PIN, a fingerprint, or a one-time\ncode. MFA can reduce the impact of a credential leak because even if the attackers have the\nusernames and passwords of the employees, they would still need another factor to access the\norganization’s systems and resources. Password changes, system hardening, and password\nencryption are also good security practices, but they do not address the immediate threat of\ncompromised credentials.\nReference: CompTIA CySA+ Certification Exam Objectives, [What Is Multifactor Authentication\n(MFA)?]",
-    "image": null
+    "image": "images/page_97_img_2.jpeg"
   },
   {
     "id": "q-jc-126",
@@ -2197,7 +2199,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The best resource to ensure secure configuration of cloud infrastructure is\nA) CIS Benchmarks. CIS Benchmarks are a set of prescriptive configuration recommendations for\nvarious technologies, including cloud providers, operating systems, network devices, and server\nsoftware. They are developed by a global community of cybersecurity experts and help organizations\nprotect their systems against threats more confidently1\nPCI DSS, OWASP Top Ten, and ISO 27001 are also important standards for information security, but\nthey are not focused on providing specific guidance for hardening cloud infrastructure. PCI DSS is a\ncompliance scheme for payment card transactions, OWASP Top Ten is a list of common web\napplication security risks, and ISO 27001 is a framework for establishing and maintaining an\ninformation security management system. These standards may have some relevance for cloud\nsecurity, but they are not as comprehensive and detailed as CIS Benchmarks",
-    "image": null
+    "image": "images/page_97_img_2.jpeg"
   },
   {
     "id": "q-jc-127",
@@ -2594,7 +2596,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "A successful information security program consists of several key elements that align with the\norganization’s goals and objectives, and address the risks and threats to its information assets. \nSecurity policy implementation: This is the process of developing, documenting, and enforcing the\nrules and standards that govern the security of the organization’s information assets. Security\npolicies define the scope, objectives, roles, and responsibilities of the security program, as well as\nthe acceptable use, access control, incident response, and compliance requirements for the\ninformation assets.\nAssignment of roles and responsibilities: This is the process of identifying and assigning the specific\ntasks and duties related to the security program to the appropriate individuals or groups within the\norganization. Roles and responsibilities define who is accountable, responsible, consulted, and\ninformed for each security activity, such as risk assessment, vulnerability management, threat\ndetection, incident response, auditing, and reporting.\nInformation asset classification: This is the process of categorizing the information assets based on\ntheir value, sensitivity, and criticality to the organization. Information asset classification helps to\ndetermine the appropriate level of protection and controls for each asset, as well as the impact and\nlikelihood of a security breach or loss. Information asset classification also facilitates the\nprioritization of security resources and efforts based on the risk level of each asset.",
-    "image": null
+    "image": "images/page_116_img_2.jpeg"
   },
   {
     "id": "q-jc-150",
@@ -2767,8 +2769,8 @@ const CYSA_QUESTIONS = [
       "C. Disclose to all affected parties in the Chief Operating Officer for discussion and resolution.",
       "D. Verify legal notification requirements of PII and SPII in the legal and human resource departments."
     ],
-    "answer": "A",
-    "explanation": "The CEO should initiate an alert to department managers to speak privately with affected staff. This\nis because the trade secret is confidential and should not be disclosed to the public. Additionally, the\nCEO should verify legal notification requirements of PII and SPII in the legal and human resource\ndepartments to ensure compliance with data protection laws.\nReference: CompTIA CySA+ Study Guide: Exam CS0-002, 2nd Edition, Chapter 4, “Data Protection and\nPrivacy Practices”, page 194; CompTIA CySA+ Certification Exam Objectives Version 4.0, Domain 4.0\n“Compliance and Assessment”, Objective 4.1 “Given a scenario, analyze data as part of a security\nincident”, Sub-objective “Data classification levels”, page 23",
+    "answer": "D",
+    "explanation": "If a compromise occurs, the CEO must initiate plans to verify regulatory and legal notification requirements for sensitive data (PII and SPII) with the legal and human resource departments. This ensures compliance with state, federal, or international breach notification laws (such as GDPR or HIPAA) regarding data exposure.",
     "image": null
   },
   {
@@ -2820,7 +2822,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "According to the CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition1, the best technique to\nprovide the necessary assurance for embedded software that drives centrifugal pumps at a power\nplant is formal methods. Formal methods are a rigorous and mathematical approach to software\ndevelopment and verification, which can ensure the correctness and reliability of critical software\nsystems. Formal methods can be used to specify, design, implement, and verify embedded software\nusing formal languages, logics, and tools1.\nContainerization, manual code reviews, and static and dynamic analysis are also useful techniques\nfor software assurance, but they are not as rigorous or comprehensive as formal methods.\nContainerization is a method of isolating and packaging software applications with their\ndependencies, which can improve security, portability, and scalability. Manual code reviews are a\nprocess of examining the source code of a software program by human reviewers, which can help\nidentify errors, vulnerabilities, and compliance issues. Static and dynamic analysis are techniques of\ntesting and evaluating software without executing it (static) or while executing it (dynamic), which\ncan help detect bugs, defects, and performance issues1.",
-    "image": null
+    "image": "images/page_133_img_2.jpeg"
   },
   {
     "id": "q-jc-164",
@@ -2837,7 +2839,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The best control to allow the organization to identify rogue devices more quickly is \nA. Implement a continuous monitoring policy. A continuous monitoring policy is a set of procedures\nand tools that enable an organization to detect and respond to unauthorized or anomalous activities\non its network in real time or near real time. A continuous monitoring policy can help identify rogue\naccess points as soon as they appear on the network, rather than waiting for quarterly or monthly\nscans. A continuous monitoring policy can also help improve the overall security posture and\ncompliance of the organization by providing timely and accurate information about its network\nassets, vulnerabilities, threats, and incidents1.",
-    "image": null
+    "image": "images/page_133_img_2.jpeg"
   },
   {
     "id": "q-jc-165",
@@ -2871,7 +2873,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The most likely reason for this vulnerability is B. The developer did not set proper cross-site scripting\nprotections in the header. Cross-site scripting (XSS) is a type of web application vulnerability that\nallows an attacker to inject malicious code into a web page that is viewed by other users. XSS can be\nused to steal cookies, session tokens, credentials, or other sensitive information, or to perform\nactions on behalf of the victim1.\nOne of the common ways to prevent XSS attacks is to set proper HTTP response headers that instruct\nthe browser how to handle the content of the web page. For example, the Content-Type header can\nspecify the MIME type and character encoding of the web page, which can help the browser avoid\ninterpreting data as code. The X-XSS-Protection header can enable or disable the browser’s built-in\nXSS filter, which can block or sanitize suspicious scripts. The Content-Security-Policy header can\ndefine a whitelist of sources and directives that control what resources and scripts can be loaded or\nexecuted on the web page2.\nAccording to the output of Arachni, a web application security scanner framework3, it detected an\nXSS vulnerability in the form input ‘txtSearch’ with action https://localhost/search.aspx. This means\nthat Arachni was able to inject a malicious script into the input field and observe its execution in the\nresponse. This indicates that the developer did not set proper cross-site scripting protections in the\nheader of search.aspx, which allowed Arachni to bypass the browser’s default security mechanisms\nand execute arbitrary code on the web page.",
-    "image": null
+    "image": "images/page_133_img_2.jpeg"
   },
   {
     "id": "q-jc-167",
@@ -2888,7 +2890,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "This is a type of web application vulnerability called cross-site scripting (XSS), which allows an\nattacker to inject malicious code into a web page that is viewed by other users. XSS can be used to\nsteal cookies, session tokens, credentials, or other sensitive information, or to perform actions on\nbehalf of the victim.\nInput sanitization is a technique that prevents XSS attacks by checking and filtering the user input\nbefore processing it. Input sanitization can remove or encode any characters or strings that may be\ninterpreted as code by the browser, such as <, >, \", ', or javascript:. Input sanitization can also validate\nthe input against a predefined format or range of values, and reject any input that does not match.\nOutput encoding is a technique that prevents XSS attacks by encoding the output before sending it to\nthe browser. Output encoding can convert any characters or strings that may be interpreted as code\nby the browser into harmless entities, such as <, >, \", ', or javascript:. Output encoding can also\nescape any special characters that may have a different meaning in different contexts, such as , /, or\n;.\nCode obfuscation is a technique that makes the source code of a web application more difficult to\nread and understand by humans. Code obfuscation can use techniques such as renaming variables\nand functions, removing comments and whitespace, replacing literals with expressions, or adding\ndummy code. Code obfuscation can help protect the intellectual property and trade secrets of a web\napplication, but it does not prevent XSS attacks.",
-    "image": null
+    "image": "images/page_135_img_2.jpeg"
   },
   {
     "id": "q-jc-168",
@@ -2956,7 +2958,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "The suspicious entry on the host-based IDS logs indicates that a reverse shell was executed on the\nhost, which connects to the remote IP address 10.1.2.3 on port 8080. The shell script option D uses\nthe netstat command to check if there is any active connection to that IP address and port, and prints\n“Malicious activity” if there is, or “OK” otherwise. This is the most accurate way to confirm if the\nreverse shell is still active, as the other options may not detect the connection or may produce false\npositives.\nReference\nCompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 8: Incident Response, page 339.\nReverse Shell Cheat Sheet, Bash section.",
-    "image": null
+    "image": "images/page_138_img_2.jpeg"
   },
   {
     "id": "q-jc-172",
@@ -2973,7 +2975,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "An unintentional insider threat is a type of network security threat that occurs when a legitimate\nuser of the network unknowingly exposes the network to malicious activity, such as opening a\nphishing email or a malware-infected attachment from an unknown source. This can compromise the\nnetwork security and allow attackers to access sensitive data or systems. The other options are not\nrelated to the threat concept of ensuring that all network users only open attachments from known\nsources.\nReference\nCompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 1: Threat and Vulnerability\nManagement, page 13.\nWhat is Network Security | Threats, Best Practices | Imperva, Network Security Threats and Attacks,\nPhishing section.\nFive Ways to Defend Against Network Security Threats, 2. Use Firewalls section.",
-    "image": null
+    "image": "images/page_138_img_2.jpeg"
   },
   {
     "id": "q-jc-173",
@@ -3231,9 +3233,9 @@ const CYSA_QUESTIONS = [
       "C. Accept",
       "D. Avoid"
     ],
-    "answer": "D",
-    "explanation": "Risk Avoidance (D) means eliminating a risk by ceasing the activity that creates it. When a CISO disables a vulnerable functionality entirely on a business-critical web application to prevent RCE exploitation, the organization is avoiding the risk by removing the attack vector altogether. Risk Mitigation (B) would involve implementing controls to REDUCE the risk while keeping the functionality active (e.g., WAF rules, patching, input validation). Risk Transfer involves insurance or third-party contracts. Risk Acceptance acknowledges the risk and takes no action.",
-    "image": null
+    "answer": "B",
+    "explanation": "Risk Mitigation (B) involves implementing security controls or configuration changes to reduce the likelihood and impact of a vulnerability. In this case, disabling a specific vulnerable feature/functionality within an existing system rather than retired the entire web application itself acts as a mitigation strategy to lower the risk of Remote Code Execution (RCE) with minimal cost.",
+    "image": "images/page_147_img_2.jpeg"
   },
   {
     "id": "q-jc-189",
@@ -3284,7 +3286,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The Command and Control stage of the Cyber Kill Chain describes the communication between the\nattacker and the compromised system. The attacker may use this channel to send commands, receive\ndata, or update malware. If the analyst discovers unusual outbound connections to an IP that was\npreviously blocked, it may indicate that the attacker has established a command and control channel\nand bypassed the security controls. Reference: Cyber Kill Chain® | Lockheed Martin",
-    "image": null
+    "image": "images/page_154_img_2.jpeg"
   },
   {
     "id": "q-jc-192",
@@ -3301,7 +3303,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "A risk score is a numerical value that represents the potential impact and likelihood of a vulnerability\nbeing exploited. It can help to identify the potential loss incurred by an issue and prioritize\nremediation efforts accordingly. https://www.comptia.org/training/books/cysa-cs0-003-study-guide",
-    "image": null
+    "image": "images/page_154_img_2.jpeg"
   },
   {
     "id": "q-jc-193",
@@ -3318,7 +3320,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The Diamond Model of Intrusion Analysis is a framework that helps analysts to understand the\nrelationships between the adversary, the victim, the infrastructure, and the capability involved in an\nattack. It also enables analytical pivoting, which is the process of moving from one piece of\ninformation to another related one, and identifies knowledge gaps that need further investigation.",
-    "image": null
+    "image": "images/page_154_img_2.jpeg"
   },
   {
     "id": "q-jc-194",
@@ -3352,7 +3354,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "After detecting a compromised email server and unusual network traffic, the next step in incident\nresponse is containment, to prevent further damage or spread of the\ncompromise. Reference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5:\nIncident Response, page 197.",
-    "image": null
+    "image": "images/page_154_img_2.jpeg"
   },
   {
     "id": "q-jc-196",
@@ -3369,7 +3371,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The suspicious line in the web server logs is an attempt to execute a command on the server,\nindicating a command injection attack.\nReference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5, page 197; CompTIA\nCySA+ CS0-003 Certification Study Guide, Chapter 5, page 205.",
-    "image": null
+    "image": "images/page_156_img_2.jpeg"
   },
   {
     "id": "q-jc-197",
@@ -3386,7 +3388,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "In case of a phishing attack, it’s crucial to review what actions were taken by the employee and\nanalyze the phishing email to understand its nature and impact.\nReference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 6, page 246; CompTIA\nCySA+ CS0-003 Certification Study Guide, Chapter 6, page 255.",
-    "image": null
+    "image": "images/page_156_img_2.jpeg"
   },
   {
     "id": "q-jc-198",
@@ -3403,7 +3405,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The formal incident declaration is crucial to identify and document the staff who have the authority\nto declare an incident, ensuring that incidents are handled by authorized\npersonnel. Reference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5: Incident\nResponse, page 197.",
-    "image": null
+    "image": "images/page_156_img_2.jpeg"
   },
   {
     "id": "q-jc-199",
@@ -3583,7 +3585,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Agent-based vulnerability scanning is a method that uses software agents installed on the target\nsystems to scan for vulnerabilities. This method meets the requirements of the project because it\nuses minimal network bandwidth and host resources, provides accurate and near real-time updates,\nand does not require any stored credentials on the scanner. Reference: What Is Vulnerability\nScanning? Types, Tools and Best Practices, Section: Types of vulnerability scanning; CompTIA CySA+\nStudy Guide: Exam CS0-003, 3rd Edition, Chapter 4: Security Operations and Monitoring, page 154.",
-    "image": null
+    "image": "images/page_162_img_2.jpeg"
   },
   {
     "id": "q-jc-209",
@@ -3600,7 +3602,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "A vulnerability that is related to a specific adversary campaign, with IoCs found in the SIEM, should\nhave the highest priority for the mitigation process. This is because it indicates that the vulnerability\nis actively being exploited by a known threat actor, and that the organization’s security monitoring\nsystem has detected signs of compromise. This poses a high risk of data breach, service disruption, or\nother adverse impacts. Reference: How to Prioritize Vulnerabilities Effectively: Vulnerability\nPrioritization Explained, Section: How to prioritize vulnerabilities step by step to avoid drowning in\nsea of problems; CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 4: Security\nOperations and Monitoring, page 156.",
-    "image": null
+    "image": "images/page_162_img_2.jpeg"
   },
   {
     "id": "q-jc-210",
@@ -3639,7 +3641,7 @@ const CYSA_QUESTIONS = [
       "F"
     ],
     "explanation": "The best recommendations to prevent an XSS vulnerability from being exploited are to implement a\ncompensating control in the source code and to fix the vulnerability using a virtual patch at the WAF.\nA compensating control is a technique that mitigates the risk of a vulnerability by adding additional\nsecurity measures, such as input validation, output encoding, or HTML sanitization. A virtual patch is\na rule that blocks or modifies malicious requests or responses at the WAF level, without modifying\nthe application code. These recommendations are effective, efficient, and less disruptive than the\nother options. Reference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 4:\nSecurity Operations and Monitoring, page 156; Cross Site Scripting Prevention Cheat Sheet, Section:\nXSS Defense Philosophy.",
-    "image": null
+    "image": "images/page_164_img_2.jpeg"
   },
   {
     "id": "q-jc-212",
@@ -3656,7 +3658,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Adding a SOAR (Security Orchestration, Automation, and Response) rule to drop irrelevant and duplicated notifications (D) is the correct approach to reduce alert fatigue from known internal security activities. SOAR allows precise, policy-driven suppression of specific alert patterns while maintaining full visibility and auditability. Option B (disabling alerting entirely during scans) is too broad and creates blind spots. Option C (filtering low-severity alarms globally) risks missing real low-severity incidents. Option A (enriching SIEM data) improves triage quality but does not reduce alert volume.",
-    "image": null
+    "image": "images/page_164_img_2.jpeg"
   },
   {
     "id": "q-jc-213",
@@ -4258,7 +4260,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "SIEM (Security Information and Event Management) technology aggregates and analyzes activity\nfrom many different resources across your IT infrastructure. The description of correlating\ninformation from various sources and triggering notifications aligns with the capabilities of a SIEM\nsystem.",
-    "image": null
+    "image": "images/page_198_img_2.jpeg"
   },
   {
     "id": "q-jc-248",
@@ -4346,7 +4348,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "In environments with fragile and legacy equipment, passive scanning is preferred to prevent any\npotential disruptions that active scanning might cause.\nWhen assessing the security of an Operational Technology (OT) network, especially one with fragile\nand legacy equipment, it's crucial to use passive instead of active vulnerability scans. Active scanning\ncan sometimes disrupt the operation of sensitive or older equipment. Passive scanning listens to\nnetwork traffic without sending probing requests, thus minimizing the risk of disruption.",
-    "image": null
+    "image": "images/page_203_img_2.jpeg"
   },
   {
     "id": "q-jc-253",
@@ -4363,7 +4365,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "A risk register typically contains details like ID, name, description, classification of information, and\nresponsible party. It’s used for tracking identified risks and managing them.\nRecording details like ID, Name, Description, Classification of information, and Responsible party is\ntypically done in a Risk Register. This document is used to identify, assess, manage, and monitor risks\nwithin an organization. It's not directly related to incident response or change control\ndocumentation.",
-    "image": null
+    "image": "images/page_203_img_2.jpeg"
   },
   {
     "id": "q-jc-254",
@@ -4595,7 +4597,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The exploit code maturity of a vulnerability is indicated by the E metric in the CVSS temporal\nscore. The value of U means that no exploit code is available or unknown1. The other options are not\nrelated to the exploit code maturity, but to other aspects of the vulnerability, such as attack vector,\nscope, availability, and complexity1.",
-    "image": null
+    "image": "images/page_213_img_2.jpeg"
   },
   {
     "id": "q-jc-267",
@@ -4612,7 +4614,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Implementing controls to block execution of untrusted applications can prevent privilege escalation\nattacks that leverage native Windows tools, such as PowerShell, WMIC, or Rundll32. These tools can\nbe used by attackers to run malicious code or commands with elevated privileges, bypassing system\nsecurity policies and controls. By restricting the execution of untrusted applications, organizations\ncan reduce the attack surface and limit the potential damage of privilege escalation attacks.",
-    "image": null
+    "image": "images/page_213_img_2.jpeg"
   },
   {
     "id": "q-jc-268",
@@ -4685,7 +4687,7 @@ const CYSA_QUESTIONS = [
       "F"
     ],
     "explanation": "A. Executive management and F. Systems administration are the primary recipients of vulnerability scan reports. Executive management (A) needs high-level summaries of organizational risk posture, compliance status, and resource allocation to make strategic security investment decisions. Systems administration (F) requires detailed technical findings — specific CVEs, affected hosts, severity scores, and remediation steps — to implement patches and configuration fixes. Law enforcement (B) receives reports only during criminal investigations. Marketing (C), Legal (D — for specific compliance matters only), and Product owners (E) are not standard vulnerability report stakeholders.",
-    "image": null
+    "image": "images/page_216_img_2.jpeg"
   },
   {
     "id": "q-jc-272",
@@ -4719,7 +4721,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Data masking is a technique that replaces sensitive data with fictitious or anonymized data, while\npreserving the original format and structure of the data. This way, the data can be used for testing\npurposes without revealing the actual Pll information. Data masking is one of the best practices for\ndata analysis of confidential data1. Reference: CompTIA CySA+ CS0-003 Certification Study Guide,\npage 343; Best Practices for Data Analysis of Confidential Data",
-    "image": null
+    "image": "images/page_216_img_2.jpeg"
   },
   {
     "id": "q-jc-274",
@@ -4821,7 +4823,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "XDR logs will confirm the malware infection because XDR is a system that collects and analyzes data\nfrom multiple sources, such as endpoints, networks, cloud applications, and email security, to detect\nand respond to advanced threats12. XDR can provide a comprehensive view of the attack chain and\nthe context of the malware infection. Firewall logs, IDS logs, and MFA logs are not sufficient to\nconfirm the malware infection, as they only provide partial or indirect information about the network\ntraffic, intrusion attempts, or user authentication. Reference: Cybersecurity Analyst+ - CompTIA,\nXDR: definition and benefits for MSPs| WatchGuard Blog, Extended detection and response -\nWikipedia",
-    "image": null
+    "image": "images/page_220_img_2.jpeg"
   },
   {
     "id": "q-jc-280",
@@ -4856,7 +4858,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The Diamond Model of Intrusion Analysis is a framework that describes the relationship between\nfour components of a cyberattack: adversary, capability, infrastructure, and victim. It helps analysts\nunderstand the behavior and motivation of threat actors, as well as the tools and methods they use\nto compromise their targets12. Reference: Main Analytical Frameworks for Cyber Threat Intelligence,\nsection 4; Strategies, tools, and frameworks for building an effective threat intelligence team, section\n3.",
-    "image": null
+    "image": "images/page_223_img_2.jpeg"
   },
   {
     "id": "q-jc-282",
@@ -4873,7 +4875,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "Reviewing the steps that the previous analyst followed is the most important step during the\ntransition, as it ensures continuity and consistency of the investigation. It also helps the new analyst\nto understand the current status, scope, and findings of the investigation, and to avoid repeating the\nsame actions or missing any important details. The other options are either less important,\npremature, or potentially biased. Reference: CompTIA CySA+ CS0-003 Certification Study Guide,\nChapter 4: Incident Response and Management, page 191. Incident response best practices and tips,\nTip 1: Always pack a jump bag.",
-    "image": null
+    "image": "images/page_223_img_2.jpeg"
   },
   {
     "id": "q-jc-283",
@@ -5100,7 +5102,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "CSRF is an attack that forces an end user to execute unwanted actions on a web application in which\nthey’re currently authenticated. An attacker may trick the user into clicking a malicious link or\nsubmitting a forged form that performs an action on the user’s behalf, such as changing their\npassword or transferring funds. If the user has several tabs open in the browser, they may not notice\nthe CSRF request or the resulting change in their account. Updating the browser may have cleared\nthe user’s cache or cookies, preventing them from logging in to their account after the CSRF attack.",
-    "image": null
+    "image": "images/page_233_img_2.jpeg"
   },
   {
     "id": "q-jc-296",
@@ -5288,7 +5290,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The command in question involves an encoded PowerShell command, which is typically used by\nattackers to obfuscate malicious scripts. To decode and understand the payload, one would need to\ndecode the base64 encoded string. This is why option A is the correct answer, as 'base64 -d' is a\ncommand used to decode data encoded with base64. This process will reveal the plaintext of the\nencoded command, which can then be analyzed to understand the actions that the attacker was\nattempting to perform. Option B is risky and not advised without a controlled and isolated\nenvironment. Option C is not safe because executing unknown or suspicious code with administrator\nprivileges could cause harm to the system or network. Option D also poses a risk of executing\npotentially harmful code on an analyst’s workstation.",
-    "image": null
+    "image": "images/page_244_img_2.jpeg"
   },
   {
     "id": "q-jc-307",
@@ -5323,7 +5325,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Improving employee training and awareness is the best option to address the issue of sensitive\nreports being disclosed via file sharing services. By educating employees about the risks of\nunapproved file sharing, the security protocols to follow, and the proper channels to use for sharing\ncompany information, an organization can significantly reduce the risk of sensitive data being\naccidentally or intentionally shared on insecure platforms. This human-centric approach addresses\nthe root cause of the problem. Options A, C, and D are security controls that do not directly address\nthe behavior of sharing sensitive files on unauthorized services.",
-    "image": null
+    "image": "images/page_244_img_2.jpeg"
   },
   {
     "id": "q-jc-309",
@@ -5527,7 +5529,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Security Orchestration, Automation, and Response (SOAR) can help the SOC analyst reduce the\nnumber of alarms by automating the process of removing duplicates and managing security alerts\nmore efficiently. SOAR platforms enable security teams to define, prioritize, and standardize\nresponse procedures, which helps in reducing the workload and improving the overall efficiency of\nincident response by handling repetitive and low-level tasks automatically.",
-    "image": null
+    "image": "images/page_251_img_2.jpeg"
   },
   {
     "id": "q-jc-321",
@@ -5544,7 +5546,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Fuzzing is a process used to test applications by inputting unexpected or random data to see how the\napplication behaves. This method is particularly effective in identifying vulnerabilities such as buffer\noverflows, input validation errors, and other anomalies that could cause the application to crash or\nbehave unexpectedly. By using fuzzing, the security team can ensure the new application is robust\nand capable of handling unexpected strings with anomalous formats without crashing.",
-    "image": null
+    "image": "images/page_251_img_2.jpeg"
   },
   {
     "id": "q-jc-324",
@@ -5561,7 +5563,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Developing an organization's communication plans is crucial to ensure that incidents, especially\nthose involving sensitive data like PH (Protected Health) data, are promptly reported to the relevant\nregulatory agencies. This is essential for compliance with legal and regulatory requirements, which\noften mandate timely notification of data breaches. Effective communication plans help the\norganization manage the breach response process, mitigate potential legal penalties, and maintain\ntransparency with regulatory bodies.",
-    "image": null
+    "image": "images/page_259_img_2.jpeg"
   },
   {
     "id": "q-jc-325",
@@ -5595,7 +5597,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "An incident response timeline is a detailed chronological record of all events and actions taken\nduring the response to a security incident. It includes timestamps and descriptions of each step,\nproviding a comprehensive overview of how the incident was detected, contained, mitigated, and\nresolved. This timeline is crucial for post-incident analysis, helping to understand the effectiveness of\nthe response, identify areas for improvement, and ensure accountability and transparency in the\nincident handling process.",
-    "image": null
+    "image": "images/page_262_img_2.jpeg"
   },
   {
     "id": "q-jc-327",
@@ -5612,7 +5614,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The first step for the security team when receiving a legal hold request is to notify the relevant\ndepartments to preserve all potentially relevant information. This ensures that no data is altered,\ndeleted, or otherwise tampered with, which is critical for maintaining the integrity of the evidence.\nPreserving information includes emails, documents, and any other data that might be relevant to the\nlegal matter. Establishing a chain of custody and backing up data are also important steps, but\nnotifying the involved parties is the immediate priority to prevent data loss.",
-    "image": null
+    "image": "images/page_262_img_2.jpeg"
   },
   {
     "id": "q-jc-330",
@@ -5629,7 +5631,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Dictionary attacks involve an attacker attempting to guess passwords by using a list of common\npasswords. Implementing a lockout policy is effective because it limits the number of login attempts,\nthereby hindering the attacker's ability to repeatedly attempt different passwords. Lockout policies\nare standard in cybersecurity practices to prevent brute-force and dictionary attacks by temporarily\ndisabling an account after a certain number of failed login attempts. According to CompTIA Security+\nstandards, password complexity (option B) and multifactor authentication (option A) are helpful but\nare not as immediately effective in directly preventing repeated attempts as a lockout policy.",
-    "image": null
+    "image": "images/page_269_img_2.jpeg"
   },
   {
     "id": "q-jc-331",
@@ -5912,7 +5914,7 @@ const CYSA_QUESTIONS = [
       "C"
     ],
     "explanation": "During an incident, the legal team plays a crucial role in handling regulatory compliance and\nreviewing legal implications, such as contractual obligations and reporting requirements. Advising on\nregulatory reporting (Option C) ensures the organization meets legal mandates, while reviewing\ncontracts (Option B) can address new or emergency services needed during the incident. According\nto CompTIA CySA+ and Security+ guidelines, these legal responsibilities are vital for compliance and\nrisk management. Options related to staffing, damage assessments, and clearances typically fall\nunder operational or HR responsibilities rather than legal purview.",
-    "image": null
+    "image": "images/page_280_img_2.png"
   },
   {
     "id": "q-jc-347",
@@ -5934,7 +5936,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "B. Integrity and E. Non-repudiation are the two properties that digital signatures provide for sensitive email communications. Integrity (B) ensures that the email content has not been altered during transit — the digital signature is mathematically tied to the exact content, so any modification invalidates the signature. Non-repudiation (E) ensures the sender cannot later deny sending the message, as the signature is tied to their private key. This is critical for legally binding contract negotiations. Confidentiality (A) requires encryption, not signatures. Privacy (C) and Anonymity (D) are protected by different controls. Authorization (F) controls access rights.",
-    "image": null
+    "image": "images/page_280_img_2.png"
   },
   {
     "id": "q-jc-348",
@@ -5951,7 +5953,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The vulnerability with the highest CVSS score and an active exploit is Microsoft CVE-2021-34527\n(PrintNightmare). Although only present on two instances, its high severity (8.4) and exploitable\nnature make it a priority. PrintNightmare is a well-known remote code execution vulnerability, which\ncan be a critical risk. According to CompTIA CySA+ and vulnerability management practices,\nprioritizing based on severity and exploitability is essential, even over the number of instances.\nOther vulnerabilities listed are less severe or lack active exploitation.",
-    "image": null
+    "image": "images/page_280_img_2.png"
   },
   {
     "id": "q-jc-349",
@@ -6468,7 +6470,267 @@ const CYSA_QUESTIONS = [
   }
 ];
 
-
+// CompTIA SecAI+ (CY0-001) Questions
+const SECAI_QUESTIONS = [
+  {
+    "id": "cy0-1",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 4.0: AI Governance, Risk, and Compliance",
+    "question": "Which of the following job roles in an organizational governance structure develops a model from business use cases?",
+    "options": [
+      "A. Platform architect",
+      "B. AI risk analyst",
+      "C. Machine learning operations (MLOps) engineer",
+      "D. Data scientist"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #1. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-2",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An administrator, who works for a financial institution, is required to implement data security controls for data at rest within AI systems that involve data disclosure. Which of the following is the most suitable control?",
+    "options": [
+      "A. Data lineage",
+      "B. Rate limits",
+      "C. Encryption",
+      "D. Masking"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #2. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-3",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security engineer needs to monitor an AI-based system for runtime operations. The engineer is mostly concerned about the visibility of internal activity. Which of the following is the most appropriate monitoring solution?",
+    "options": [
+      "A. Deploying a security information and event management (SIEM) tool",
+      "B. Implementing a web application firewall (WAF) with header logging",
+      "C. Relying on vendor model controls and monitoring prompt inputs",
+      "D. Enabling stack call and debugging level traces at the function level"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #3. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-4",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "Which of the following should an auditor reference when reviewing a company’s human resources AI systems for legal non-compliance?",
+    "options": [
+      "A. Organization for Economic Cooperation and Development (OECD) standard",
+      "B. National Institute of Standards and Technology (NIST) AI Risk Management Framework 9RMF)",
+      "C. European Union (EU) AI Act",
+      "D. International Organization for Standardization (ISO)"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #4. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-5",
+    "type": "mcq",
+    "multiSelect": true,
+    "selectCount": 2,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An airline corporation wants to implement a chatbot application using a large language model (LLM) so its customers:\n\nCan ask question and receive answers about flight details.\n\nHave the option to upload files.\n\nWhich of the following security controls should the airline use to protect against malicious input and unauthorized use beyond the service-level agreement? (Choose two.)",
+    "options": [
+      "A. Prompt guardrails",
+      "B. Role-based access controls",
+      "C. Firewall rules",
+      "D. Model token quotas"
+    ],
+    "answer": [
+      "A",
+      "D"
+    ],
+    "explanation": "Source: ITExams CY0-001 Question #5. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-6",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security operations center (SOC) has a very high volume of logs and alerts. The manager proposes the implementation of machine learning (ML) system to help with triage. Which of the following tasks is most suitable?",
+    "options": [
+      "A. Applying filters on specific alerts",
+      "B. Automatically patching vulnerable systems",
+      "C. Identifying and classifying alerts",
+      "D. Summarizing the content of alerts"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #6. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-7",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 1.0: Basic AI Concepts Related to Cybersecurity",
+    "question": "An organization recently created a custom model that integrates with a language model (LLM). The developer notices that the application programming interface (API) costs have increased. Which of the following is the best control to reduce cost?",
+    "options": [
+      "A. Implementing prompt templates",
+      "B. Increasing central processing unit (CPU) and memory",
+      "C. Reducing the model size",
+      "D. Adjusting token limits"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #7. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-8",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A security administrator needs to improve an AI model. During an initial investigation, the administrator notices that two successive login features are recorded every day, and then a successful login occurs after a specific time interval. All the successful login attempts have been during office hours.\n\nWhich of the following techniques should the administrator use to improve the AI model’s security?",
+    "options": [
+      "A. Access management",
+      "B. Pattern recognition",
+      "C. Signature matching",
+      "D. Vulnerability analysis"
+    ],
+    "answer": "B",
+    "explanation": "Source: ITExams CY0-001 Question #8. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-9",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following is the most concerning risk for a company that allows corporate end users to use public-facing large language models (LLMs)?",
+    "options": [
+      "A. Inaccuracies due to hallucinations",
+      "B. Out-of-date acceptable use policies",
+      "C. Data security regulatory violations",
+      "D. Malicious code generation"
+    ],
+    "answer": "C",
+    "explanation": "Source: ITExams CY0-001 Question #9. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-10",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following requires developers to harden infrastructure to protect AI systems?",
+    "options": [
+      "A. Intake processes",
+      "B. Acceptable use policies",
+      "C. Development guidelines",
+      "D. Configuration standards"
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #10. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-11",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "Which of the following is the best example of an AI model that is trained to identify multiple points from input using a neural network to provide output for authentication?",
+    "options": [
+      "A. Facial recognition",
+      "B. Encryption key",
+      "C. Open Authorization (OAuth)",
+      "D. Bounding box"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #11. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-12",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An organization is developing and implementing AI features into a customer service application. Which of the following practices should the organization put the place before releasing the application for customer trials?",
+    "options": [
+      "A. Data masking and sanitization",
+      "B. External compliance audits",
+      "C. Approved AI vendor lists",
+      "D. Third-party risk management"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #12. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-13",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "An internal user enters a client credit card number into an internal generative machine learning (ML) model:\n\n#User prompt: Customer Jane Doe has a new credit card that she wants to add to her account. The number is 5555-5555-5555-5555\n\nWhich of the following is the most effective way to prevent prompt injection attacks against a large language model (LLM)?",
+    "options": [
+      "A. Guardrails",
+      "B. Antivirus",
+      "C. Web application firewall (WAF)",
+      "D. Role-based access control"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #13. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-14",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 2.0: Securing AI Systems",
+    "question": "A security alert triggers an agentic system. An analyst notices the following payload in the logs”\n\nThe alert includes multiple shell commands that are not typically run as part of any hardening. Which of the following is the most effective control to implement?",
+    "options": [
+      "A. Adding logic that includes approved strings before running the shell commands",
+      "B. Deprecating model usage and retaining the model with safer parameters",
+      "C. Modifying the application to ignore the SECURITY_UPDATE tag",
+      "D. Using only approved libraries when interacting with agentic systems"
+    ],
+    "answer": "A",
+    "explanation": "Source: ITExams CY0-001 Question #14. Community-verified answer.",
+    "image": null
+  },
+  {
+    "id": "cy0-15",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 3.0: AI-Assisted Security",
+    "question": "A global security operations center (SOC) wants to adapt and leverage the strength of AI in order to enhance its security operations. Which of the following is the best way to enhance the global SOC functions?",
+    "options": [
+      "A. Generate code and execute in production to help save time.",
+      "B. Enable a personal assistant that can act in the global SOC with no human intervention.",
+      "C. Use open-source models in production to help the efficiency of threat detection and threat analysis.",
+      "D. Summarize alerts to easily gain insights on the environment."
+    ],
+    "answer": "D",
+    "explanation": "Source: ITExams CY0-001 Question #15. Community-verified answer.",
+    "image": null
+  }
+];
 
 function generateFullQuestionBank(baseQuestions, targetCount = 85) {
   const seen = new Set();
@@ -6490,6 +6752,6 @@ function shuffleArrayInternal(array) {
   return array;
 }
 
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { CYSA_QUESTIONS, generateFullQuestionBank };
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { CYSA_QUESTIONS, SECAI_QUESTIONS, generateFullQuestionBank };
 }

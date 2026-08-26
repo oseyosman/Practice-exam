@@ -571,8 +571,8 @@ const CYSA_QUESTIONS = [
     "question": "Which of the following is the first step that should be performed when establishing a disaster\nrecovery plan?",
     "options": [
       "A. Agree on the goals and objectives of the plan",
-      "B. Determine the site to be used during a disaster
-      "C Demonstrate adherence to a standard disaster recovery process",
+      "B. Determine the site to be used during a disaster",
+      "C. Demonstrate adherence to a standard disaster recovery process",
       "D. Identity applications to be run during a disaster"
     ],
     "answer": "A",
@@ -1915,10 +1915,10 @@ const CYSA_QUESTIONS = [
     "domain": "Domain 1.0: Security Operations",
     "question": "A security analyst is trying to detect connections to a suspicious IP address by collecting the packet\ncaptures from the gateway. Which of the following commands should the security analyst consider\nrunning?",
     "options": [
-      "A.\ngrep [IP address] packets.pcap
-      "B\ncat packets.pcap | grep [IP Address]",
-      "C.\ntcpdump -n -r packets.pcap host [IP address]",
-      "D.\nstrings packets.pcap | grep [IP Address]"
+      "A. grep [IP address] packets.pcap",
+      "B. cat packets.pcap | grep [IP Address]",
+      "C. tcpdump -n -r packets.pcap host [IP address]",
+      "D. strings packets.pcap | grep [IP Address]"
     ],
     "answer": "C",
     "explanation": "tcpdump is a command-line tool that can capture and analyze network packets from a given interface\nor file. The -n option prevents tcpdump from resolving hostnames, which can speed up the analysis.\nThe -r option reads packets from a file, in this case packets.pcap. The host [IP address] filter specifies\nthat tcpdump should only display packets that have the given IP address as either the source or the\ndestination. This command can help the security analyst detect connections to a suspicious IP\naddress by collecting the packet captures from the gateway. Official Reference:\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.techtarget.com/searchsecurity/quiz/Sample-CompTIA-CySA-test-questions-with-\nanswers\nhttps://www.reddit.com/r/CompTIA/comments/tmxx84/passed_cysa_heres_my_experience_and_h\now_i_studied/",
