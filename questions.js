@@ -158,7 +158,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "This answer matches the description of the zero-day threat. The attack vector is network (AV:N), the\nattack complexity is low (AC:L), no privileges are required (PR:N), no user interaction is required\n(UI:N), the scope is unchanged (S:U), the confidentiality and integrity impacts are high (C:H/I:H), and\nthe availability impact is low (A:L). Official Reference: https://nvd.nist.gov/vuln-metrics/cvss",
-    "image": "images/page_3_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-2",
@@ -175,7 +175,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Data loss prevention (DLP) is a tool that can prevent the exposure of PII outside of an organization by\nmonitoring, detecting, and blocking sensitive data in motion, in use, or at rest.",
-    "image": "images/page_3_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-3",
@@ -192,7 +192,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The output shows that the web application is vulnerable to clickjacking attacks, which allow an\nattacker to overlay a hidden frame on top of a legitimate page and trick users into clicking on\nmalicious links. Blocking requests without an X-Frame-Options header can prevent this attack by\ninstructing the browser to not display the page within a frame.",
-    "image": "images/page_3_img_2.jpeg"
+    "image": "images/q3.jpeg"
   },
   {
     "id": "q-jc-4",
@@ -214,7 +214,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "A vulnerability scan report should include information about the affected hosts, such as their IP\naddresses, hostnames, operating systems, and services. It should also include a risk score for each\nvulnerability, which indicates the severity and potential impact of the vulnerability on the host and\nthe organization. Official Reference: https://www.first.org/cvss/",
-    "image": "images/page_3_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-5",
@@ -248,7 +248,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The script uses PowerShell syntax, such as cmdlets, parameters, variables, and comments.\nPowerShell is a scripting language that can be used to automate tasks and manage systems.",
-    "image": null
+    "image": "images/q6.jpeg"
   },
   {
     "id": "q-jc-7",
@@ -265,7 +265,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "An on-path attack is a type of man-in-the-middle attack where an attacker intercepts and modifies\nnetwork traffic between two parties. In this case, someone with internal access may be performing\nan on-path attack by forcing users into port 80, which is used for HTTP communication, instead of\nport 443, which is used for HTTPS communication. This would allow the attacker to compromise the\nuser accounts and access the company’s internal portal.",
-    "image": "images/page_6_img_3.jpeg"
+    "image": ""
   },
    {
     "id": "q-jc-8",
@@ -280,9 +280,9 @@ const CYSA_QUESTIONS = [
       "C. Option C",
       "D. Option D"
     ],
-    "answer": "B",
-    "explanation": "",
-    "image": "images/page_6_img_3.jpeg"
+    "answer": "C",
+    "explanation": "According to the security policy, the company shall use the CVSSv3.1 Base Score Metrics to prioritizethe remediation of security vulnerabilities. Option C has the highest CVSSv3.1 Base Score of 9.8,which indicates a critical severity level",
+    "image": ["images/q8-a.png", "images/q8-b.jpeg", "images/q8-c.png", "images/q8-d.png"]
   },
   {
     "id": "q-jc-9",
@@ -440,7 +440,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "A cross-site scripting (XSS) attack is a type of web application attack that injects malicious code into a\nweb page that is then executed by the browser of a victim user. A reflected XSS attack is a type of XSS\nattack where the malicious code is embedded in a URL or a form parameter that is sent to the web\nserver and then reflected back to the user’s browser. In this case, the Nmap scan shows that the web\nserver is vulnerable to a reflected XSS attack, as it returns the characters > and \" without any filtering\nor encoding. The vulnerable parameter is id in the URL http://172.31.15.2/1.php?id=2.",
-    "image": "images/page_10_img_2.jpeg"
+    "image": "images/q17.jpeg"
   },
   {
     "id": "q-jc-18",
@@ -628,7 +628,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The endpoint log entry shows that a new account named “admin” has been created on a Windows\nsystem with a local group membership of “Administrators”. This indicates that a new account has\nbeen introduced on the system with administrative privileges. This could be a sign of malicious\nactivity, such as privilege escalation or backdoor creation, by an attacker who has compromised the\nsystem.",
-    "image": "images/page_16_img_2.jpeg"
+    "image": "images/q28.jpeg"
   },
   {
     "id": "q-jc-29",
@@ -663,7 +663,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "E",
     "explanation": "The analyst should look at p4wnp1_aloa.lan (192.168.86.56) first, as this is the most suspicious\ndevice on the network. P4wnP1 ALOA is a tool that can be used to create a malicious USB device that\ncan perform various attacks, such as keystroke injection, network sniffing, man-in-the-middle, or\nbackdoor creation. The presence of a device with this name on the network could indicate that an\nattacker has plugged in a malicious USB device to a system and gained access to the network. Official\nReference: https://github.com/mame82/P4wnP1_aloa",
-    "image": "images/page_18_img_2.jpeg"
+    "image": "images/q30.jpeg"
   },
   {
     "id": "q-jc-31",
@@ -850,7 +850,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "The system that should be prioritized for patching first is 54.74.110.228, as it has the highest number\nand severity of vulnerabilities among the four systems listed in the vulnerability report. According to\nthe report, this system has 12 vulnerabilities, with 8 critical, 3 high, and 1 medium severity ratings.\nThe critical vulnerabilities include CVE-2019-0708 (BlueKeep), CVE-2019-1182 (DejaBlue), CVE-2017-\n0144 (EternalBlue), and CVE-2017-0145 (EternalRomance), which are all remote code execution\nvulnerabilities that can allow an attacker to compromise the system without any user interaction or\nauthentication. These vulnerabilities pose a high risk to the system and should be patched as soon as\npossible.",
-    "image": "images/page_24_img_2.jpeg"
+    "image": "images/q41.jpeg"
   },
   {
     "id": "q-jc-42",
@@ -1174,7 +1174,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The vulnerability that should be patched first, given the above third-party scoring system, is:\nTSpirit: Cobain: Yes Grohl: Yes Novo: Yes Smear: No Channing: No\nThis vulnerability has three out of five metrics marked as Yes, which indicates a high severity level.\nThe metrics Cobain, Grohl, and Novo are more important than Smear and Channing, according to the\nvulnerability management team. Therefore, this vulnerability poses a greater risk than the other\nvulnerabilities and should be patched first.",
-    "image": "images/page_33_img_2.jpeg"
+    "image": "images/q60.jpeg"
   },
   {
     "id": "q-jc-61",
@@ -1276,7 +1276,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "The first action that should be completed to remediate the findings is to perform proper sanitization\non all fields. Sanitization is a process that involves validating, filtering, or encoding any user input or\ndata before processing or storing it on a system or application. Sanitization can help prevent various\ntypes of attacks, such as cross-site scripting (XSS), SQL injection, or command injection, that exploit\nunsanitized input or data to execute malicious scripts, commands, or queries on a system or\napplication. Performing proper sanitization on all fields can help address the most critical and\ncommon vulnerability found during the vulnerability assessment, which is XSS.",
-    "image": "images/page_37_img_2.jpeg"
+    "image": "images/q66.jpeg"
   },
   {
     "id": "q-jc-67",
@@ -1327,7 +1327,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Log entry 4 shows an attempt to exploit the zero-day command injection vulnerability by appending\na malicious command (;cat /etc/passwd) to the end of a legitimate request (/cgi-\nbin/index.cgi?name=John). This command would try to read the contents of the /etc/passwd file,\nwhich contains user account information, and could lead to further compromise of the system. The\nother log entries do not show any signs of command injection, as they do not contain any special\ncharacters or commands that could alter the intended behavior of the application. Official Reference:\nhttps://www.imperva.com/learn/application-security/command-injection/\nhttps://www.zerodayinitiative.com/advisories/published/",
-    "image": "images/page_39_img_2.jpeg"
+    "image": "images/q69.jpeg"
   },
   {
     "id": "q-jc-70",
@@ -1395,7 +1395,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Brady should be prioritized for remediation, as it has the highest risk score and the highest number\nof affected users. The risk score is calculated by multiplying the CVSS score by the exposure factor,\nwhich is the percentage of systems that are vulnerable to the exploit. Brady has a risk score of 9 x 0.8\n= 7.2, which is higher than any other system. Brady also has 500 affected users, which is more than\nany other system. Therefore, patching brady would reduce the most risk and impact for the\norganization. The other systems have lower risk scores and lower numbers of affected users, so they\ncan be remediated later.",
-    "image": "images/page_41_img_2.jpeg"
+    "image": "images/q73.jpeg"
   },
   {
     "id": "q-jc-74",
@@ -1412,7 +1412,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "XSS (cross-site scripting) is the vulnerability type that the security analyst is validating, as the snippet\nshows an attempt to inject a script tag into the web application. XSS is a web security vulnerability\nthat allows an attacker to execute arbitrary JavaScript code in the browser of another user who visits\nthe vulnerable website. XSS can be used to perform various malicious actions, such as stealing\ncookies, session hijacking, phishing, or defacing websites. The other vulnerability types are not\nrelevant to the snippet, as they involve different kinds of attacks. Directory traversal is an attack that\nallows an attacker to access files and directories that are outside of the web root folder. XXE (XML\nexternal entity) injection is an attack that allows an attacker to interfere with an application’s\nprocessing of XML data, and potentially access files or systems. SSRF (server-side request forgery) is\nan attack that allows an attacker to induce the server-side application to make requests to an\nunintended location. Official Reference:\nhttps://portswigger.net/web-security/xxe\nhttps://portswigger.net/web-security/ssrf\nhttps://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_\nSheet.html",
-    "image": "images/page_42_img_2.jpeg"
+    "image": "images/q74.jpeg"
   },
   {
     "id": "q-jc-75",
@@ -1497,7 +1497,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The output shows the result of running the ssl-enum-ciphers script with Nmap, which is a tool that\ncan scan web servers for supported SSL/TLS cipher suites. Cipher suites are combinations of\ncryptographic algorithms that are used to establish secure communication between a client and a\nserver. The output shows the cipher suites that are supported by the server, along with a letter grade\n(A through F) indicating the strength of the connection. The output also shows the least strength,\nwhich is the strength of the weakest cipher offered by the server. In this case, the least strength is F,\nwhich means that the server is allowing insecure cipher suites that are vulnerable to attacks or have\nbeen deprecated. For example, the output shows that the server supports SSLv3, which is an\noutdated and insecure protocol that is susceptible to the POODLE attack. The output also shows that\nthe server supports RC4, which is a weak and broken stream cipher that should not be used.\nTherefore, the best description of the output is that the host is allowing insecure cipher suites. The\nother descriptions are not accurate, as they do not reflect what the output shows. The host is not up\nor responding is incorrect, as the output clearly shows that the host is up and responding to the scan.\nThe host is running excessive cipher suites is incorrect, as the output does not indicate how many\ncipher suites the host is running, only which ones it supports. The Secure Shell port on this host is\nclosed is incorrect, as the output does not show anything about port 22, which is the default port for\nSecure Shell (SSH). The output only shows information about port 443, which is the default port for\nHTTPS.",
-    "image": "images/page_46_img_2.jpeg"
+    "image": "images/q79.jpeg"
   },
   {
     "id": "q-jc-80",
@@ -1514,7 +1514,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "Host03 should be patched first, based on the metrics, as it has the highest risk score and the highest\nnumber of critical vulnerabilities. The risk score is calculated by multiplying the CVSS score by the\nexposure factor, which is the percentage of systems that are vulnerable to the exploit. Host03 has a\nrisk score of 10 x 0.9 = 9, which is higher than any other host. Host03 also has 5 critical\nvulnerabilities, which are the most severe and urgent to fix, as they can allow remote code\nexecution, privilege escalation, or data loss. The other hosts have lower risk scores and lower\nnumbers of critical vulnerabilities, so they can be patched later.",
-    "image": "images/page_47_img_2.jpeg"
+    "image": "images/q80.jpeg"
   },
   {
     "id": "q-jc-81",
@@ -1667,7 +1667,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "An Office document with a malicious macro was opened is the most likely explanation for the\nsuspicious activity on the company laptop, as it reflects the common technique of using macros to\nexecute PowerShell commands that download and run malware. A macro is a piece of code that can\nautomate tasks or perform actions in an Office document, such as a Word file or an Excel\nspreadsheet. Macros can be useful and legitimate, but they can also be abused by threat actors to\ndeliver malware or perform malicious actions on the system. A malicious macro can be embedded in\nan Office document that is sent as an attachment in a phishing email or hosted on a compromised\nwebsite. When the user opens the document, they may be prompted to enable macros or content,\nwhich will trigger the execution of the malicious code. The malicious macro can then use PowerShell,\nwhich is a scripting language and command-line shell that is built into Windows, to perform various\ntasks, such as downloading and running malware from a remote URL, bypassing security controls, or\nestablishing persistence on the system. The log excerpt shows that PowerShell was used to download\na string from a URL using the WebClient.DownloadString method, which is a common way to fetch\nand execute malicious code from the internet. The log also shows that PowerShell was used to\ninvoke an expression (iex) that contains obfuscated code, which is another common way to evade\ndetection and analysis. The other options are not as likely as an Office document with a malicious\nmacro was opened, as they do not match the evidence in the log excerpt. A credential-stealing\nwebsite was visited is possible, but it does not explain why PowerShell was used to download and\nexecute code from a URL. A phishing link in an email was clicked is also possible, but it does not\nexplain what happened after the link was clicked or how PowerShell was involved. A web browser\nvulnerability was exploited is unlikely, as it does not explain why PowerShell was used to download\nand execute code from a URL.",
-    "image": "images/page_54_img_2.jpeg"
+    "image": "images/q89.jpeg"
   },
   {
     "id": "q-jc-90",
@@ -1922,7 +1922,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "A new program has been set to execute on system start is the most likely cause of the suspicious\nactivity that is occurring, as it indicates that the malware has modified the registry keys of the system\nto ensure its persistence. File Integrity Monitoring (FIM) is a tool that monitors changes to files and\nregistry keys on a system and alerts the security analyst of any unauthorized or malicious\nmodifications. The alert triggered by FIM shows that the malware has created a new registry key\nunder the Run subkey, which is used to launch programs automatically when the system starts. The\nnew registry key points to a file named “update.exe” in the Temp folder, which is likely a malicious\nexecutable disguised as a legitimate update file. Official Reference:\nhttps://www.comptia.org/blog/the-new-comptia-cybersecurity-analyst-your-questions-answered\nhttps://partners.comptia.org/docs/default-source/resources/comptia-cysa-cs0-002-exam-objectives\nhttps://www.comptia.org/training/books/cysa-cs0-002-study-guide",
-    "image": "images/page_66_img_2.jpeg"
+    "image": "images/q104.jpeg"
   },
   {
     "id": "q-jc-105",
@@ -2046,7 +2046,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Vulnerability B is the vulnerability that the analyst should be most concerned about, knowing that\nend users frequently click on malicious links sent via email. Vulnerability B is a remote code\nexecution vulnerability in Microsoft Outlook that allows an attacker to run arbitrary code on the\ntarget system by sending a specially crafted email message. This vulnerability is very dangerous, as it\ndoes not require any user interaction or attachment opening to trigger the exploit. The attacker only\nneeds to send an email to the victim’s Outlook account, and the code will execute automatically\nwhen Outlook connects to the Exchange server. This vulnerability has a high severity rating of 9.8 out\nof 10, and it affects all supported versions of Outlook. Therefore, the analyst should prioritize\npatching this vulnerability as soon as possible to prevent potential compromise of the workstations.",
-    "image": "images/page_71_img_2.jpeg"
+    "image": "images/q111.jpeg"
   },
   {
     "id": "q-jc-112",
@@ -2148,7 +2148,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "RCE stands for remote code execution, which is a type of attack that allows an attacker to execute\narbitrary commands on a target system. The suspicious command in the question is an example of\nRCE, as it tries to download and execute a malicious file from a remote server using the wget and\nchmod commands. A buffer overflow is a type of vulnerability that occurs when a program writes\nmore data to a memory buffer than it can hold, potentially overwriting other memory locations and\ncorrupting the program’s execution. ICMP tunneling is a technique that uses ICMP packets to\nencapsulate and transmit data that would normally be blocked by firewalls or filters. A smurf attack is\na type of DDoS attack that floods a network with ICMP echo requests, causing all devices on the\nnetwork to reply and generate a large amount of traffic. Verified Reference: What Is Buffer Overflow?\nAttacks, Types & Vulnerabilities - Fortinet1, What Is a Smurf Attack? Smurf DDoS Attack |\nFortinet2, exploit - Interpreting CVE ratings: Buffer Overflow vs. Denial of …3",
-    "image": null
+    "image": "images/q117.jpeg"
   },
   {
     "id": "q-jc-118",
@@ -2324,7 +2324,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "The output shows the results of a port scan, which is a technique used to identify open ports and\nservices running on a network host. Port scanning can be used by attackers to discover potential\nvulnerabilities and exploit them, or by defenders to assess the security posture and configuration of\ntheir network devices1\nThe output lists six ports that are open on the target host, along with the service name and version\nassociated with each port. The service name indicates the type of application or protocol that is\nusing the port, while the version indicates the specific release or update of the service. The service\nname and version can provide useful information for both attackers and defenders, as they can\nreveal the capabilities, features, and weaknesses of the service.\nAmong the six ports listed, two are particularly risky and should be investigated further by the\nsecurity team: port 23 and port 636.\nPort 23 is used by Telnet, which is an old and insecure protocol for remote login and command\nexecution. Telnet does not encrypt any data transmitted over the network, including usernames and\npasswords, which makes it vulnerable to eavesdropping, interception, and modification by\nattackers. Telnet also has many known vulnerabilities that can allow attackers to gain unauthorized\naccess, execute arbitrary commands, or cause denial-of-service attacks on the target host23\nPort 636 is used by LDAP over SSL/TLS (LDAPS), which is a protocol for accessing and modifying\ndirectory services over a secure connection. LDAPS encrypts the data exchanged between the client\nand the server using SSL/TLS certificates, which provide authentication, confidentiality, and integrity.\nHowever, LDAPS can also be vulnerable to attacks if the certificates are not properly configured,\nverified, or updated. For example, attackers can use self-signed or expired certificates to perform\nman-in-the-middle attacks, spoofing attacks, or certificate revocation attacks on LDAPS connections.\nTherefore, the security team should investigate further why port 23 and port 636 are open on the\ntarget host, and what services are running on them. The security team should also consider disabling\nor replacing these services with more secure alternatives, such as SSH for port 23 and StartTLS for\nport 6362",
-    "image": "images/page_103_img_2.jpeg"
+    "image": "images/q132.jpeg"
   },
   {
     "id": "q-jc-133",
@@ -2630,7 +2630,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "Explanation: The output shows that the web application has a cross-origin resource sharing (CORS)\nheader that allows any origin to access its resources. This is a security misconfiguration that could\nallow malicious websites to make requests to the web application on behalf of the user and access\nsensitive data or perform unauthorized actions. The tuning recommendation is to configure the\nAccess-Control-Allow-Origin header to only allow authorized domains that need to access the web\napplication’s resources. This would prevent unauthorized cross-origin requests and reduce the risk of\ncross-site request forgery (CSRF) attacks.\nReference: OWASP Top Ten | OWASP Foundation",
-    "image": "images/page_116_img_2.jpeg"
+    "image": "images/q150.jpeg"
   },
   {
     "id": "q-jc-152",
@@ -2664,7 +2664,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The correct answer is B. Metrics.\nThe Metrics section of the vulnerability report provides information about the level of impact on\ndata confidentiality if a successful exploitation occurs. The Metrics section contains the CVE\ndictionary entry and the CVSS base score of the vulnerability. CVE stands for Common Vulnerabilities\nand Exposures and it is a standardized system for identifying and naming vulnerabilities. CVSS stands\nfor Common Vulnerability Scoring System and it is a standardized system for measuring and rating\nthe severity of vulnerabilities.\nThe CVSS base score is a numerical value between 0 and 10 that reflects the intrinsic characteristics\nof a vulnerability, such as its exploitability, impact, and scope. The CVSS base score is composed of\nthree metric groups: Base, Temporal, and Environmental. The Base metric group captures the\ncharacteristics of a vulnerability that are constant over time and across user environments. The Base\nmetric group consists of six metrics: Attack Vector, Attack Complexity, Privileges Required, User\nInteraction, Scope, and Impact. The Impact metric measures the effect of a vulnerability on the\nconfidentiality, integrity, and availability of the affected resources.\nIn this case, the CVSS base score of the vulnerability is 9.8, which indicates a critical severity level.\nThe Impact metric of the CVSS base score is 6.0, which indicates a high impact on confidentiality,\nintegrity, and availability. Therefore, the Metrics section provides information about the level of\nimpact on data confidentiality if a successful exploitation occurs.\nThe other sections of the vulnerability report do not provide information about the level of impact\non data confidentiality if a successful exploitation occurs. The Payloads section contains links to\nrequest and response payloads that demonstrate how the vulnerability can be exploited. The\nPayloads section can help an analyst to understand how the attack works, but it does not provide a\nquantitative measure of the impact. The Vulnerability section contains information about the type,\ngroup, and description of the vulnerability. The Vulnerability section can help an analyst to identify\nand classify the vulnerability, but it does not provide a numerical value of the impact. The Profile\nsection contains information about the authentication, times viewed, and aggressiveness of the\nvulnerability. The Profile section can help an analyst to assess the risk and priority of the\nvulnerability, but it does not provide a specific measure of the impact on data confidentiality.\nReference:\n[1] CVE - Common Vulnerabilities and Exposures (CVE)\n[2] Common Vulnerability Scoring System SIG\n[3] CVSS v3.1 Specification Document\n[4] CVSS v3.1 User Guide\n[5] How to Read a Vulnerability Report - Security Boulevard",
-    "image": "images/page_120_img_2.jpeg"
+    "image": "images/q153.jpeg"
   },
   {
     "id": "q-jc-154",
@@ -2737,7 +2737,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The correct answer is A. 121.19.30.221.\nBased on the log files and the organization’s priorities, the host that warrants additional investigation\nis 121.19.30.221, because it is the only host that accessed a file containing sensitive data and is not\nfrom the partner vendor’s range.\nThe log files show the following information:\nThe IP addresses of the hosts that accessed the web server\nThe date and time of the access\nThe file path of the requested resource\nThe number of bytes transferred\nThe organization’s priorities are:\nUnauthorized data disclosure is more critical than denial of service attempts\nDenial of service attempts are more important than ensuring vendor data access\nAccording to these priorities, the most serious threat to the organization is unauthorized data\ndisclosure, which occurs when sensitive, protected, or confidential data is copied, transmitted,\nviewed, stolen, altered, or used by an individual unauthorized to do so123. Therefore, the host that\naccessed a file containing sensitive data and is not from the partner vendor’s range poses the highest\nrisk to the organization.\nThe file that contains sensitive data is /reports/2023/financials.pdf, as indicated by its name and\npath. This file was accessed by two hosts: 121.19.30.221 and 216.122.5.5. However, only\n121.19.30.221 is not from the partner vendor’s range, which is 216.122.5.x. Therefore, 121.19.30.221\nis a potential unauthorized data disclosure threat and warrants additional investigation.\nThe other hosts do not warrant additional investigation based on the log files and the organization’s\npriorities.\nHost 134.17.188.5 accessed /index.html multiple times in a short period of time, which could\nindicate a denial of service attempt by flooding the web server with requests45. However, denial of\nservice attempts are less critical than unauthorized data disclosure according to the organization’s\npriorities, and there is no evidence that this host succeeded in disrupting the web server’s normal\noperations.\nHost 202.180.1582 accessed /images/logo.png once, which does not indicate any malicious activity\nor threat to the organization.\nHost 216.122.5.5 accessed /reports/2023/financials.pdf once, which could indicate unauthorized\ndata disclosure if it was not authorized to do so. However, this host is from the partner vendor’s\nrange, which is required to have access to monthly reports and is the only external vendor with\nauthorized access according to the organization’s requirements.\nTherefore, based on the log files and the organization’s priorities, host 121.19.30.221 warrants\nadditional investigation as it poses the highest risk of unauthorized data disclosure to the\norganization.",
-    "image": "images/page_126_img_2.jpeg"
+    "image": "images/q157.jpeg"
   },
   {
     "id": "q-jc-158",
@@ -2873,7 +2873,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "This is because scanning without admin privileges can limit the scope and accuracy of the\nvulnerability scan, and potentially miss some critical vulnerabilities that require higher privileges to\ndetect. According to the OWASP Vulnerability Management Guide1, “scanning without\nadministrative privileges will result in a large number of false negatives and an incomplete scan”.\nTherefore, the analyst should recommend addressing this issue to ensure potential vulnerabilities\nare identified.",
-    "image": "images/page_133_img_2.jpeg"
+    "image": "images/q165.jpeg"
   },
   {
     "id": "q-jc-166",
@@ -2924,7 +2924,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Vulnerability 2 has the highest impact metrics, specifically the highest attack vector (AV) and attack\ncomplexity (AC) values. This means that the vulnerability is more likely to be exploited and more\ndifficult to remediate.\nReference:\nCVSS v3.1 Specification Document, section 2.1.1 and 2.1.2\nThe CVSS v3 Vulnerability Scoring System, section 3.1 and 3.2",
-    "image": "images/page_135_img_2.jpeg"
+    "image": "images/q168.jpeg"
   },
   {
     "id": "q-jc-169",
@@ -3009,7 +3009,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "This VM has a public IP and an open port 80, which violates the company’s security requirements of\nno public IPs and no insecure ports/protocols. It also exposes the VM to potential attacks from the\ninternet. This VM should be updated first to use a private IP and close the port 80, or use a secure\nprotocol such as HTTPS.\nReference\n[CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition], Chapter 2: Cloud and Hybrid\nEnvironments, page 67.\n[What is a Public IP Address?]\n[What is Port 80?]",
-    "image": "images/page_138_img_2.jpeg"
+    "image": "images/q173.jpeg"
   },
   {
     "id": "q-jc-174",
@@ -3354,7 +3354,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The one-liner script is utilizing JavaScript to execute a PowerShell command that downloads and runs\na script from an external source, indicating the use of custom malware to download an additional\nscript. Reference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 4: Security\nOperations and Monitoring, page 156.",
-    "image": "images/page_154_img_2.jpeg"
+    "image": "images/q194.jpeg"
   },
   {
     "id": "q-jc-195",
@@ -3388,7 +3388,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The suspicious line in the web server logs is an attempt to execute a command on the server,\nindicating a command injection attack.\nReference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5, page 197; CompTIA\nCySA+ CS0-003 Certification Study Guide, Chapter 5, page 205.",
-    "image": "images/page_156_img_2.jpeg"
+    "image": "images/q196.jpeg"
   },
   {
     "id": "q-jc-197",
@@ -3439,7 +3439,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Vulnerability 2 should be prioritized as it is exploitable, has high exploit activity, and is exposed\nexternally according to the SMITTEN metric. Reference: Vulnerability Management Metrics: 5\nMetrics to Start Measuring in Your Program, Section: Vulnerability Severity.",
-    "image": "images/page_156_img_2.jpeg"
+    "image": "images/q199.jpeg"
   },
   {
     "id": "q-jc-200",
@@ -3636,7 +3636,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Based on the events in the log, the most likely occurrence is that an adversary is performing a\nvulnerability scan. The log shows LDAP read operations and EDR enumerating local groups, which are\nindicative of an adversary scanning the system to find vulnerabilities or sensitive information. The\nfinal entry shows SMB connection attempts to multiple hosts from a single host, which could be a\nsign of network discovery or lateral movement. Reference: CompTIA CySA+ Study Guide: Exam CS0-\n003, 3rd Edition, Chapter 4: Security Operations and Monitoring, page 161; Monitor logs from\nvulnerability scanners, Section: Reports on Nessus vulnerability data.",
-    "image": "images/page_162_img_2.jpeg"
+    "image": "images/q210.jpeg"
   },
   {
     "id": "q-jc-211",
@@ -3692,7 +3692,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The MTTD (Mean Time To Detect) is calculated by averaging the time elapsed in detecting incidents.\nFrom the given data: (180+150+170+140)/4 = 160 minutes. This is the correct answer according to\nthe CompTIA CySA+ CS0-003 Certification Study Guide1, Chapter 4, page 161. Reference: CompTIA\nCySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 4, page 153; CompTIA CySA+ CS0-003\nCertification Study Guide, Chapter 4, page 161.",
-    "image": "images/page_164_img_2.jpeg"
+    "image": "images/q213.jpeg"
   },
   {
     "id": "q-jc-214",
@@ -3953,7 +3953,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The security administrator should investigate shtml.exe next, as it is a potential vulnerability that\nallows remote code execution on the web server. Nikto scan results indicate that the web server is\nrunning Apache on Windows, and that the shtml.exe file is accessible in the /scripts/ directory. This\nfile is part of the Server Side Includes (SSI) feature, which allows dynamic content generation on web\npages. However, if the SSI feature is not configured properly, it can allow attackers to execute\narbitrary commands on the web server by injecting malicious code into the URL or the web page12.\nTherefore, the security administrator should check the SSI configuration and permissions, and\nremove or disable the shtml.exe file if it is not needed. Reference: Nikto-Penetration testing.\nIntroduction, Web application scanning with Nikto",
-    "image": "images/page_176_img_2.jpeg"
+    "image": "images/q228.jpeg"
   },
   {
     "id": "q-jc-229",
@@ -4140,7 +4140,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "SQL injection should be remediated first, as it is a high-severity vulnerability that can allow an\nattacker to execute arbitrary SQL commands on the database server and access, modify, or delete\nsensitive data, including PII. According to the Arachni scan results, there are two instances of SQL\ninjection and three instances of blind SQL injection (two timing attacks and one differential analysis)\nin the web application. These vulnerabilities indicate that the web application does not properly\nvalidate or sanitize the user input before passing it to the database server, and thus exposes the\ndatabase to malicious queries12. SQL injection can have serious consequences for the confidentiality,\nintegrity, and availability of the data and the system, and can also lead to further attacks, such as\nprivilege escalation, data exfiltration, or remote code execution34. Therefore, SQL injection should\nbe the highest priority for remediation, and the web application should implement input validation,\nparameterized queries, and least privilege principle to prevent SQL injection attacks5. Reference:\nWeb application testing with Arachni | Infosec, How do I create a generated scan report for PDF in\nArachni Web …, Command line user interface · Arachni/arachni Wiki · GitHub, SQL Injection - OWASP,\nBlind SQL Injection - OWASP, SQL Injection Attack: What is it, and how to prevent it., SQL Injection\nCheat Sheet & Tutorial | Veracode",
-    "image": "images/page_188_img_2.jpeg"
+    "image": "images/q239.jpeg"
   },
   {
     "id": "q-jc-240",
@@ -4243,7 +4243,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "nessie.explosion should be prioritized for remediation, as it has the highest CVSSv3.1 exploitability\nscore of 8.6. The exploitability score is a sub-score of the CVSSv3.1 base score, which reflects the\nease and technical means by which the vulnerability can be exploited. The exploitability score is\ncalculated based on four metrics: Attack Vector, Attack Complexity, Privileges Required, and User\nInteraction. The higher the exploitability score, the more likely and feasible the vulnerability is to be\nexploited by an attacker12. nessie.explosion has the highest exploitability score because it has the\nlowest values for all four metrics: Network (AV:N), Low (AC:L), None (PR:N), and None (UI:N). This\nmeans that the vulnerability can be exploited remotely over the network, without requiring any user\ninteraction or privileges, and with low complexity. Therefore, nessie.explosion poses the greatest\nthreat to the end user workstations, and should be remediated first. vote.4p, sweet.bike, and\ngreat.skills have lower exploitability scores because they have higher values for some of the metrics,\nsuch as Adjacent Network (AV:A), High (AC:H), Low (PR:L), or Required (UI:R). This means that the\nvulnerabilities are more difficult or less likely to be exploited, as they require physical proximity, user\ninvolvement, or some privileges34. Reference: CVSS v3.1 Specification Document - FIRST, NVD - CVSS\nv3 Calculator, CVSS v3.1 User Guide - FIRST, CVSS v3.1 Examples - FIRST",
-    "image": "images/page_195_img_2.jpeg"
+    "image": "images/q245.jpeg"
   },
   {
     "id": "q-jc-246",
@@ -4296,7 +4296,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "C. Impossible geo-velocity is the correct answer. This event occurs when a user account authenticates successfully from two geographically distant locations within a time window that makes physical travel impossible (e.g., New York and Tokyo within 30 minutes). This is a key indicator of compromised credentials being used by an attacker in a different location. MFA was bypassed, suggesting the attacker obtained or intercepted push notification codes. Dictionary attack (A) involves systematic password guessing, not successful MFA bypasses. Push phishing (B) tricks users into approving MFA — possible, but impossible geo-velocity specifically describes the pattern seen in logs. SIM swapping (D) intercepts SMS-based MFA. Password spray (F) targets many accounts.",
-    "image": "images/page_198_img_2.jpeg"
+    "image": "images/q248.jpeg"
   },
   {
     "id": "q-jc-249",
@@ -4399,7 +4399,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The first step should be to perform a public search for malware reports on taskhw.exe, as this file is\nsuspicious for several reasons: it is located in a non-standard path, it has a high CPU usage, it is\nsigned by an unknown entity, and it is only present on one host. A public search can help to\ndetermine if this file is a known malware or a legitimate program. If it is malware, the hunter can\nthen take appropriate actions to remove it and prevent further damage. The other options are either\npremature or ineffective, as they do not provide enough information to assess the threat level of\ntaskhw.exe. Reference: Cybersecurity Analyst+ - CompTIA, taskhw.exe Windows process - What is it?\n- file.net, Taskhostw.exe - What Is Taskhostw.exe & Is It Malware? - MalwareTips Forums",
-    "image": "images/page_203_img_2.jpeg"
+    "image": "images/q254.jpeg"
   },
   {
     "id": "q-jc-255",
@@ -4648,7 +4648,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "SQL injection is a type of attack that injects malicious SQL statements into a web application’s input\nfields or parameters, in order to manipulate or access the underlying database. The request shown in\nthe image contains an SQL injection attempt, as indicated by the “UNION SELECT” statement, which\nis used to combine the results of two or more queries. The attacker is trying to extract information\nfrom the database by appending the malicious query to the original one",
-    "image": "images/page_213_img_2.jpeg"
+    "image": "images/q268.jpeg"
   },
   {
     "id": "q-jc-269",
@@ -4721,7 +4721,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "The vulnerability scan shows that the version information is visible in the http-server-header, which\ncan be exploited by attackers to identify vulnerabilities specific to that version. Removing or\nobfuscating this information can enhance security.\nReference: CompTIA CySA+ CS0-003 Certification Study Guide, Chapter 4: Vulnerability Management,\npage 172; CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5: Vulnerability\nManagement, page 223.",
-    "image": "images/page_216_img_2.jpeg"
+    "image": "images/q272.jpeg"
   },
   {
     "id": "q-jc-273",
@@ -4823,7 +4823,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The threat was detected from the time the emails were sent at 8:30 a.m. to when the recipients\nstarted alerting the organization’s help desk about the email at 8:45 a.m., taking a total of 15\nminutes. The detection time is the time elapsed between the occurrence of an incident and its\ndiscovery by the security team . The other options are either too short or too long based on the given\ninformation. Reference: : Detection Time : Incident Response Metrics: Mean Time to Detect and\nMean Time to Respond",
-    "image": "images/page_220_img_2.jpeg"
+    "image": "images/q278.jpeg"
   },
   {
     "id": "q-jc-279",
@@ -4909,7 +4909,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The system “blane” with the vulnerability name “snakedoctor” should be prioritized for patching as\nit has a network attack vector (AV:N), low attack complexity (AC:L), and high availability (A:H). These\nmetrics indicate that it would be relatively easy to exploit this vulnerability over the internet, and the\nsystem is highly available. Reference: According to the CVSS v3.1 Specification Document, the\nexploitability metrics for CVSS are Attack Vector, Attack Complexity, Privileges Required, User\nInteraction, and Scope. These metrics measure how the vulnerability is accessed, the complexity of\nthe attack, and the level of interaction and privileges required to exploit the vulnerability. The image\nshows a table with the values of these metrics for each system and vulnerability. Based on these\nvalues, the system “blane” has the highest exploitability score, as it has the most favorable\nconditions for an attacker. The other systems have either a lower attack vector, higher attack\ncomplexity, or lower availability, which make them less exploitable. Therefore, the system “blane”\nshould be patched first.",
-    "image": "images/page_223_img_2.jpeg"
+    "image": "images/q283.jpeg"
   },
   {
     "id": "q-jc-284",
@@ -5136,7 +5136,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "The correct nmap command for discovering application versions is `nmap -sV -T4 -F insecure.org` (C). The -sV flag enables Service/Version Detection, which probes open ports to determine the service name and version number (e.g., Apache 2.4.18, OpenSSH 7.9). -T4 sets an aggressive timing template for faster scanning. -F scans only the top 100 common ports. Option A (-sS) performs a SYN stealth scan without version detection. Option B (-o) is not a valid nmap flag. Option D (-A) enables aggressive mode (version + OS detection + scripting + traceroute), which is more intrusive than necessary for just version identification.",
-    "image": "images/page_233_img_2.jpeg"
+    "image": "images/q296.jpeg"
   },
   {
     "id": "q-jc-297",
@@ -5153,7 +5153,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "The output shows that port 80 is open and running an HTTP service, indicating that the host could\npotentially be vulnerable to web-based attacks. The other options are not relevant for this purpose:\nthe host is responsive to the ICMP request, as shown by the “Host is up” message; the host is not\nrunning a mail server, as there is no SMTP or POP3 service detected; the host is not allowing\nunsecured FTP connections, as there is no FTP service detected.\nReference: According to the CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition123, one of the\nobjectives for the exam is to “use appropriate tools and methods to manage, prioritize and respond\nto attacks and vulnerabilities”. The book also covers the usage and syntax of nmap, a popular\nnetwork scanning tool, in chapter 5. Specifically, it explains the meaning and function of each option\nin nmap, such as “-sV” for version detection2, page 195. Therefore, this is a reliable source to verify\nthe answer to the question.",
-    "image": "images/page_233_img_2.jpeg"
+    "image": "images/q297.jpeg"
   },
   {
     "id": "q-jc-298",
@@ -5170,7 +5170,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The security analyst is validating a Local File Inclusion (LFI) vulnerability, as indicated by the\n“/…/…/…/” in the GET request which is a common indicator of directory traversal attempts\nassociated with LFI. The other options are not relevant for this purpose: SQL injection involves\ninjecting malicious SQL statements into a database query; XSS involves injecting malicious scripts\ninto a web page; CSRF involves tricking a user into performing an unwanted action on a web\napplication.\nReference: According to the CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition1, one of the\nobjectives for the exam is to “use appropriate tools and methods to manage, prioritize and respond\nto attacks and vulnerabilities”. The book also covers the usage and syntax of Burp Suite, a tool used\nfor testing web application security, in chapter 6. Specifically, it explains the meaning and function of\neach component in Burp Suite, such as Repeater, which allows the security analyst to modify and\nresend individual requests1, page 239. Therefore, this is a reliable source to verify the answer to the\nquestion.",
-    "image": "images/page_235_img_2.jpeg"
+    "image": "images/q298.jpeg"
   },
   {
     "id": "q-jc-299",
@@ -5325,7 +5325,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Based on the list of hosts and their functions, DCEast01, which is a Domain Controller, would be the\nmost pivotal in the distribution of an encryption binary via Group Policy. Domain Controllers are\nresponsible for security and administrative policies within a Windows Domain. Group Policy is a\nfeature of Windows that facilitates a wide range of advanced settings that administrators can use to\ncontrol the working environment of user accounts and computer accounts. Group Policy can be used\nto deploy software, which in this case would be the encryption binary of the ransomware. SQL01 is a\ndatabase server and unlikely to be used for this purpose. WK10-Sales07 and WK7-Plant01 are client\nmachines, and HQAdmin9, although it is a network admin laptop, would not typically be used to\ndistribute policies across a network.",
-    "image": "images/page_244_img_2.jpeg"
+    "image": "images/q307.jpeg"
   },
   {
     "id": "q-jc-308",
@@ -5342,7 +5342,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Improving employee training and awareness is the best option to address the issue of sensitive\nreports being disclosed via file sharing services. By educating employees about the risks of\nunapproved file sharing, the security protocols to follow, and the proper channels to use for sharing\ncompany information, an organization can significantly reduce the risk of sensitive data being\naccidentally or intentionally shared on insecure platforms. This human-centric approach addresses\nthe root cause of the problem. Options A, C, and D are security controls that do not directly address\nthe behavior of sharing sensitive files on unauthorized services.",
-    "image": "images/page_244_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-309",
@@ -5546,7 +5546,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Security Orchestration, Automation, and Response (SOAR) can help the SOC analyst reduce the\nnumber of alarms by automating the process of removing duplicates and managing security alerts\nmore efficiently. SOAR platforms enable security teams to define, prioritize, and standardize\nresponse procedures, which helps in reducing the workload and improving the overall efficiency of\nincident response by handling repetitive and low-level tasks automatically.",
-    "image": "images/page_251_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-321",
@@ -5563,7 +5563,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Fuzzing is a process used to test applications by inputting unexpected or random data to see how the\napplication behaves. This method is particularly effective in identifying vulnerabilities such as buffer\noverflows, input validation errors, and other anomalies that could cause the application to crash or\nbehave unexpectedly. By using fuzzing, the security team can ensure the new application is robust\nand capable of handling unexpected strings with anomalous formats without crashing.",
-    "image": "images/page_251_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-324",
@@ -5580,7 +5580,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "Developing an organization's communication plans is crucial to ensure that incidents, especially\nthose involving sensitive data like PH (Protected Health) data, are promptly reported to the relevant\nregulatory agencies. This is essential for compliance with legal and regulatory requirements, which\noften mandate timely notification of data breaches. Effective communication plans help the\norganization manage the breach response process, mitigate potential legal penalties, and maintain\ntransparency with regulatory bodies.",
-    "image": "images/page_259_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-325",
@@ -5614,7 +5614,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "C",
     "explanation": "An incident response timeline is a detailed chronological record of all events and actions taken\nduring the response to a security incident. It includes timestamps and descriptions of each step,\nproviding a comprehensive overview of how the incident was detected, contained, mitigated, and\nresolved. This timeline is crucial for post-incident analysis, helping to understand the effectiveness of\nthe response, identify areas for improvement, and ensure accountability and transparency in the\nincident handling process.",
-    "image": "images/page_262_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-327",
@@ -5631,7 +5631,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The first step for the security team when receiving a legal hold request is to notify the relevant\ndepartments to preserve all potentially relevant information. This ensures that no data is altered,\ndeleted, or otherwise tampered with, which is critical for maintaining the integrity of the evidence.\nPreserving information includes emails, documents, and any other data that might be relevant to the\nlegal matter. Establishing a chain of custody and backing up data are also important steps, but\nnotifying the involved parties is the immediate priority to prevent data loss.",
-    "image": "images/page_262_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-330",
@@ -5648,7 +5648,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "D",
     "explanation": "Dictionary attacks involve an attacker attempting to guess passwords by using a list of common\npasswords. Implementing a lockout policy is effective because it limits the number of login attempts,\nthereby hindering the attacker's ability to repeatedly attempt different passwords. Lockout policies\nare standard in cybersecurity practices to prevent brute-force and dictionary attacks by temporarily\ndisabling an account after a certain number of failed login attempts. According to CompTIA Security+\nstandards, password complexity (option B) and multifactor authentication (option A) are helpful but\nare not as immediately effective in directly preventing repeated attempts as a lockout policy.",
-    "image": "images/page_269_img_2.jpeg"
+    "image": ""
   },
   {
     "id": "q-jc-331",
@@ -5931,7 +5931,7 @@ const CYSA_QUESTIONS = [
       "C"
     ],
     "explanation": "During an incident, the legal team plays a crucial role in handling regulatory compliance and\nreviewing legal implications, such as contractual obligations and reporting requirements. Advising on\nregulatory reporting (Option C) ensures the organization meets legal mandates, while reviewing\ncontracts (Option B) can address new or emergency services needed during the incident. According\nto CompTIA CySA+ and Security+ guidelines, these legal responsibilities are vital for compliance and\nrisk management. Options related to staffing, damage assessments, and clearances typically fall\nunder operational or HR responsibilities rather than legal purview.",
-    "image": "images/page_280_img_2.png"
+    "image": ""
   },
   {
     "id": "q-jc-347",
@@ -5953,8 +5953,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "B. Integrity and E. Non-repudiation are the two properties that digital signatures provide for sensitive email communications. Integrity (B) ensures that the email content has not been altered during transit — the digital signature is mathematically tied to the exact content, so any modification invalidates the signature. Non-repudiation (E) ensures the sender cannot later deny sending the message, as the signature is tied to their private key. This is critical for legally binding contract negotiations. Confidentiality (A) requires encryption, not signatures. Privacy (C) and Anonymity (D) are protected by different controls. Authorization (F) controls access rights.",
-    "image": "images/page_280_img_2.png"
-  },
+    "image": ""
   {
     "id": "q-jc-348",
     "type": "mcq",
@@ -5970,7 +5969,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "B",
     "explanation": "The vulnerability with the highest CVSS score and an active exploit is Microsoft CVE-2021-34527\n(PrintNightmare). Although only present on two instances, its high severity (8.4) and exploitable\nnature make it a priority. PrintNightmare is a well-known remote code execution vulnerability, which\ncan be a critical risk. According to CompTIA CySA+ and vulnerability management practices,\nprioritizing based on severity and exploitability is essential, even over the number of instances.\nOther vulnerabilities listed are less severe or lack active exploitation.",
-    "image": "images/page_280_img_2.png"
+    "image": "images/q348.png"
   },
   {
     "id": "q-jc-349",
