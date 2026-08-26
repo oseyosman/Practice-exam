@@ -5936,7 +5936,7 @@ const CYSA_QUESTIONS = [
       "E"
     ],
     "explanation": "B. Integrity and E. Non-repudiation are the two properties that digital signatures provide for sensitive email communications. Integrity (B) ensures that the email content has not been altered during transit — the digital signature is mathematically tied to the exact content, so any modification invalidates the signature. Non-repudiation (E) ensures the sender cannot later deny sending the message, as the signature is tied to their private key. This is critical for legally binding contract negotiations. Confidentiality (A) requires encryption, not signatures. Privacy (C) and Anonymity (D) are protected by different controls. Authorization (F) controls access rights.",
-    "image": "images/page_280_img_2.png"
+    "image": null
   },
   {
     "id": "q-jc-348",
