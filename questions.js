@@ -267,6 +267,23 @@ const CYSA_QUESTIONS = [
     "explanation": "An on-path attack is a type of man-in-the-middle attack where an attacker intercepts and modifies\nnetwork traffic between two parties. In this case, someone with internal access may be performing\nan on-path attack by forcing users into port 80, which is used for HTTP communication, instead of\nport 443, which is used for HTTPS communication. This would allow the attacker to compromise the\nuser accounts and access the company’s internal portal.",
     "image": "images/page_6_img_3.jpeg"
   },
+   {
+    "id": "q-jc-8",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 4.0: Reporting and Communication",
+    "question": "A security analyst is tasked with prioritizing vulnerabilities for remediation. The relevant company security policies are shown below:Security Policy 1006: Vulnerability Management1. The Company shall use the CVSSv3.1 Base Score Metrics (Exploitability and Impact) to prioritizethe remediation of security vulnerabilities.2. In situations where a choice must be made between confidentiality and availability, the Companyshall prioritize confidentiality of data over availability of systems and data.3. The Company shall prioritize patching of publicly available systems and services over patching ofinternally available system.According to the security policy, which of the following vulnerabilities should be the highest priorityto patch?A)",
+    "options": [
+      "A. Option A",
+      "B. Option B",
+      "C. Option C",
+      "D. Option D"
+    ],
+    "answer": "B",
+    "explanation": "",
+    "image": "images/page_6_img_3.jpeg"
+  },
   {
     "id": "q-jc-9",
     "type": "mcq",
