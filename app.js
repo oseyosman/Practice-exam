@@ -371,13 +371,17 @@ function createMCQView(q) {
   qText.innerHTML = formatCodeSnippets(q.question);
   wrapper.appendChild(qText);
 
-  // Question Image / Diagram (if present)
-  if (q.image) {
+  // Question Image / Diagram (if present) — supports single string or array of images
+  if (q.image && (typeof q.image === 'string' ? q.image.trim() : q.image.length > 0)) {
     const imgContainer = document.createElement('div');
     imgContainer.className = 'question-image-box';
+    const images = Array.isArray(q.image) ? q.image : [q.image];
+    const imgsHtml = images.map((src, idx) => `
+      <img src="${src}" class="question-image" alt="Question Exhibit ${idx + 1}" onclick="openImageZoom('${src}')">
+    `).join('');
     imgContainer.innerHTML = `
       <div class="image-header-tag">Reference Diagram / Scenario Exhibit</div>
-      <img src="${q.image}" class="question-image" alt="Question Exhibit Diagram" onclick="openImageZoom('${q.image}')">
+      ${imgsHtml}
       <span class="zoom-hint">Click image to enlarge</span>
     `;
     wrapper.appendChild(imgContainer);
