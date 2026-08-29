@@ -1413,3 +1413,280 @@ body {
 }
 
 
+
+/* ==========================================
+   MOBILE RESPONSIVE OVERRIDES
+   ========================================== */
+
+/* Tablet & below */
+@media (max-width: 900px) {
+  .main-content {
+    padding: 1.25rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phone breakpoint */
+@media (max-width: 640px) {
+
+  /* NAVBAR: stack brand + nav + status bar vertically */
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .nav-brand {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .brand-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-sub {
+    font-size: 0.7rem;
+  }
+
+  .shield-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .nav-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-btn span,
+  .nav-btn svg {
+    flex-shrink: 0;
+  }
+
+  .exam-selector-wrapper {
+    margin: 0;
+    order: 2;
+    width: 100%;
+  }
+
+  .exam-select-dropdown {
+    width: 100%;
+  }
+
+  .exam-status-bar {
+    order: 4;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .timer-card {
+    font-size: 1rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .progress-pill,
+  .live-score-pill {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  /* HERO CARD */
+  .hero-card {
+    padding: 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* MODE CARDS */
+  .mode-card {
+    padding: 1.25rem;
+  }
+
+  .domain-btn-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* EXAM HEADER BAR */
+  .exam-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .exam-actions-top {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .exam-actions-top .btn {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  /* QUESTION CARD */
+  .question-card {
+    padding: 1.25rem;
+    min-height: unset;
+  }
+
+  .question-text {
+    font-size: 1rem;
+  }
+
+  .option-item {
+    padding: 0.85rem 1rem;
+    gap: 0.75rem;
+  }
+
+  .option-content {
+    font-size: 0.9rem;
+  }
+
+  .log-terminal {
+    font-size: 0.75rem;
+  }
+
+  /* EXAM FOOTER BAR — stack into rows, keep tap targets big */
+  .exam-footer-bar {
+    flex-wrap: wrap;
+    padding: 0.85rem;
+    gap: 0.6rem;
+  }
+
+  .exam-footer-bar #prev-btn,
+  .exam-footer-bar #next-btn {
+    flex: 1 1 40%;
+  }
+
+  .footer-center {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-right {
+    order: 2;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .footer-right .btn {
+    flex: 1 1 100%;
+  }
+
+  /* MODALS */
+  .modal-overlay {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    max-height: 90vh;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1.1rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  /* QUESTION GRID NAVIGATOR */
+  .question-grid {
+    grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+  }
+
+  /* RESULTS SCREEN */
+  .results-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .score-num {
+    font-size: 2.5rem;
+  }
+
+  .review-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filter-pills {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .filter-pill {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .review-item {
+    padding: 1rem;
+  }
+
+  .review-item-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .nav-btn {
+    font-size: 0.72rem;
+    padding: 0.5rem 0.3rem;
+  }
+}
