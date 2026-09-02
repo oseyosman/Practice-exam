@@ -2732,7 +2732,7 @@ const CYSA_QUESTIONS = [
     "options": [
       "A. 121.19.30.221",
       "B. 134.17.188.5",
-      "C. 202.180.158.22",
+      "C. 202.180.1582",
       "D. 216.122.5.5"
     ],
     "answer": "A",
@@ -5105,23 +5105,6 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
-    "id": "q-jc-295",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 1.0: Security Operations",
-    "question": "An employee is no longer able to log in to an account after updating a browser. The employee usually\nhas several tabs open in the browser. Which of the following attacks was most likely performed?",
-    "options": [
-      "A. RFI",
-      "B. LFI",
-      "C. CSRF",
-      "D. XSS"
-    ],
-    "answer": "C",
-    "explanation": "CSRF is an attack that forces an end user to execute unwanted actions on a web application in which\nthey’re currently authenticated. An attacker may trick the user into clicking a malicious link or\nsubmitting a forged form that performs an action on the user’s behalf, such as changing their\npassword or transferring funds. If the user has several tabs open in the browser, they may not notice\nthe CSRF request or the resulting change in their account. Updating the browser may have cleared\nthe user’s cache or cookies, preventing them from logging in to their account after the CSRF attack.",
-    "image": null
-  },
-  {
     "id": "q-jc-296",
     "type": "mcq",
     "multiSelect": false,
@@ -5396,23 +5379,6 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
-    "id": "q-jc-312",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 3.0: Incident Response and Management",
-    "question": "An MSSP received several alerts from customer 1, which caused a missed incident response deadline\nfor customer 2. Which of the following best describes the document that was violated?",
-    "options": [
-      "A. KPI",
-      "B. SLO",
-      "C. SLA",
-      "D. MOU"
-    ],
-    "answer": "C",
-    "explanation": "The document that was violated in this scenario is the SLA (Service Level Agreement). An SLA is a\nformal agreement between a service provider and a customer that defines the level of service\nexpected. It includes specific metrics such as response times and resolution times. Missing an\nincident response deadline for customer 2 due to alerts from customer 1 indicates a breach of the\nagreed-upon service levels outlined in the SLA.",
-    "image": null
-  },
-  {
     "id": "q-jc-313",
     "type": "mcq",
     "multiSelect": false,
@@ -5512,23 +5478,6 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Adding the SHA-256 hash of a legitimate Microsoft-signed binary like svchost.exe to detection\nsignatures would result in the indicator firing on the majority of Windows devices. Svchost.exe is a\ncommon and legitimate system process used by Windows, and using its hash as an indicator of\ncompromise (IOC) would generate numerous false positives, as it would match the legitimate\ninstances of svchost.exe running on all Windows systems.",
-    "image": null
-  },
-  {
-    "id": "q-jc-319",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 3.0: Incident Response and Management",
-    "question": "The Chief Information Security Officer (CISO) of a large management firm has selected a\ncybersecurity framework that will help the organization demonstrate its investment in tools and\nsystems to protect its dat\na. Which of the following did the CISO most likely select?",
-    "options": [
-      "A. PCI DSS",
-      "B. COBIT",
-      "C. ISO 27001",
-      "D. ITIL"
-    ],
-    "answer": "C",
-    "explanation": "The Chief Information Security Officer (CISO) most likely selected ISO 27001, a widely recognized\ncybersecurity framework that helps organizations establish, implement, maintain, and continuously\nimprove an information security management system (ISMS). ISO 27001 is designed to help\norganizations manage the security of assets such as financial information, intellectual property,\nemployee details, and information entrusted by third parties, demonstrating a commitment to data\nprotection and security.",
     "image": null
   },
   {
@@ -6060,23 +6009,6 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Regular expressions are powerful tools for searching text based on specific patterns, making them\nideal for parsing Linux log files to detect security events with repeatable patterns. In Bash, regular\nexpressions can be used in commands like grep or awk to efficiently filter log data. CompTIA CySA+\nemphasizes the use of regular expressions in log analysis for pattern matching, a common\nrequirement for identifying suspicious activities in log files. Options B, C, and D are less suited for this\nspecific task due to their limited pattern-matching capabilities or platform constraints.",
-    "image": null
-  },
-  {
-    "id": "q-jc-354",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 1.0: Security Operations",
-    "question": "An analyst is reviewing a dashboard from the company’s SIEM and finds that an IP address known to\nbe malicious can be tracked to numerous high-priority events in the last two hours. The dashboard\nindicates that these events relate to TTPs. Which of the following is the analyst most likely using?",
-    "options": [
-      "A. MITRE ATT&CK",
-      "B. OSSTMM",
-      "C. Diamond Model of Intrusion Analysis",
-      "D. OWASP"
-    ],
-    "answer": "A",
-    "explanation": "The MITRE ATT&CK framework is specifically designed for tracking Tactics, Techniques, and\nProcedures (TTPs) associated with cyber threats. It provides a detailed matrix of known adversarial\nbehaviors, which is useful for correlating SIEM data to known attack patterns. According to CompTIA\nCySA+, MITRE ATT&CK is an industry-standard framework for threat intelligence and behavior\nanalysis, making it the ideal tool for tracking malicious IP addresses and understanding their tactics.\nOther options like OSSTMM, the Diamond Model, and OWASP do not focus on TTPs as directly as\nMITRE ATT&CK does.",
     "image": null
   },
   {
