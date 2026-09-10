@@ -1162,5 +1162,50 @@ function shuffleArray(array) {
 
 function formatCodeSnippets(str) {
   if (!str) return '';
-  return str.replace(/`([^`]+)`/g, '<code class="font-mono" style="background:rgba(255,255,255,0.08); padding:0.15rem 0.4rem; border-radius:4px; font-size:0.85em; color:var(--primary);">$1</code>');
+
+  // Split into lines and detect terminal/command blocks
+  const lines = str.split('\n');
+  const result = [];
+  let codeBlock = [];
+  let inCode = false;
+
+  const isCodeLine = (line) => {
+    const t = line.trim();
+    return (
+      t.startsWith('#') ||
+      /^\d+\/tcp\s/.test(t) ||
+      /^\d+\/udp\s/.test(t) ||
+      /^PORT\s+STATE/.test(t) ||
+      /^Starting nmap/.test(t) ||
+      /^Host is up/.test(t) ||
+      /^Nmap scan/.test(t) ||
+      /^nmap\s+-/.test(t)
+    );
+  };
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (isCodeLine(line)) {
+      if (!inCode) { inCode = true; codeBlock = []; }
+      codeBlock.push(line);
+    } else {
+      if (inCode) {
+        result.push(`<pre class="nmap-block">${codeBlock.map(l => escHtml(l)).join('\n')}</pre>`);
+        codeBlock = [];
+        inCode = false;
+      }
+      // Inline backtick code
+      const formatted = line.replace(/`([^`]+)`/g, '<code class="font-mono" style="background:rgba(255,255,255,0.08); padding:0.15rem 0.4rem; border-radius:4px; font-size:0.85em; color:var(--primary);">$1</code>');
+      result.push(formatted);
+    }
+  }
+  if (inCode && codeBlock.length) {
+    result.push(`<pre class="nmap-block">${codeBlock.map(l => escHtml(l)).join('\n')}</pre>`);
+  }
+
+  return result.join('<br>');
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }

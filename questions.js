@@ -6166,7 +6166,7 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 1.0: Security Operations",
-    "question": "A security analyst runs the following command:\n# nmap -T4 -F 192.168.30.30\nStarting nmap 7.6\nHost is up (0.13s latency)\nPORT\nSTATE SERVICE\n23/tcp open\ntelnet\n443/tcp open\nhttps\n636/tcp open\nldaps\nWhich of the following should the analyst recommend first to harden the system?",
+    "question": "A security analyst runs the following command:\n# nmap -T4 -F 192.168.30.30\nStarting nmap 7.6\nHost is up (0.13s latency)\nPORT     STATE  SERVICE\n23/tcp   open   telnet\n443/tcp  open   https\n636/tcp  open   ldaps\nWhich of the following should the analyst recommend first to harden the system?",
     "options": [
       "A. Disable all protocols that do not use encryption.",
       "B. Configure client certificates for domain services.",

@@ -61,6 +61,23 @@ body {
 .mb-2 { margin-bottom: 0.5rem; }
 .mt-3 { margin-top: 1rem; }
 
+/* Terminal / command-output block */
+.nmap-block {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  line-height: 1.65;
+  white-space: pre;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--primary);
+  border-radius: 6px;
+  padding: 0.75rem 1.1rem;
+  margin: 0.75rem 0;
+  color: #a5f3b4;
+  overflow-x: auto;
+}
+
 /* APP LAYOUT */
 .app-container {
   display: flex;
@@ -1418,7 +1435,14 @@ body {
    MOBILE RESPONSIVE OVERRIDES
    ========================================== */
 
-/* Tablet & below */
+/* ── Shared touch-target minimum ── */
+@media (hover: none) {
+  .btn, .option-item, .nav-btn, .filter-pill, .grid-q-btn {
+    min-height: 44px;
+  }
+}
+
+/* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
   .main-content {
     padding: 1.25rem;
@@ -1431,16 +1455,26 @@ body {
   .modes-grid {
     grid-template-columns: 1fr;
   }
+
+  .exam-header-bar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .exam-actions-top {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 }
 
-/* Phone breakpoint */
+/* ── Phone (≤ 640px) ── */
 @media (max-width: 640px) {
 
-  /* NAVBAR: stack brand + nav + status bar vertically */
+  /* NAVBAR */
   .navbar {
     flex-wrap: wrap;
     padding: 0.75rem 1rem;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   .nav-brand {
@@ -1449,244 +1483,490 @@ body {
   }
 
   .brand-title {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .brand-sub {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
   }
 
   .shield-icon {
     width: 34px;
     height: 34px;
-  }
-
-  .nav-links {
-    order: 3;
-    width: 100%;
-    justify-content: stretch;
-  }
-
-  .nav-btn {
-    flex: 1;
-    justify-content: center;
-    padding: 0.5rem 0.5rem;
-    font-size: 0.8rem;
-  }
-
-  .nav-btn span,
-  .nav-btn svg {
     flex-shrink: 0;
   }
 
+  /* Exam selector full-width below brand */
   .exam-selector-wrapper {
-    margin: 0;
     order: 2;
+    margin: 0;
     width: 100%;
   }
 
   .exam-select-dropdown {
     width: 100%;
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
   }
 
+  /* Nav links full-width row */
+  .nav-links {
+    order: 3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+  }
+
+  .nav-btn {
+    justify-content: center;
+    padding: 0.55rem 0.5rem;
+    font-size: 0.82rem;
+    min-height: 44px;
+  }
+
+  /* Exam status bar full-width */
   .exam-status-bar {
     order: 4;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 0.5rem;
   }
 
   .timer-card {
-    font-size: 1rem;
-    padding: 0.35rem 0.7rem;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.75rem;
   }
 
   .progress-pill,
   .live-score-pill {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     padding: 0.35rem 0.6rem;
+  }
+
+  /* MAIN CONTENT */
+  .main-content {
+    padding: 0.9rem;
   }
 
   /* HERO CARD */
   .hero-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .hero-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .hero-desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    margin-bottom: 1.25rem;
   }
 
   .stats-row {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-box {
+    padding: 0.75rem 1rem;
+  }
+
+  .stat-val {
+    font-size: 1.2rem;
   }
 
   /* MODE CARDS */
+  .modes-grid {
+    gap: 1rem;
+  }
+
   .mode-card {
-    padding: 1.25rem;
+    padding: 1.1rem;
+  }
+
+  .mode-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 0.9rem;
   }
 
   .domain-btn-row {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
   /* EXAM HEADER BAR */
   .exam-header-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0.75rem;
-    padding: 1rem;
+    padding: 0.85rem 1rem;
   }
 
-  .exam-actions-top {
-    width: 100%;
+  .question-meta {
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
-  .exam-actions-top .btn {
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
+  .q-number-pill {
+    font-size: 1rem;
+  }
+
+  .q-domain-pill {
+    font-size: 0.72rem;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  /* Action buttons: shrink text, keep icon */
+  .exam-actions-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  .exam-actions-top .btn,
+  .flag-custom {
+    min-height: 44px;
+    padding: 0.5rem 0.4rem;
+    font-size: 0;
+    /* Hide text, show only icon */
+    gap: 0;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Show icon and hide label text in action buttons */
+  .exam-actions-top .btn svg,
+  .flag-custom svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Re-show the flag text at 0 size won't work for label; override */
+  .flag-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   /* QUESTION CARD */
   .question-card {
-    padding: 1.25rem;
+    padding: 1rem;
     min-height: unset;
+    border-radius: var(--radius-md);
   }
 
   .question-text {
-    font-size: 1rem;
+    font-size: 0.97rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.65;
   }
 
+  /* Terminal/nmap block on mobile: wrap instead of scroll */
+  .nmap-block {
+    white-space: pre-wrap;
+    font-size: 0.8em;
+    padding: 0.65rem 0.85rem;
+    overflow-x: hidden;
+  }
+
+  /* OPTION ITEMS */
   .option-item {
-    padding: 0.85rem 1rem;
-    gap: 0.75rem;
+    padding: 0.85rem 0.9rem;
+    gap: 0.65rem;
+    min-height: 52px;
+    align-items: center;
   }
 
   .option-content {
     font-size: 0.9rem;
+    line-height: 1.5;
   }
 
+  .option-prefix {
+    font-size: 0.95rem;
+    min-width: 20px;
+  }
+
+  .radio-indicator,
+  .checkbox-indicator {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* LOG TERMINAL (PBQ) */
   .log-terminal {
     font-size: 0.75rem;
+    padding: 0.85rem;
   }
 
-  /* EXAM FOOTER BAR — stack into rows, keep tap targets big */
+  /* EXAM FOOTER BAR */
   .exam-footer-bar {
-    flex-wrap: wrap;
     padding: 0.85rem;
     gap: 0.6rem;
+    flex-wrap: wrap;
   }
 
-  .exam-footer-bar #prev-btn,
-  .exam-footer-bar #next-btn {
-    flex: 1 1 40%;
+  /* Prev / Next side by side in top row */
+  .exam-footer-bar > #prev-btn {
+    order: 1;
+    flex: 1 1 45%;
+    min-height: 48px;
   }
 
+  .footer-right {
+    order: 2;
+    flex: 1 1 45%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-right > #next-btn {
+    flex: 1 1 100%;
+    min-height: 48px;
+  }
+
+  .footer-right > #submit-exam-btn {
+    flex: 1 1 100%;
+    min-height: 48px;
+  }
+
+  /* Clear selection below in full width */
   .footer-center {
     order: 3;
     width: 100%;
     justify-content: center;
   }
 
-  .footer-right {
-    order: 2;
+  .footer-center .btn {
     width: 100%;
-    flex-wrap: wrap;
+    min-height: 44px;
   }
 
-  .footer-right .btn {
-    flex: 1 1 100%;
-  }
-
-  /* MODALS */
+  /* MODALS — slide up as bottom sheet */
   .modal-overlay {
-    padding: 0.75rem;
+    padding: 0;
     align-items: flex-end;
   }
 
   .modal-card {
-    max-height: 90vh;
+    max-height: 92vh;
     width: 100%;
     max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 
   .modal-header {
     padding: 1rem 1.25rem;
   }
 
+  .modal-header h3 {
+    font-size: 1.05rem;
+  }
+
   .modal-body {
-    padding: 1.1rem;
+    padding: 1rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-footer {
+    padding: 0.85rem 1rem;
     flex-direction: column-reverse;
     gap: 0.5rem;
   }
 
   .modal-footer .btn {
     width: 100%;
+    min-height: 48px;
   }
 
   /* QUESTION GRID NAVIGATOR */
+  .grid-legend {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
   .question-grid {
-    grid-template-columns: repeat(auto-fill, minmax(38px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .grid-q-btn {
+    min-height: 40px;
+    font-size: 0.8rem;
   }
 
   /* RESULTS SCREEN */
   .results-header {
     flex-direction: column;
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.25rem;
+    gap: 1rem;
   }
 
   .score-num {
     font-size: 2.5rem;
   }
 
+  .score-card,
+  .domain-breakdown-card,
+  .recommendation-card {
+    padding: 1.25rem;
+  }
+
+  .pass-threshold-bar {
+    margin: 1.25rem 0;
+  }
+
+  /* REVIEW SECTION */
+  .review-section {
+    padding: 1.1rem;
+  }
+
   .review-header-bar {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .review-header-bar h2 {
+    font-size: 1.1rem;
   }
 
   .filter-pills {
     flex-wrap: wrap;
     width: 100%;
+    gap: 0.35rem;
   }
 
   .filter-pill {
     flex: 1 1 auto;
     text-align: center;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .review-item {
-    padding: 1rem;
+    padding: 0.9rem;
   }
 
   .review-item-header {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
-}
 
-/* Very small phones */
-@media (max-width: 380px) {
-  .stats-row {
-    grid-template-columns: 1fr 1fr;
+  .review-question-text {
+    font-size: 0.88rem;
   }
 
+  .review-opt {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .review-explanation {
+    font-size: 0.85rem;
+    padding: 0.85rem;
+  }
+
+  /* HISTORY SECTION */
+  .history-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* SCRAPER MODAL code block */
+  .code-block code {
+    word-break: break-all;
+    white-space: pre-wrap;
+    font-size: 0.75rem;
+  }
+
+  /* MULTI-SELECT BADGE */
+  .multi-select-badge {
+    font-size: 0.73rem;
+    padding: 0.3rem 0.65rem;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  /* PBQ */
+  .pbq-scenario {
+    font-size: 0.88rem;
+    padding: 1rem;
+  }
+
+  /* Study inline explanation */
+  .study-result-banner {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .study-explanation-body {
+    font-size: 0.85rem;
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* ── Very small phones (≤ 380px) ── */
+@media (max-width: 380px) {
   .brand-sub {
     display: none;
+  }
+
+  .brand-title {
+    font-size: 0.92rem;
+  }
+
+  .shield-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hero-title {
+    font-size: 1.2rem;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
   }
 
   .nav-btn {
     font-size: 0.72rem;
     padding: 0.5rem 0.3rem;
   }
+
+  .question-text {
+    font-size: 0.92rem;
+  }
+
+  .option-item {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .exam-actions-top {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .score-num {
+    font-size: 2rem;
+  }
+
+  .nmap-block {
+    font-size: 0.72em;
+  }
 }
+
