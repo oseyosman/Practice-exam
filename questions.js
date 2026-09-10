@@ -2616,23 +2616,6 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
-    "id": "q-jc-150",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 2.0: Vulnerability Management",
-    "question": "An organization conducted a web application vulnerability assessment against the corporate website,\nand the following output was observed:\nWhich of the following tuning recommendations should the security analyst share?",
-    "options": [
-      "A. Set an Http Only flag to force communication by HTTPS.",
-      "B. Block requests without an X-Frame-Options header.",
-      "C. Configure an Access-Control-Allow-Origin header to authorized domains.",
-      "D. Disable the cross-origin resource sharing header."
-    ],
-    "answer": "C",
-    "explanation": "Explanation: The output shows that the web application has a cross-origin resource sharing (CORS)\nheader that allows any origin to access its resources. This is a security misconfiguration that could\nallow malicious websites to make requests to the web application on behalf of the user and access\nsensitive data or perform unauthorized actions. The tuning recommendation is to configure the\nAccess-Control-Allow-Origin header to only allow authorized domains that need to access the web\napplication’s resources. This would prevent unauthorized cross-origin requests and reduce the risk of\ncross-site request forgery (CSRF) attacks.\nReference: OWASP Top Ten | OWASP Foundation",
-    "image": "images/q150.jpeg"
-  },
-  {
     "id": "q-jc-152",
     "type": "mcq",
     "multiSelect": false,
@@ -2752,8 +2735,8 @@ const CYSA_QUESTIONS = [
       "C. Red team",
       "D. Purple team"
     ],
-    "answer": "D",
-    "explanation": "A purple team role is specifically about coordinating between offense and defense — communicating with the red team (the "authorized team" performing adversarial techniques) to set the stage for exercises and monitoring the results, so both sides learn from the engagement in real time. That collaborative, coordinating function is the defining trait of purple teaming..",
+    "answer": "A",
+    "explanation": "Official JustCerts CompTIA CySA+ CS0-003 question solution.",
     "image": null
   },
   {
@@ -5054,23 +5037,6 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
-    "id": "q-jc-292",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 1.0: Security Operations",
-    "question": "A security analyst is performing an investigation involving multiple targeted Windows malware\nbinaries. The analyst wants to gather intelligence without disclosing information to the attackers.\nWhich of the following actions would allow the analyst to achieve the objective?",
-    "options": [
-      "A. Upload the binary to an air-gapped sandbox for analysis.",
-      "B. Send the binaries to the antivirus vendor.",
-      "C. Execute the binaries on an environment with internet connectivity.",
-      "D. Query the file hashes using VirusTotal."
-    ],
-    "answer": "A",
-    "explanation": "An air-gapped sandbox is a virtual machine or a physical device that is isolated from any network\nconnection. This allows the analyst to safely execute the malware binaries and observe their\nbehavior without risking any communication with the attackers or any damage to other systems.\nUploading the binary to an air-gapped sandbox is the best option to gather intelligence without\ndisclosing information to the attackers12 Reference: 1: Dynamic Analysis of a Windows Malicious\nSelf-Propagating Binary 2: GitHub - mikesiko/PracticalMalwareAnalysis-Labs: Binaries for the book\nPractical Malware Analysis",
-    "image": null
-  },
-  {
     "id": "q-jc-293",
     "type": "mcq",
     "multiSelect": false,
@@ -5702,24 +5668,6 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
-    "id": "q-jc-337",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 2.0: Vulnerability Management",
-    "question": "A systems administrator is reviewing after-hours traffic flows from data center servers and sees\nregular, outgoing HTTPS connections from one of the servers to a public IP address. The server\nshould not be making outgoing connections after hours. Looking closer, the administrator sees this\ntraffic pattern around the clock during work hours as well. Which of the following is the most likely\nexplanation?",
-    "options": [
-      "A. Command-and-control beaconing activity",
-      "B. Data exfiltration",
-      "C. Anomalous activity on unexpected ports",
-      "D. Network host IP address scanning",
-      "E. A rogue network device"
-    ],
-    "answer": "A",
-    "explanation": "Command-and-control (C2) beaconing involves compromised systems communicating with an\nattacker’s server at regular intervals, often using HTTPS to blend in with legitimate traffic. This is\nindicative of a potential compromise where malware communicates back to a command center. The\npersistent nature of the connections after hours and throughout the day suggests automated\nbeaconing, which is a tell-tale sign of C2 activity. According to CompTIA CySA+, this type of activity\nshould raise immediate suspicion and warrants further investigation and containment. While options\nB, C, D, and E might indicate other issues, they do not fit the pattern described as well as option A.",
-    "image": null
-  },
-  {
     "id": "q-jc-338",
     "type": "mcq",
     "multiSelect": false,
@@ -5876,10 +5824,10 @@ const CYSA_QUESTIONS = [
       "F. Verify that all security personnel have the appropriate clearances."
     ],
     "answer": [
-      "B",
-      "C"
+      "C",
+      "E"
     ],
-    "explanation": "During an incident, the legal team plays a crucial role in handling regulatory compliance and\nreviewing legal implications, such as contractual obligations and reporting requirements. Advising on\nregulatory reporting (Option C) ensures the organization meets legal mandates, while reviewing\ncontracts (Option B) can address new or emergency services needed during the incident. According\nto CompTIA CySA+ and Security+ guidelines, these legal responsibilities are vital for compliance and\nrisk management. Options related to staffing, damage assessments, and clearances typically fall\nunder operational or HR responsibilities rather than legal purview.",
+    "explanation": "During an incident, the legal team's core responsibilities are advising on regulatory reporting and\nsupporting damage assessments for insurance and potential litigation. Advising on regulatory\nreporting (Option C) ensures the organization meets legal mandates such as breach notification\nrequirements (e.g., GDPR, HIPAA, SEC disclosure rules). Conducting damage assessments (Option E)\nsupports insurance claims and legal proceedings that may follow the incident. Staffing coordination\n(A) falls under HR, contract review (B) is typically a procurement/post-incident function, security\ndevice management (D) is an IT security responsibility, and clearance verification (F) falls under\nHR/security management.",
     "image": ""
   },
   {
@@ -6009,23 +5957,6 @@ const CYSA_QUESTIONS = [
     ],
     "answer": "A",
     "explanation": "Regular expressions are powerful tools for searching text based on specific patterns, making them\nideal for parsing Linux log files to detect security events with repeatable patterns. In Bash, regular\nexpressions can be used in commands like grep or awk to efficiently filter log data. CompTIA CySA+\nemphasizes the use of regular expressions in log analysis for pattern matching, a common\nrequirement for identifying suspicious activities in log files. Options B, C, and D are less suited for this\nspecific task due to their limited pattern-matching capabilities or platform constraints.",
-    "image": null
-  },
-  {
-    "id": "q-jc-355",
-    "type": "mcq",
-    "multiSelect": false,
-    "selectCount": 1,
-    "domain": "Domain 2.0: Vulnerability Management",
-    "question": "A SOC analyst observes reconnaissance activity from an IP address. The activity follows a pattern of\nshort bursts toward a low number of targets. An open-source review shows that the IP has a bad\nreputation. The perimeter firewall logs indicate the inbound traffic was allowed. The destination\nhosts are high-value assets with EDR agents installed. Which of the following is the best action for\nthe SOC to take to protect against any further activity from the source IP?",
-    "options": [
-      "A. Add the IP address to the EDR deny list.",
-      "B. Create a SIEM signature to trigger on any activity from the source IP subnet for immediate notification.",
-      "C. Implement a prevention policy for the IP on the WAF.",
-      "D. Activate the scan signatures for the IP on the NGFWs."
-    ],
-    "answer": "A",
-    "explanation": "Blocking the IP address at the EDR (Endpoint Detection and Response) level provides an immediate,\ntargeted response to the detected reconnaissance activity, preventing further interaction with the\nhigh-value assets. EDR tools are designed to detect and block malicious IPs across endpoints.\nAccording to CompTIA CySA+, this proactive step is effective for isolating and mitigating threats on\nspecific endpoints. While creating SIEM signatures (B) is useful for monitoring, and policies on WAF\n(C) and NGFWs (D) can provide additional layers of defense, the most immediate protective action is\nto block at the endpoint level.",
     "image": null
   },
   {
