@@ -2735,8 +2735,8 @@ const CYSA_QUESTIONS = [
       "C. Red team",
       "D. Purple team"
     ],
-    "answer": "A",
-    "explanation": "Official JustCerts CompTIA CySA+ CS0-003 question solution.",
+    "answer": "D",
+    "explanation": "A purple team role is specifically about coordinating between offense and defense \u2014 communicating with the red team (the \"authorized team\" performing adversarial techniques) to set the stage for exercises and monitoring the results, so both sides learn from the engagement in real time. That collaborative, coordinating function is the defining trait of purple teaming.",
     "image": null
   },
   {
