@@ -4481,8 +4481,8 @@ const CYSA_QUESTIONS = [
       "C. Threat feed combination",
       "D. JavaScript Object Notation"
     ],
-    "answer": "D",
-    "explanation": "JavaScript Object Notation (JSON) is commonly used for transmitting data in web applications and\nwould be suitable for updating dashboards that integrate various data sources. It's lightweight and\neasy to parse and generate.",
+    "answer": "A",
+    "explanation": "Webhooks are automated HTTP callbacks that are triggered by specific events, making them ideal for\nupdating dashboards that integrate various data sources in real time. When an event occurs in a\nsource system, a webhook sends an HTTP POST request to the dashboard, allowing it to update\nimmediately without polling. This push-based mechanism is commonly used for live integrations\nbetween services and dashboards.",
     "image": null
   },
   {
