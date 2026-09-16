@@ -2044,8 +2044,8 @@ const CYSA_QUESTIONS = [
       "C. Vulnerability C",
       "D. Vulnerability D"
     ],
-    "answer": "B",
-    "explanation": "Vulnerability B is the vulnerability that the analyst should be most concerned about, knowing that\nend users frequently click on malicious links sent via email. Vulnerability B is a remote code\nexecution vulnerability in Microsoft Outlook that allows an attacker to run arbitrary code on the\ntarget system by sending a specially crafted email message. This vulnerability is very dangerous, as it\ndoes not require any user interaction or attachment opening to trigger the exploit. The attacker only\nneeds to send an email to the victim’s Outlook account, and the code will execute automatically\nwhen Outlook connects to the Exchange server. This vulnerability has a high severity rating of 9.8 out\nof 10, and it affects all supported versions of Outlook. Therefore, the analyst should prioritize\npatching this vulnerability as soon as possible to prevent potential compromise of the workstations.",
+    "answer": "A",
+    "explanation": "Vulnerability A is the vulnerability that the analyst should be most concerned about, knowing that\nend users frequently click on malicious links sent via email. Vulnerability B is a remote code\nexecution vulnerability in Microsoft Outlook that allows an attacker to run arbitrary code on the\ntarget system by sending a specially crafted email message. This vulnerability is very dangerous, as it\ndoes not require any user interaction or attachment opening to trigger the exploit. The attacker only\nneeds to send an email to the victim’s Outlook account, and the code will execute automatically\nwhen Outlook connects to the Exchange server. This vulnerability has a high severity rating of 9.8 out\nof 10, and it affects all supported versions of Outlook. Therefore, the analyst should prioritize\npatching this vulnerability as soon as possible to prevent potential compromise of the workstations.",
     "image": "images/q111.jpeg"
   },
   {
@@ -4830,16 +4830,15 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 2.0: Vulnerability Management",
-    "question": "During a scan of a web server in the perimeter network, a vulnerability was identified that could be\nexploited over port 3389. The web server is protected by a WA",
+    "question": "During a scan of a web server in the perimeter network, a vulnerability was identified that could be exploited over port 3389. The web server is protected by a WAF. Which of the following best represents the change to overall risk associated with this vulnerability?",
     "options": [
-      "F. Which of the following best\nrepresents the change to overall risk associated with this vulnerability?",
       "A. The risk would not change because network firewalls are in use.",
       "B. The risk would decrease because RDP is blocked by the firewall.",
       "C. The risk would decrease because a web application firewall is in place.",
       "D. The risk would increase because the host is external facing."
     ],
-    "answer": "B",
-    "explanation": "Port 3389 is commonly used by Remote Desktop Protocol (RDP), which is a service that allows\nremote access to a system. A vulnerability on this port could allow an attacker to compromise the\nweb server or use it as a pivot point to access other systems. However, if the firewall blocks this port,\nthe risk of exploitation is reduced.\nReference: CompTIA CySA+ CS0-003 Certification Study Guide, Chapter 2: Software and Systems\nSecurity, page 67; CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 3: Software and\nSystems Security, page 103.",
+    "answer": "D",
+    "explanation": "Port 3389 is used by Remote Desktop Protocol (RDP). The key context here is that the web server is in the perimeter network, meaning it is externally facing. A WAF only protects against web application attacks (HTTP/HTTPS traffic) and does not mitigate vulnerabilities on port 3389 (RDP). Because the host is external facing, the attack surface is exposed to the internet, which increases the overall risk associated with this vulnerability.\nReference: CompTIA CySA+ CS0-003 Certification Study Guide, Chapter 2: Vulnerability Management, page 67.",
     "image": null
   },
   {
