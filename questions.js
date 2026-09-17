@@ -2989,7 +2989,7 @@ const CYSA_QUESTIONS = [
       "C. VM_DEV_Web02",
       "D. VM_PRD_Web01"
     ],
-    "answer": "D",
+    "answer": "A",
     "explanation": "This VM has a public IP and an open port 80, which violates the company’s security requirements of\nno public IPs and no insecure ports/protocols. It also exposes the VM to potential attacks from the\ninternet. This VM should be updated first to use a private IP and close the port 80, or use a secure\nprotocol such as HTTPS.\nReference\n[CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition], Chapter 2: Cloud and Hybrid\nEnvironments, page 67.\n[What is a Public IP Address?]\n[What is Port 80?]",
     "image": "images/q173.jpeg"
   },
