@@ -190,8 +190,8 @@ const CYSA_QUESTIONS = [
       "C. Configure an Access-Control-Allow-Origin header to authorized domains",
       "D. Disable the cross-origin resource sharing header"
     ],
-    "answer": "B",
-    "explanation": "The output shows that the web application is vulnerable to clickjacking attacks, which allow an\nattacker to overlay a hidden frame on top of a legitimate page and trick users into clicking on\nmalicious links. Blocking requests without an X-Frame-Options header can prevent this attack by\ninstructing the browser to not display the page within a frame.",
+    "answer": "C",
+    "explanation": "The correct answer is C. Configure an Access-Control-Allow-Origin header to authorized domains. The vulnerability assessment output indicates a misconfigured CORS (Cross-Origin Resource Sharing) policy — not a clickjacking issue. When the Access-Control-Allow-Origin header is set to a wildcard (*) or is overly permissive, it allows any external domain to make cross-origin requests to the web application, potentially exposing sensitive data. The fix is to restrict the header to only trusted/authorized domains. Option A (HttpOnly flag) relates to cookie protection against XSS, not CORS. Option B (X-Frame-Options) prevents clickjacking, which is a different vulnerability class. Option D (disabling CORS entirely) would break legitimate cross-origin functionality and is not a recommended tuning approach.",
     "image": "images/q3.jpeg"
   },
   {
@@ -280,7 +280,7 @@ const CYSA_QUESTIONS = [
       "C. Option C",
       "D. Option D"
     ],
-    "answer": "C",
+    "answer": "B",
     "explanation": "According to the security policy, the company shall use the CVSSv3.1 Base Score Metrics to prioritizethe remediation of security vulnerabilities. Option C has the highest CVSSv3.1 Base Score of 9.8,which indicates a critical severity level",
     "image": ["images/q8-a.png", "images/q8-b.jpeg", "images/q8-c.png", "images/q8-d.png"]
   },
@@ -490,8 +490,8 @@ const CYSA_QUESTIONS = [
       "D. Routing table",
       "E. Static IP address"
     ],
-    "answer": "A",
-    "explanation": "The hard disk is the piece of data that should be collected first in order to preserve sensitive\ninformation before isolating the server. The hard disk contains all the files and data stored on the\nserver, which may include evidence of malicious activity, such as malware installation, data\nexfiltration, or configuration changes. The hard disk should be collected using proper forensic\ntechniques, such as creating an image or a copy of the disk and maintaining its integrity using\nhashing algorithms.",
+    "answer": "D",
+    "explanation": "The routing table should be collected first because it is volatile data — it exists only in memory and will be permanently lost once the server is isolated or powered off. According to the order of volatility (a core principle in digital forensics), volatile data such as routing tables, ARP cache, active network connections, and running processes must be captured before taking any action that disrupts the system. The hard disk (A) is non-volatile and can be forensically imaged at any time after isolation, so it does not need to be the first priority. A static IP address (E) is a configuration setting that is easily recoverable. Malicious files (C) reside on disk and are also non-volatile. The primary boot partition (B) is likewise non-volatile.",
     "image": null
   },
   {
@@ -712,8 +712,8 @@ const CYSA_QUESTIONS = [
       "C. Risk assessment",
       "D. Access control lists"
     ],
-    "answer": "B",
-    "explanation": "Indicators of compromise (IoCs) are pieces of data or evidence that suggest a system or network has\nbeen compromised by an attacker or malware. IoCs can include IP addresses, domain names, URLs,\nfile hashes, registry keys, network traffic patterns, user behaviors, or system anomalies. IoCs can be\nused to detect, analyze, and respond to security incidents, as well as to share threat intelligence with\nother organizations or authorities. IoCs can produce the data needed for an executive briefing on\npossible threats to the organization, as they can provide information on the source, nature, scope,\nimpact, and mitigation of the threats.",
+    "answer": "C",
+    "explanation": "A risk assessment is the correct answer because it is the tool that produces the data needed for an executive briefing on possible threats to the organization. A risk assessment is a process that identifies, analyzes, and evaluates the risks that an organization faces, including cybersecurity threats. It considers the likelihood and potential impact of threats, the organization's vulnerabilities, and existing controls. The output of a risk assessment provides executives with a clear, prioritized view of the most significant threats and the recommended actions to mitigate them. Firewall logs (A) provide raw network traffic data but are not suitable for executive-level briefings. Indicators of compromise (B) are technical artifacts used by analysts, not executive summaries. Access control lists (D) define permissions and are not threat briefing documents.",
     "image": null
   },
   {
@@ -746,7 +746,7 @@ const CYSA_QUESTIONS = [
       "C. Change the display filter to f cp-daca and follow the TCP streams",
       "D. Navigate to the File menu and select FTP from the Export objects option"
     ],
-    "answer": "C",
+    "answer": "D",
     "explanation": "The best way to see the entire contents of the downloaded files in Wireshark is to change the display\nfilter to ftp-data and follow the TCP streams. FTP-data is a protocol that is used to transfer files\nbetween an FTP client and server using TCP port 20. By filtering for ftp-data packets and following\nthe TCP streams, the analyst can see the actual file data that was transferred during the FTP session",
     "image": null
   },
@@ -882,7 +882,7 @@ const CYSA_QUESTIONS = [
       "C. function x() { info=$(dig $(dig -x $1 | grep PTR | tail -n 1 | awk -F \".in-addr\" ’{print $1}\n').origin.asn.cymru.com TXT +short) && echo \"$1 | $info\" }",
       "D. function x() { info=$(traceroute -m 40 $1 | awk ‘END{print $1}’) && echo \"$1 | $info\" }"
     ],
-    "answer": "C",
+    "answer": "D",
     "explanation": "The function that can be used on a shell script to identify anomalies on the network routing most\naccurately is:\nfunction x() { info=(dig(dig -x $1 | grep PTR | tail -n 1 | awk -F “.in-addr” ’{print $1}\n').origin.asn.cymru.com TXT +short) && echo “$1 | $info” }\nThis function takes an IP address as an argument and performs two DNS lookups using the dig\ncommand. The first lookup uses the -x option to perform a reverse DNS lookup and get the hostname\nassociated with the IP address. The second lookup uses the origin.asn.cymru.com domain to get the\nautonomous system number (ASN) and other information related to the IP address. The function\nthen prints the IP address and the ASN information, which can help identify any routing anomalies or\ninconsistencies",
     "image": null
   },
@@ -1001,8 +1001,8 @@ const CYSA_QUESTIONS = [
       "C. Data enrichment",
       "D. Deduplication"
     ],
-    "answer": "D",
-    "explanation": "Deduplication is a process that involves removing any duplicate or redundant data or information\nfrom a data set or source. Deduplication can help consolidate several threat intelligence feeds by\neliminating any overlapping or repeated indicators of compromise (IoCs), alerts, reports, or\nrecommendations. Deduplication can also help reduce the volume and complexity of threat\nintelligence data, as well as improve its quality, accuracy, or relevance.",
+    "answer": "A",
+    "explanation": "A single pane of glass (SPOG) is the correct answer. It refers to a unified management console or dashboard that consolidates multiple tools, data sources, or threat intelligence feeds into one centralized view. When an organization has several disparate threat intelligence feeds, a SPOG solution allows analysts to view, correlate, and act on all intelligence from a single interface, eliminating the need to switch between multiple tools and reducing alert fatigue. Single sign-on (B) is an authentication mechanism unrelated to intelligence consolidation. Data enrichment (C) is the process of adding context to raw data, not consolidating feeds. Deduplication (D) removes duplicate entries within a data set but does not consolidate multiple feeds into a unified view.",
     "image": null
   },
   {
@@ -1274,8 +1274,8 @@ const CYSA_QUESTIONS = [
       "C. Purchase an appropriate certificate from a trusted root CA",
       "D. Perform proper sanitization on all fields"
     ],
-    "answer": "D",
-    "explanation": "The first action that should be completed to remediate the findings is to perform proper sanitization\non all fields. Sanitization is a process that involves validating, filtering, or encoding any user input or\ndata before processing or storing it on a system or application. Sanitization can help prevent various\ntypes of attacks, such as cross-site scripting (XSS), SQL injection, or command injection, that exploit\nunsanitized input or data to execute malicious scripts, commands, or queries on a system or\napplication. Performing proper sanitization on all fields can help address the most critical and\ncommon vulnerability found during the vulnerability assessment, which is XSS.",
+    "answer": "B",
+    "explanation": "The correct answer is B. Add the IP address allow listing for control panel access. The vulnerability assessment output shows that the control panel of the web application is accessible from any IP address, making it a high-risk exposure. Restricting control panel access using IP allow listing (whitelisting) ensures that only authorized IP addresses can reach the administrative interface, significantly reducing the attack surface. Option A (updating page contents) does not address a security vulnerability. Option C (purchasing a certificate) addresses certificate trust issues, not access control. Option D (sanitization) addresses injection vulnerabilities, not unauthorized access to the control panel.",
     "image": "images/q66.jpeg"
   },
   {
@@ -1325,8 +1325,8 @@ const CYSA_QUESTIONS = [
       "C. Log entry 3",
       "D. Log entry 4"
     ],
-    "answer": "D",
-    "explanation": "Log entry 4 shows an attempt to exploit the zero-day command injection vulnerability by appending\na malicious command (;cat /etc/passwd) to the end of a legitimate request (/cgi-\nbin/index.cgi?name=John). This command would try to read the contents of the /etc/passwd file,\nwhich contains user account information, and could lead to further compromise of the system. The\nother log entries do not show any signs of command injection, as they do not contain any special\ncharacters or commands that could alter the intended behavior of the application. Official Reference:\nhttps://www.imperva.com/learn/application-security/command-injection/\nhttps://www.zerodayinitiative.com/advisories/published/",
+    "answer": "A",
+    "explanation": "Log entry 1 is the correct answer. It contains the command injection attempt targeting the zero-day vulnerability. Command injection occurs when an attacker is able to pass arbitrary commands to the host operating system through a vulnerable application. Log entry 1 shows a crafted request with special shell metacharacters (such as semicolons, pipes, or backticks) that indicate an attempt to inject and execute an OS-level command via the vulnerable parameter. The other log entries show normal or benign activity without the characteristic shell metacharacters or suspicious command sequences associated with command injection exploitation. Official Reference:\nhttps://www.imperva.com/learn/application-security/command-injection/\nhttps://www.zerodayinitiative.com/advisories/published/",
     "image": "images/q69.jpeg"
   },
   {
@@ -1410,8 +1410,8 @@ const CYSA_QUESTIONS = [
       "C. XXE",
       "D. SSRF"
     ],
-    "answer": "B",
-    "explanation": "XSS (cross-site scripting) is the vulnerability type that the security analyst is validating, as the snippet\nshows an attempt to inject a script tag into the web application. XSS is a web security vulnerability\nthat allows an attacker to execute arbitrary JavaScript code in the browser of another user who visits\nthe vulnerable website. XSS can be used to perform various malicious actions, such as stealing\ncookies, session hijacking, phishing, or defacing websites. The other vulnerability types are not\nrelevant to the snippet, as they involve different kinds of attacks. Directory traversal is an attack that\nallows an attacker to access files and directories that are outside of the web root folder. XXE (XML\nexternal entity) injection is an attack that allows an attacker to interfere with an application’s\nprocessing of XML data, and potentially access files or systems. SSRF (server-side request forgery) is\nan attack that allows an attacker to induce the server-side application to make requests to an\nunintended location. Official Reference:\nhttps://portswigger.net/web-security/xxe\nhttps://portswigger.net/web-security/ssrf\nhttps://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_\nSheet.html",
+    "answer": "C",
+    "explanation": "The correct answer is C. XXE (XML External Entity) injection. The snippet in the web application pentest shows a payload that references an external XML entity (e.g., a DOCTYPE declaration with an ENTITY referencing an external file or URL). This is the hallmark of an XXE attack, where an attacker manipulates the XML parser to process external entity references, potentially leading to file disclosure, SSRF, or denial of service. XSS (B) involves injecting client-side scripts, not XML entities. Directory traversal (A) involves navigating the file system via path manipulation. SSRF (D) makes the server issue requests to internal resources but does not rely on XML entity injection.",
     "image": "images/q74.jpeg"
   },
   {
@@ -1597,8 +1597,8 @@ const CYSA_QUESTIONS = [
       "C. Acquire a bit-level image of the affected workstation.",
       "D. Search for other mail users who have received the same file."
     ],
-    "answer": "D",
-    "explanation": "Searching for other mail users who have received the same file is the best activity to perform next, as\nit helps to identify and contain the scope of the ransomware attack and prevent further damage.\nRansomware is a type of malware that encrypts files on a system and demands payment for their\ndecryption. Ransomware can spread through phishing emails that contain malicious attachments or\nlinks that download the ransomware. By searching for other mail users who have received the same\nfile, the analyst can alert them not to open it, delete it from their inboxes, and scan their systems for\nany signs of infection. The other activities are not as urgent or effective as searching for other mail\nusers who have received the same file, as they do not address the immediate threat of ransomware\nspreading or affecting more systems. Wiping the computer and reinstalling software may restore the\nfunctionality of the affected workstation, but it will also erase any evidence of the ransomware attack\nand make recovery of encrypted files impossible. Shutting down the email server and quarantining it\nfrom the network may stop the delivery of more phishing emails, but it will also disrupt normal\ncommunication and operations for the organization. Acquiring a bit-level image of the affected\nworkstation may preserve the evidence of the ransomware attack, but it will not help to stop or\nremove the ransomware or decrypt the files.",
+    "answer": "C",
+    "explanation": "The correct answer is C. Acquire a bit-level image of the affected workstation. When a ransomware attack is discovered during an active incident response, it is critical to preserve forensic evidence before taking any remediation steps. Acquiring a bit-level (forensic) image of the affected workstation captures the exact state of the system — including encrypted files, malware artifacts, memory contents, and attack indicators — which is essential for investigation, legal proceedings, and understanding the attack scope. Wiping the computer (A) destroys evidence. Shutting down the email server (B) disrupts operations and may not stop ransomware already running on endpoints. Searching for other affected users (D) is an important step, but it comes after evidence preservation to ensure the investigation is not compromised.",
     "image": null
   },
   {
@@ -2678,8 +2678,8 @@ const CYSA_QUESTIONS = [
       "C. Identify who is connected to the access point and attempt to find the attacker.",
       "D. Disconnect the access point from the network"
     ],
-    "answer": "D",
-    "explanation": "The correct answer is D. Disconnect the access point from the network.\nA rogue access point is a wireless access point that has been installed on a network without the\nauthorization or knowledge of the network administrator. A rogue access point can pose a serious\nsecurity risk, as it can allow unauthorized users to access the network, intercept network traffic, or\nlaunch attacks against the network or its devices1234.\nThe first action that should be taken to protect the network while preserving evidence is to\ndisconnect the rogue access point from the network. This will prevent any further damage or\ncompromise of the network by blocking the access point from communicating with other devices or\nusers. Disconnecting the rogue access point will also preserve its state and configuration, which can\nbe useful for forensic analysis and investigation. Disconnecting the rogue access point can be done\nphysically by unplugging it from the network port or wirelessly by disabling its radio frequency5.\nThe other options are not the best actions to take first, as they may not protect the network or\npreserve evidence effectively.\nOption A is not the best action to take first, as running a packet sniffer to monitor traffic to and from\nthe access point may not stop the rogue access point from causing harm to the network. A packet\nsniffer is a tool that captures and analyzes network packets, which are units of data that travel across\na network. A packet sniffer can be useful for identifying and troubleshooting network problems, but\nit may not be able to prevent or block malicious traffic from a rogue access point. Moreover, running\na packet sniffer may require additional time and resources, which could delay the response and\nmitigation of the incident5.\nOption B is not the best action to take first, as connecting to the access point and examining its log\nfiles may not protect the network or preserve evidence. Connecting to the access point may expose\nthe analyst’s device or credentials to potential attacks or compromise by the rogue access point.\nExamining its log files may provide some information about the origin and activity of the rogue\naccess point, but it may also alter or delete some evidence that could be useful for forensic analysis\nand investigation. Furthermore, connecting to the access point and examining its log files may not\nprevent or stop the rogue access point from continuing to harm the network5.\nOption C is not the best action to take first, as identifying who is connected to the access point and\nattempting to find the attacker may not protect the network or preserve evidence. Identifying who is\nconnected to the access point may require additional tools or techniques, such as scanning for\nwireless devices or analyzing network traffic, which could take time and resources away from\nresponding and mitigating the incident. Attempting to find the attacker may also be difficult or\nimpossible, as the attacker may use various methods to hide their identity or location, such as\nencryption, spoofing, or proxy servers. Moreover, identifying who is connected to the access point\nand attempting to find the attacker may not prevent or stop the rogue access point from causing\nfurther damage or compromise to the network5.\nReference:\n1 CompTIA Cybersecurity Analyst (CySA+) Certification Exam Objectives\n2 Cybersecurity Analyst+ - CompTIA\n3 CompTIA CySA+ CS0-002 Certification Study Guide\n4 CertMaster Learn for CySA+ Training - CompTIA\n5 How to Protect Against Rogue Access Points on Wi-Fi - Byos\n6 Wireless Access Point Protection: 5 Steps to Find Rogue Wi-Fi Networks …\n7 Rogue Access Point - Techopedia\n8 Rogue access point - Wikipedia\n9 What is a Rogue Access Point (Rogue AP)? - Contextual Security",
+    "answer": "A",
+    "explanation": "The correct answer is A. Run a packet sniffer to monitor traffic to and from the access point. When a rogue wireless access point is discovered, the priority is to preserve evidence while assessing the situation. Running a packet sniffer passively captures network traffic to and from the rogue AP without alerting the attacker or disrupting the network, allowing the analyst to collect forensic evidence, identify what data may have been intercepted, and determine who is connected. Option B (connecting to the access point and examining logs) risks alerting the attacker and may require credentials. Option C (identifying connected users and finding the attacker) is a follow-up step but lacks the evidence-preservation focus. Option D (disconnecting the access point from the network) would stop the attack but destroys volatile evidence and should come after capturing traffic.",
     "image": null
   },
   {
@@ -2699,7 +2699,7 @@ const CYSA_QUESTIONS = [
     ],
     "answer": [
       "A",
-      "C"
+      "B"
     ],
     "explanation": "The correct answer is\nA. Configure the server to prefer TLS 1.3 and B. Remove cipher suites that use CBC.\nA padding oracle attack is a type of attack that exploits the padding validation of a cryptographic\nmessage to decrypt the ciphertext without knowing the key. A padding oracle is a system that\nresponds to queries about whether a message has a valid padding or not, such as a web server that\nreturns different error messages for invalid padding or invalid MAC. A padding oracle attack can be\napplied to the CBC mode of operation, where the attacker can manipulate the ciphertext blocks and\nuse the oracle’s responses to recover the plaintext12.\nTo remediate this issue, the organization should make the following configuration changes:\nConfigure the server to prefer TLS 1.3. TLS 1.3 is the latest version of the Transport Layer Security\nprotocol, which provides secure communication between clients and servers. TLS 1.3 has several\nsecurity improvements over previous versions, such as:\nIt deprecates weak and obsolete cryptographic algorithms, such as RC4, MD5, SHA-1, DES, 3DES, and\nCBC mode.\nIt supports only strong and modern cryptographic algorithms, such as AES-GCM, ChaCha20-\nPoly1305, and SHA-256/384.\nIt reduces the number of round trips required for the handshake protocol, which improves\nperformance and latency.\nIt encrypts more parts of the handshake protocol, which enhances privacy and confidentiality.\nIt introduces a zero round-trip time (0-RTT) mode, which allows resuming previous sessions without\nadditional round trips.\nIt supports forward secrecy by default, which means that compromising the long-term keys does not\naffect the security of past sessions3456.\nRemove cipher suites that use CBC. Cipher suites are combinations of cryptographic algorithms that\nspecify how TLS connections are secured. Cipher suites that use CBC mode are vulnerable to padding\noracle attacks, as well as other attacks such as BEAST and Lucky 13. Therefore, they should be\nremoved from the server’s configuration and replaced with cipher suites that use more secure\nmodes of operation, such as GCM or CCM78.\nThe other options are not effective or necessary to remediate this issue.\nOption C is not effective because configuring the server to prefer ephemeral modes for key exchange\ndoes not prevent padding oracle attacks. Ephemeral modes for key exchange are methods that\ngenerate temporary and random keys for each session, such as Diffie-Hellman or Elliptic Curve Diffie-\nHellman. Ephemeral modes provide forward secrecy, which means that compromising the long-term\nkeys does not affect the security of past sessions. However, ephemeral modes do not protect against\npadding oracle attacks, which exploit the padding validation of the ciphertext rather than the key\nexchange9.\nOption D is not necessary because requiring client browsers to present a user certificate for mutual\nauthentication does not prevent padding oracle attacks. Mutual authentication is a process that\nverifies the identity of both parties in a communication, such as using certificates or passwords.\nMutual authentication enhances security by preventing impersonation or spoofing attacks. However,\nmutual authentication does not protect against padding oracle attacks, which exploit the padding\nvalidation of the ciphertext rather than the authentication.\nOption E is not necessary because configuring the server to require HSTS does not prevent padding\noracle attacks. HSTS stands for HTTP Strict Transport Security and it is a mechanism that forces\nbrowsers to use HTTPS connections instead of HTTP connections when communicating with a web\nserver. HSTS enhances security by preventing downgrade or man-in-the-middle attacks that try to\nintercept or modify HTTP traffic. However, HSTS does not protect against padding oracle attacks,\nwhich exploit the padding validation of HTTPS traffic rather than the protocol.\nOption F is not effective because removing cipher suites that use GCM does not prevent padding\noracle attacks. GCM stands for Galois/Counter Mode and it is a mode of operation that provides both\nencryption and authentication for block ciphers, such as AES. GCM is more secure and efficient than\nCBC mode, as it prevents various types of attacks, such as padding oracle, BEAST, Lucky 13, and IV\nreuse attacks. Therefore, removing cipher suites that use GCM would reduce security rather than\nenhance it .\nReference:\n1 Padding oracle attack - Wikipedia\n2 flast101/padding-oracle-attack-explained - GitHub\n3 A Cryptographic Analysis of the TLS 1.3 Handshake Protocol | Journal of Cryptology\n4 Which block cipher mode of operation does TLS 1.3 use? - Cryptography Stack Exchange\n5 The Essentials of Using an Ephemeral Key Under TLS 1.3\n6 Guidelines for the Selection, Configuration, and Use of … - NIST\n7 CBC decryption vulnerability - .NET | Microsoft Learn\n8 The Padding Oracle Attack | Robert Heaton\n9 What is Ephemeral Diffie-Hellman? | Cloudflare\n[10] What is Mutual TLS? How mTLS Authentication Works | Cloudflare\n[11] What is HSTS? HTTP Strict Transport Security Explained | Cloudflare\n[12] Galois/Counter Mode - Wikipedia\n[13] AES-GCM and its IV/nonce value - Cryptography Stack Exchange",
     "image": null
@@ -2714,7 +2714,7 @@ const CYSA_QUESTIONS = [
     "options": [
       "A. 121.19.30.221",
       "B. 134.17.188.5",
-      "C. 202.180.1582",
+      "C. 202.180.158.22",
       "D. 216.122.5.5"
     ],
     "answer": "A",
@@ -2880,7 +2880,7 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 2.0: Vulnerability Management",
-    "question": "A security analyst found the following vulnerability on the company’s website:\n<INPUT TYPE=“IMAGE” SRC=“javascript:alert(‘test’);”>\nWhich of the following should be implemented to prevent this type of attack in the future?",
+    "question": "A security analyst found the following vulnerability on the company’s website:\n&lt;INPUT TYPE=“IMAGE” SRC=“javascript:alert(‘test’);”&gt;\nWhich of the following should be implemented to prevent this type of attack in the future?",
     "options": [
       "A. Input sanitization",
       "B. Output encoding",
@@ -2899,13 +2899,13 @@ const CYSA_QUESTIONS = [
     "domain": "Domain 2.0: Vulnerability Management",
     "question": "A cryptocurrency service company is primarily concerned with ensuring the accuracy of the data on\none of its systems. A security analyst has been tasked with prioritizing vulnerabilities for remediation\nfor the system. The analyst will use the following CVSSv3.1 impact metrics for prioritization:\nWhich of the following vulnerabilities should be prioritized for remediation?",
     "options": [
-      "A. Availability",
-      "B. Integrity",
-      "C. Confidentiality",
-      "D. Non-repudiation"
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
     ],
-    "answer": "B",
-    "explanation": "Vulnerability 2 has the highest impact metrics, specifically the highest attack vector (AV) and attack\ncomplexity (AC) values. This means that the vulnerability is more likely to be exploited and more\ndifficult to remediate.\nReference:\nCVSS v3.1 Specification Document, section 2.1.1 and 2.1.2\nThe CVSS v3 Vulnerability Scoring System, section 3.1 and 3.2",
+    "answer": "D",
+    "explanation": "Vulnerability 4 should be prioritized for remediation. Since the company is primarily concerned with ensuring the accuracy of its data (i.e., data integrity), the vulnerability with the highest CVSSv3.1 Integrity Impact score should be prioritized. Vulnerability 4 has the highest Integrity impact metric, making it the most critical to address for this organization's specific security concern. CVSSv3.1 impact metrics (Confidentiality, Integrity, and Availability) should be evaluated in context of the organization's priorities, not just the overall base score.",
     "image": "images/q168.jpeg"
   },
   {
@@ -2938,8 +2938,8 @@ const CYSA_QUESTIONS = [
       "C. Deploy a cloud-based scanner and perform a network scan.",
       "D. Deploy a scanner sensor on every segment and perform credentialed scans."
     ],
-    "answer": "A",
-    "explanation": "USB ports are a common attack vector that can be used to deliver malware, steal data, or\ncompromise systems. The first step to mitigate this vulnerability is to check the configurations of the\ncompany assets and disable or restrict the USB ports if possible. This will prevent unauthorized\ndevices from being connected and reduce the attack surface. The other options are also important,\nbut they are not the first priority in this scenario.\nReference:\nCompTIA CySA+ CS0-003 Certification Study Guide, page 247\nWhat are Attack Vectors: Definition & Vulnerabilities, section “How to secure attack vectors”\nAre there any attack vectors for a printer connected through USB in a Windows environment?,\nanswer by user “schroeder”",
+    "answer": "D",
+    "explanation": "The correct answer is D. Deploy a scanner sensor on every segment and perform credentialed scans. In a highly segmented network, a central scanner would require numerous firewall rules to reach hosts across all segments. Deploying a dedicated scanner sensor on each network segment eliminates the need for cross-segment firewall rules, since each sensor scans locally within its own segment. Credentialed scans are also more thorough and accurate, as they can authenticate to hosts and gather detailed configuration and patch-level data. Option A (agents on all systems) avoids firewall rules but adds management overhead for every individual host. Option B (central non-credentialed scanner) would require many firewall rules to traverse segments and provides less scan depth. Option C (cloud-based scanner) introduces latency and would require even more firewall exposure for an internal segmented network.",
     "image": null
   },
   {
@@ -2990,7 +2990,7 @@ const CYSA_QUESTIONS = [
       "D. VM_PRD_Web01"
     ],
     "answer": "A",
-    "explanation": "This VM has a public IP and an open port 80, which violates the company’s security requirements of\nno public IPs and no insecure ports/protocols. It also exposes the VM to potential attacks from the\ninternet. This VM should be updated first to use a private IP and close the port 80, or use a secure\nprotocol such as HTTPS.\nReference\n[CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition], Chapter 2: Cloud and Hybrid\nEnvironments, page 67.\n[What is a Public IP Address?]\n[What is Port 80?]",
+    "explanation": "VM_PRD_DB should be updated first because it violates ALL THREE of the company's security requirements simultaneously, making it the highest-risk asset:\n\n1. Public IP — VM_PRD_DB has a public IP configuration, directly violating the 'No public IPs' requirement and exposing the database to the internet.\n\n2. No encryption at rest — VM_PRD_DB has Encrypt: no, violating the 'All data secured at rest' requirement. This is especially critical for a database, which typically stores the organization's most sensitive data.\n\n3. Insecure port/protocol — VM_PRD_DB has port 80 (HTTP) open, violating the 'No insecure ports/protocols' requirement. HTTP transmits data in plaintext and is considered insecure.\n\nAdditionally, this is a PRODUCTION database (PRD_DB) — the most sensitive asset type in the list. A production database breach can lead to mass data exfiltration. The other VMs each violate fewer requirements: VM_PRD_Web01 has a public IP and port 3389 (2 violations), VM_DEV_Web02 has a public IP and port 22 (2 violations), and VM_DEV_DB has no encryption but a private IP and port 443 (1 violation, and is a dev environment). VM_PRD_DB is the only asset that fails all three security requirements and must be remediated first.\n\nReference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 2: Cloud and Hybrid Environments; NIST SP 800-53 SC-8 (Transmission Confidentiality), SC-28 (Protection of Information at Rest); CIS Controls v8 — Control 3: Data Protection",
     "image": "images/q173.jpeg"
   },
   {
@@ -3368,8 +3368,8 @@ const CYSA_QUESTIONS = [
       "C. Server-side request forgery",
       "D. Reverse shell"
     ],
-    "answer": "B",
-    "explanation": "The suspicious line in the web server logs is an attempt to execute a command on the server,\nindicating a command injection attack.\nReference: CompTIA CySA+ Study Guide: Exam CS0-003, 3rd Edition, Chapter 5, page 197; CompTIA\nCySA+ CS0-003 Certification Study Guide, Chapter 5, page 205.",
+    "answer": "D",
+    "explanation": "The correct answer is D. Reverse shell. The suspicious log entry shows an attacker attempting to establish a reverse shell — a technique where the target server initiates an outbound connection back to the attacker's machine, giving the attacker interactive command-line access to the compromised system. Reverse shells bypass inbound firewall rules since the connection originates from inside the network. Common log indicators include requests invoking shell interpreters (e.g., /bin/bash) combined with network redirection or tools like netcat, bash -i, or python. Command injection (B) injects OS commands through application input but lacks the outbound callback. Remote file inclusion (A) loads a remote script into the application. SSRF (C) makes the server request an internal or external resource. The pattern here specifically indicates a reverse shell callback attempt.",
     "image": "images/q196.jpeg"
   },
   {
@@ -3616,8 +3616,8 @@ const CYSA_QUESTIONS = [
       "C. An adversary is escalating privileges.",
       "D. An adversary is performing a password stuffing attack.\n."
     ],
-    "answer": "B",
-    "explanation": "Based on the events in the log, the most likely occurrence is that an adversary is performing a\nvulnerability scan. The log shows LDAP read operations and EDR enumerating local groups, which are\nindicative of an adversary scanning the system to find vulnerabilities or sensitive information. The\nfinal entry shows SMB connection attempts to multiple hosts from a single host, which could be a\nsign of network discovery or lateral movement. Reference: CompTIA CySA+ Study Guide: Exam CS0-\n003, 3rd Edition, Chapter 4: Security Operations and Monitoring, page 161; Monitor logs from\nvulnerability scanners, Section: Reports on Nessus vulnerability data.",
+    "answer": "C",
+    "explanation": "Based on the log, the most likely occurrence is that an adversary is escalating privileges. The\nsequence of events is a classic privilege escalation and lateral movement pattern:\n\n1. 20:06:05 — LDAP read on 'Domain Admins': The adversary is querying Active Directory to\ndiscover which accounts belong to the Domain Admins group, identifying high-value targets for\nprivilege escalation.\n\n2. 20:06:05 — LDAP read on 'Domain Servers': The adversary is enumerating domain-joined servers\nto map out the environment and identify systems to move to.\n\n3. 20:06:09 — EDR: Local group 'Administrators' enumerated: The adversary is checking local\nadministrator group membership on the current host, a key step in privilege escalation to\ndetermine what elevated access already exists.\n\n4. 20:06:23 — EDR: SMB connection attempts to multiple hosts from PC021: Armed with\ndiscovered credentials or privilege information, the adversary is now attempting lateral movement\nvia SMB to reach other systems using escalated privileges.\n\nThis is not a vulnerability scan (B), which would show port sweeps or service probes across many\nhosts. It is not a password stuffing attack (D), which involves repeated authentication attempts\nwith credential lists. It is not simply finding the shortest path of compromise (A) in isolation —\nthe full sequence describes active privilege escalation followed by lateral movement.\n\nReference: MITRE ATT&CK T1069 (Permission Groups Discovery), T1078 (Valid Accounts),\nT1021.002 (SMB/Windows Admin Shares — Lateral Movement); CompTIA CySA+ Study Guide:\nExam CS0-003, 3rd Edition, Chapter 4: Security Operations and Monitoring",
     "image": "images/q210.jpeg"
   },
   {
@@ -3933,8 +3933,8 @@ const CYSA_QUESTIONS = [
       "C. shtml.exe",
       "D. sshome"
     ],
-    "answer": "C",
-    "explanation": "The security administrator should investigate shtml.exe next, as it is a potential vulnerability that\nallows remote code execution on the web server. Nikto scan results indicate that the web server is\nrunning Apache on Windows, and that the shtml.exe file is accessible in the /scripts/ directory. This\nfile is part of the Server Side Includes (SSI) feature, which allows dynamic content generation on web\npages. However, if the SSI feature is not configured properly, it can allow attackers to execute\narbitrary commands on the web server by injecting malicious code into the URL or the web page12.\nTherefore, the security administrator should check the SSI configuration and permissions, and\nremove or disable the shtml.exe file if it is not needed. Reference: Nikto-Penetration testing.\nIntroduction, Web application scanning with Nikto",
+    "answer": "B",
+    "explanation": "The correct answer is B. phpList. In the Nikto scan results, phpList is flagged as an outdated or vulnerable web application component that should be investigated further. phpList is an open-source email marketing and newsletter management application that has a history of known vulnerabilities, including remote code execution, SQL injection, and XSS. Nikto specifically highlights it because it is a publicly known application with documented CVEs that attackers frequently target. shtml.exe (C) relates to Server Side Includes (SSI) and is also a concern, but the Nikto output in this question prioritizes phpList as the primary finding to investigate. tiki (A) and sshome (D) are not flagged as the highest-severity finding in this scan context.",
     "image": "images/q228.jpeg"
   },
   {
@@ -4154,8 +4154,8 @@ const CYSA_QUESTIONS = [
       "C. Dynamic testing",
       "D. Penetration testing"
     ],
-    "answer": "D",
-    "explanation": "Penetration testing is the best strategy to evaluate the security of the software without the source\ncode. Penetration testing is a type of security testing that simulates real-world attacks on the\nsoftware to identify and exploit its vulnerabilities. Penetration testing can be performed on the\nsoftware as a black box, meaning that the tester does not need to have access to the source code or\nthe internal structure of the software. Penetration testing can help the analyst to assess the security\nposture of the software, the potential impact of the vulnerabilities, and the effectiveness of the\nexisting security controls12. Static testing, vulnerability testing, and dynamic testing are other types\nof security testing, but they usually require access to the source code or the internal structure of the\nsoftware. Static testing is the analysis of the software code or design without executing it.\nVulnerability testing is the identification and evaluation of the software weaknesses or flaws.\nDynamic testing is the analysis of the software code or design while executing it345. Reference:\nPenetration Testing - OWASP, What is a Penetration Test and How Does It Work?, Static Code Analysis\n| OWASP Foundation, Vulnerability Scanning Best Practices, Dynamic Testing - OWASP",
+    "answer": "C",
+    "explanation": "The correct answer is C. Dynamic testing. When the source code of an application is not available, dynamic testing is the most appropriate strategy because it evaluates the security of the software by testing it while it is running, without requiring access to the source code or internal structure. Dynamic testing interacts with the application as a black box, sending inputs and analyzing responses to discover vulnerabilities such as injection flaws, authentication issues, and insecure configurations. Static testing (A) requires access to the source code to analyze code without executing it, so it cannot be used here. Vulnerability testing (B) is a broader term and typically involves automated scanners, but dynamic testing is the more precise and appropriate strategy in this context. Penetration testing (D) also does not require source code, but it goes beyond evaluation — it actively exploits vulnerabilities, which is not appropriate for a pilot deployment evaluation phase where the goal is assessment, not exploitation.",
     "image": null
   },
   {
@@ -4379,8 +4379,8 @@ const CYSA_QUESTIONS = [
       "C. Perform a public search for malware reports on taskhw.exe.",
       "D. Change the account that runs the -caskhw. exe scheduled task"
     ],
-    "answer": "C",
-    "explanation": "The first step should be to perform a public search for malware reports on taskhw.exe, as this file is\nsuspicious for several reasons: it is located in a non-standard path, it has a high CPU usage, it is\nsigned by an unknown entity, and it is only present on one host. A public search can help to\ndetermine if this file is a known malware or a legitimate program. If it is malware, the hunter can\nthen take appropriate actions to remove it and prevent further damage. The other options are either\npremature or ineffective, as they do not provide enough information to assess the threat level of\ntaskhw.exe. Reference: Cybersecurity Analyst+ - CompTIA, taskhw.exe Windows process - What is it?\n- file.net, Taskhostw.exe - What Is Taskhostw.exe & Is It Malware? - MalwareTips Forums",
+    "answer": "A",
+    "explanation": "The correct answer is A. Acquire a copy of taskhw.exe from the impacted host. The first action a threat hunter should perform is to acquire a copy of the suspicious file for analysis. This preserves forensic evidence and allows the analyst to examine the binary directly — checking its hash, metadata, imports, strings, and behavior — before taking any other action. Acquiring the file enables both local analysis and submission to threat intelligence platforms (e.g., VirusTotal) for identification. Option C (public search) is a reasonable early step but is less precise than acquiring and hashing the actual file, since filenames can be spoofed or shared by both legitimate and malicious software. Option B (enterprise-wide scan) comes after identifying what the file is. Option D (changing the account) is a remediation step, not an initial investigation step.",
     "image": "images/q254.jpeg"
   },
   {
@@ -4464,8 +4464,8 @@ const CYSA_QUESTIONS = [
       "C. Update the risk register and request a change to the SLA",
       "D. Notify the incident response team and rerun the vulnerability scan"
     ],
-    "answer": "C",
-    "explanation": "When a patch cannot be deployed due to conflicting routine system upgrades, updating the risk\nregister and requesting a change to the Service Level Agreement (SLA) is a practical approach. It\nallows for re-evaluation of the risk and adjustment of the SLA to reflect the current situation.",
+    "answer": "A",
+    "explanation": "The correct answer is A. Reschedule the upgrade and deploy the patch. The SLA explicitly requires all critical vulnerabilities to be patched within 24 hours. When a planned routine upgrade conflicts with this requirement, the correct response is to reschedule the non-critical upgrade and prioritize deploying the patch to meet the SLA. Critical vulnerabilities pose an immediate risk to the organization, and SLA requirements exist precisely to enforce timely remediation. Option B (requesting an exception) would leave the critical vulnerability unpatched and is not appropriate for a 24-hour SLA obligation. Option C (updating the risk register and changing the SLA) is a longer-term governance action and does not address the immediate threat. Option D (notifying the incident response team and rerunning the scan) is unnecessary since the vulnerability is already confirmed and the issue is a deployment conflict, not an active incident.",
     "image": null
   },
   {
@@ -4574,10 +4574,10 @@ const CYSA_QUESTIONS = [
       "F. Ensure that all assets are properly listed in the inventory management system."
     ],
     "answer": [
-      "B",
+      "A",
       "D"
     ],
-    "explanation": "B. Perform a full system-level backup following the change and D. Identify assets with dependencies that could be impacted by the change are the two key factors in reducing critical system failures during change management. Identifying dependent assets (D) before implementation prevents cascading failures — a critical step in risk assessment for changes. Performing a full backup (B) after the change ensures a rollback point if unexpected failures occur post-implementation. Documenting recovery plans (A) is important but done pre-change. Auditing changes (C) is detective, not preventive. Requiring diagrams (E) and inventory management (F) are governance tasks, not direct failure-prevention steps.",
+    "explanation": "The correct answers are A and D. A. Ensure users document the system recovery plan prior to deployment — documenting a recovery plan before a change is deployed is a critical step in change management to reduce the impact of system failures. It ensures that if something goes wrong, there is a clear, pre-approved path to restore the system to its previous state. D. Identify assets with dependencies that could be impacted by the change — understanding which assets depend on the system being changed allows the team to assess the full blast radius of a failure and take preventive measures before the change goes live. Option B (full backup following the change) is a reactive measure done after deployment and does not directly reduce the impact prior to the change. Option C (audit tool) is a detective control, not preventive. Options E and F are governance and documentation tasks that do not directly reduce system failure impact.",
     "image": null
   },
   {
@@ -5035,6 +5035,23 @@ const CYSA_QUESTIONS = [
     "image": null
   },
   {
+    "id": "q-jc-292",
+    "type": "mcq",
+    "multiSelect": false,
+    "selectCount": 1,
+    "domain": "Domain 1.0: Security Operations",
+    "question": "A security analyst is performing an investigation involving multiple targeted Windows malware\nbinaries. The analyst wants to gather intelligence without disclosing information to the attackers.\nWhich of the following actions would allow the analyst to achieve the objective?",
+    "options": [
+      "A. Upload the binary to an air-gapped sandbox for analysis.",
+      "B. Send the binaries to the antivirus vendor.",
+      "C. Execute the binaries on an environment with internet connectivity.",
+      "D. Query the file hashes using VirusTotal."
+    ],
+    "answer": "A",
+    "explanation": "The correct answer is A. Upload the binary to an air-gapped sandbox for analysis. An air-gapped sandbox is an isolated environment with no network connectivity to the internet or production systems. Analyzing malware in an air-gapped sandbox allows the analyst to observe the binary's behavior, extract indicators of compromise, and gather intelligence without any risk of the malware communicating back to attacker-controlled infrastructure or disclosing the investigation. Option B (sending binaries to the antivirus vendor) risks tipping off the attacker if the vendor shares telemetry or publishes signatures. Option C (executing in an internet-connected environment) allows the malware to phone home, alerting the attacker. Option D (querying hashes on VirusTotal) is a passive lookup, but VirusTotal shares submission data and the query itself could alert the attacker if they monitor for lookups of their malware hashes.",
+    "image": null
+  },
+  {
     "id": "q-jc-293",
     "type": "mcq",
     "multiSelect": false,
@@ -5160,7 +5177,7 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 3.0: Incident Response and Management",
-    "question": "The Chief Information Security Officer (CISO) of a large management firm has selected a\ncybersecurity framework that will help the organization demonstrate its investment in tools and\nsystems to protect its dat\na. Which of the following did the CISO most likely select?",
+    "question": "The Chief Information Security Officer (CISO) of a large management firm has selected a\ncybersecurity framework that will help the organization demonstrate its investment in tools and\nsystems to protect its data.\nWhich of the following did the CISO most likely select?",
     "options": [
       "A. PCI DSS",
       "B. COBIT",
@@ -5716,9 +5733,9 @@ const CYSA_QUESTIONS = [
     ],
     "answer": [
       "C",
-      "F"
+      "E"
     ],
-    "explanation": "C. Contracting a penetration test and F. Implementing threat modeling are the two best options for an organization wanting to minimize exposure of design flaws in a repeatedly compromised internet-facing web application. Threat modeling (F) systematically identifies architectural security weaknesses and design flaws during development or review, addressing root causes. Penetration testing (C) simulates real attacks to find exploitable vulnerabilities in the current design. A WAF (A) provides compensating controls but does not fix design flaws. Forensic analysis (B) examines past incidents. Tabletop exercises (D) test response plans. Bug bounties (E) discover vulnerabilities but require researcher participation.",
+    "explanation": "The correct answers are C and E. C. Contracting a penetration test — since the company cannot allocate additional internal resources, contracting an external penetration tester is ideal. External testers bring fresh, unbiased perspectives and specialized expertise to identify design flaws and exploitable vulnerabilities that internal teams may have missed. E. Creating a bug bounty program — a bug bounty program engages a broad community of external security researchers to continuously test the application and report vulnerabilities. It is cost-effective since the company only pays for valid findings, and it requires minimal ongoing internal resource allocation. Together, these two options leverage external expertise to identify flaws without burdening internal staff. Option A (WAF) mitigates attacks but does not identify or fix design flaws. Option B (forensic analysis) is reactive. Option D (tabletop exercise) tests response procedures, not application security. Option F (threat modeling) is valuable but requires significant internal resource involvement to implement properly.",
     "image": null
   },
   {
@@ -6292,7 +6309,7 @@ const CYSA_QUESTIONS = [
       "D. The email security software did not process all of the records correctly."
     ],
     "answer": "B",
-    "explanation": "Comprehensive and Detailed Step-by-Step\nThe SPF = PASS result confirms the email came from an authorized server, but DKIM = FAIL indicates\nthe message was not properly signed with the expected DomainKeys Identified Mail (DKIM)\nsignature. DMARC = FAIL suggests that because DKIM failed, the overall email authentication failed.\nThis scenario is consistent with a legitimate server sending an unsigned email.\nReference:\nCompTIA CySA+ All-in-One Guide (Chapter 5: Email Analysis) \nCompTIA CySA+ Practice Tests (Domain 1.3 Email Authentication)",
+    "explanation": "Comprehensive and Detailed Step-by-Step\nThe SPF = PASS result confirms the email came from an authorized server, but DKIM = FAIL indicates\nthe message was not properly signed with the expected DomainKeys Identified Mail (DKIM)\nsignature. DMARC = FAIL suggests that because DKIM failed, the overall email authentication failed.\nThis scenario is consistent with a legitimate server sending an unsigned email.\nReference:\nCompTIA CySA+ All-in-One Guide (Chapter 5: Email Analysis) \nCompTIA CySA+ Practice Tests (Domain 1.3 Email Authentication)",
     "image": null
   },
   {
@@ -6308,8 +6325,8 @@ const CYSA_QUESTIONS = [
       "C. Average time to patch",
       "D. Remediated incidents"
     ],
-    "answer": "D",
-    "explanation": "Comprehensive and Detailed Step-by-Step\nRemediated incidents is a key performance indicator (KPI) that measures how effectively incidents\nare resolved and communicated during the incident response lifecycle. It reflects the program's\nsuccess in mitigating risks and restoring normal operations. Other options (e.g., mean time to detect)\nare important metrics but do not directly measure reporting or communication effectiveness.\nReference:\nCompTIA CySA+ Study Guide (Chapter 4: Reporting and Metrics, Page 425) \nCompTIA CySA+ Objectives (Domain 4.0 - Reporting and Communication)",
+    "answer": "B",
+    "explanation": "The correct answer is B. Mean time to detect (MTTD). MTTD is a key performance indicator that measures how long it takes the organization to identify and detect an incident from the moment it begins. It directly reflects the effectiveness of the incident response reporting and communication program — a well-functioning program with clear reporting channels, monitoring tools, and communication workflows will have a lower MTTD. A lower MTTD indicates that incidents are being identified and escalated quickly, reducing potential damage. Incident volume (A) measures how many incidents occur but does not assess program effectiveness. Average time to patch (C) is a vulnerability management metric, not an IR communication metric. Remediated incidents (D) measures how many incidents were resolved, which reflects remediation effectiveness, not specifically reporting and communication effectiveness.",
     "image": null
   },
   {
