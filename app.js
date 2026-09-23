@@ -250,6 +250,40 @@ function startExam(mode) {
   if (!state.studyMode) startTimer();
 }
 
+// PRACTICE TEST MODE — splits ALL MCQ questions into 4 fixed, non-overlapping chunks
+function startPracticeTest(testNumber) {
+  const meta = EXAM_METADATA[state.activeExam];
+  const baseBank = meta ? [...meta.getQuestions()] : [...CYSA_QUESTIONS];
+
+  // Only MCQ questions (exclude PBQs), in original order (no shuffle) for consistent splitting
+  const mcqQuestions = baseBank.filter(q => q.type !== 'pbq');
+  const total = mcqQuestions.length;
+  const chunkSize = Math.ceil(total / 4);
+
+  const start = (testNumber - 1) * chunkSize;
+  const end = Math.min(start + chunkSize, total);
+  const chunk = mcqQuestions.slice(start, end);
+
+  // Reset state
+  state.examMode = 'practice-test';
+  state.studyMode = true;   // no timer, instant feedback like study mode
+  state.currentIndex = 0;
+  state.userAnswers = {};
+  state.strikethroughs = {};
+  state.flagged.clear();
+  state.isPaused = false;
+  state.revealedQuestions = new Set();
+  state.shuffledOptions = {};
+  state.liveCorrect = 0;
+  state.timeRemaining = 0;
+  state.activeQuestions = chunk;
+
+  showScreen('exam');
+  renderCurrentQuestion();
+  updateProgressMeter();
+  // No timer started — practice tests are untimed
+}
+
 // TIMER MANAGEMENT
 function startTimer() {
   if (state.timerInterval) clearInterval(state.timerInterval);
