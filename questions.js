@@ -2331,7 +2331,7 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 1.0: Security Operations",
-    "question": "While reviewing web server logs, a security analyst found the following line:\n<IMG SRC=’vbscript:msgbox(\"test\")’>\nWhich of the following malicious activities was attempted?",
+    "question": "While reviewing web server logs, a security analyst found the following line:<IMG SRC=’vbscript:msgbox(\"test\")’> \nWhich of the following malicious activities was attempted?",
     "options": [
       "A. Command injection",
       "B. XML injection",
