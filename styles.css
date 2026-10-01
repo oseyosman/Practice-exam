@@ -755,6 +755,231 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* PBQ TABLE MATCHING */
+.pbq-table-container {
+  overflow-x: auto;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.pbq-table-header-tab {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pbq-sim-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pbq-sim-table th {
+  background: rgba(2, 132, 199, 0.15);
+  color: var(--text-main);
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid rgba(2, 132, 199, 0.4);
+}
+
+.pbq-sim-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.pbq-sim-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.pbq-sim-table select.form-select {
+  width: 100%;
+  min-width: 130px;
+  background: #0f172a;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pbq-sim-table select.form-select:focus {
+  border-color: #38bdf8;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+/* PBQ TABBED EXHIBITS */
+.pbq-exhibits-container {
+  margin-top: 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pbq-exhibits-tab-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(2, 132, 199, 0.12);
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.pbq-exhibits-title-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.pbq-exhibit-tab {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.pbq-exhibit-tab:hover {
+  background: rgba(2, 132, 199, 0.25);
+  color: #fff;
+  border-color: rgba(2, 132, 199, 0.4);
+}
+
+.pbq-exhibit-tab.active {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #fff;
+  border-color: #38bdf8;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.pbq-exhibit-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pbq-exhibit-content .question-image {
+  max-width: 100%;
+  max-height: 480px;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+.pbq-exhibit-content .question-image:hover {
+  transform: scale(1.01);
+}
+
+/* PBQ COMPLIANCE CHECKLIST & REPORT */
+.pbq-compliance-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.pbq-compliance-box {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.pbq-compliance-header {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  padding: 0.85rem 1.25rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pbq-compliance-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+}
+
+.pbq-compliance-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.pbq-compliance-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.pbq-compliance-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.pbq-compliance-item:hover {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
+}
+
+.pbq-compliance-item.is-checked {
+  background: rgba(2, 132, 199, 0.16);
+  border-color: #38bdf8;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.2);
+}
+
+.pbq-compliance-checkbox {
+  width: 19px;
+  height: 19px;
+  accent-color: #0284c7;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.pbq-compliance-text {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
 /* DRAG & ORDER MATCHING PBQ */
 .order-list {
   display: flex;

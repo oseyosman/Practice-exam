@@ -38,8 +38,8 @@ const EXAM_METADATA = {
     // Dashboard details
     heroBadge: "CompTIA Certified Cybersecurity Analyst",
     heroTitle: "CS0-003 Master Exam Simulator",
-    heroDesc: "Fully realistic exam environment featuring 85 questions, 165-minute timed duration, Performance-Based Questions (PBQs), detailed explanations, and domain vulnerability analysis.",
-    maxQuestions: "85",
+    heroDesc: "523-question bank featuring 85-question timed simulations, 165-minute duration, Performance-Based Questions (PBQs), FreeCram scraped questions, detailed explanations, and domain analysis.",
+    maxQuestions: "523",
     durationText: "165m",
     passingScoreText: "750 / 900",
     domainsBadgeVal: "4 Domains",
@@ -547,13 +547,514 @@ function createPBQView(q) {
     wrapper.appendChild(logBox);
   }
 
+  // Question Image / Exhibits (if present in PBQ)
+  if (q.exhibits && q.exhibits.length) {
+    const exhibitContainer = document.createElement('div');
+    exhibitContainer.className = 'pbq-exhibits-container';
+
+    let activeExhibitIdx = 0;
+
+    function renderTabs() {
+      exhibitContainer.innerHTML = '';
+
+      const tabHeader = document.createElement('div');
+      tabHeader.className = 'pbq-exhibits-tab-bar';
+
+      const headerTitle = document.createElement('span');
+      headerTitle.className = 'pbq-exhibits-title-label';
+      headerTitle.textContent = 'Scan Data:';
+      tabHeader.appendChild(headerTitle);
+
+      q.exhibits.forEach((ex, idx) => {
+        const tabBtn = document.createElement('button');
+        tabBtn.type = 'button';
+        tabBtn.className = `pbq-exhibit-tab ${idx === activeExhibitIdx ? 'active' : ''}`;
+        tabBtn.textContent = ex.title;
+        tabBtn.onclick = () => {
+          activeExhibitIdx = idx;
+          renderTabs();
+        };
+        tabHeader.appendChild(tabBtn);
+      });
+      exhibitContainer.appendChild(tabHeader);
+
+      const activeEx = q.exhibits[activeExhibitIdx];
+      const viewBody = document.createElement('div');
+      viewBody.className = 'pbq-exhibit-content';
+      viewBody.innerHTML = `
+        <img src="${activeEx.image}" class="question-image" alt="${activeEx.title}" onclick="openImageZoom('${activeEx.image}')">
+        <span class="zoom-hint">Click image to enlarge full terminal scan (${activeEx.title})</span>
+      `;
+      exhibitContainer.appendChild(viewBody);
+    }
+
+    renderTabs();
+    wrapper.appendChild(exhibitContainer);
+  } else if (q.image && (typeof q.image === 'string' ? q.image.trim() : q.image.length > 0)) {
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'question-image-box';
+    const images = Array.isArray(q.image) ? q.image : [q.image];
+    const imgsHtml = images.map((src, idx) => `
+      <img src="${src}" class="question-image" alt="Scenario Exhibit ${idx + 1}" onclick="openImageZoom('${src}')">
+    `).join('');
+    imgContainer.innerHTML = `
+      <div class="image-header-tag">Reference Diagram / Scenario Exhibit</div>
+      ${imgsHtml}
+      <span class="zoom-hint">Click image to enlarge</span>
+    `;
+    wrapper.appendChild(imgContainer);
+  }
+
   if (q.pbqType === 'order-matching') {
     wrapper.appendChild(createOrderMatchingPBQ(q));
+  } else if (q.pbqType === 'compliance-checklist') {
+    wrapper.appendChild(createComplianceChecklistPBQ(q));
+  } else if (q.pbqType === 'server-hardening' || q.servers) {
+    wrapper.appendChild(createServerHardeningPBQ(q));
+  } else if (q.pbqType === 'table-matching' || q.tableRows) {
+    wrapper.appendChild(createTableMatchingPBQ(q));
   } else {
     wrapper.appendChild(createDropdownFieldsPBQ(q));
   }
 
   return wrapper;
+}
+
+function createComplianceChecklistPBQ(q) {
+  const container = document.createElement('div');
+  container.className = 'pbq-compliance-container';
+
+  if (!state.userAnswers[q.id]) {
+    state.userAnswers[q.id] = {};
+  }
+  const userPbqState = state.userAnswers[q.id];
+
+  // PART 1: COMPLIANCE REPORT (Checklist)
+  const part1Box = document.createElement('div');
+  part1Box.className = 'pbq-compliance-box';
+
+  const part1Header = document.createElement('div');
+  part1Header.className = 'pbq-compliance-header';
+  part1Header.innerHTML = `
+    <div class="pbq-compliance-title">${q.part1Title || 'Compliance Report'}</div>
+    <div class="pbq-compliance-subtitle">${q.part1Instruction || 'Fill out the following report based on your analysis of the scan data.'}</div>
+  `;
+  part1Box.appendChild(part1Header);
+
+  const checklistList = document.createElement('div');
+  checklistList.className = 'pbq-compliance-checklist';
+
+  const checkFields = (q.fields || []).filter(f => f.type === 'checkbox');
+  checkFields.forEach(f => {
+    const itemLabel = document.createElement('label');
+    const isChecked = userPbqState[f.id] === 'Checked';
+    itemLabel.className = `pbq-compliance-item ${isChecked ? 'is-checked' : ''}`;
+
+    const chk = document.createElement('input');
+    chk.type = 'checkbox';
+    chk.className = 'pbq-compliance-checkbox';
+    chk.value = 'Checked';
+    chk.checked = isChecked;
+
+    chk.onchange = (e) => {
+      userPbqState[f.id] = e.target.checked ? 'Checked' : 'Unchecked';
+      if (e.target.checked) {
+        itemLabel.classList.add('is-checked');
+      } else {
+        itemLabel.classList.remove('is-checked');
+      }
+      updateProgressMeter();
+    };
+
+    const textSpan = document.createElement('span');
+    textSpan.className = 'pbq-compliance-text';
+    textSpan.textContent = f.label;
+
+    itemLabel.appendChild(chk);
+    itemLabel.appendChild(textSpan);
+    checklistList.appendChild(itemLabel);
+  });
+
+  part1Box.appendChild(checklistList);
+  container.appendChild(part1Box);
+
+  // PART 2: RECOMMENDATIONS (if recommendationRows or rec fields present)
+  if (q.recommendationRows && q.recommendationRows.length) {
+    const part2Box = document.createElement('div');
+    part2Box.className = 'pbq-compliance-box';
+    part2Box.style.marginTop = '1.5rem';
+
+    const part2Header = document.createElement('div');
+    part2Header.className = 'pbq-compliance-header';
+    part2Header.innerHTML = `
+      <div class="pbq-compliance-title">${q.part2Title || 'Part 2 — Configuration Change Recommendations'}</div>
+      <div class="pbq-compliance-subtitle">${q.part2Instruction || 'Select the required configuration changes for servers requiring remediation.'}</div>
+    `;
+    part2Box.appendChild(part2Header);
+
+    const recTable = document.createElement('div');
+    recTable.className = 'pbq-table-container';
+    recTable.style.boxShadow = 'none';
+    recTable.style.border = 'none';
+
+    const table = document.createElement('table');
+    table.className = 'pbq-sim-table';
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th style="width: 25%;">Server</th>
+          <th style="width: 35%;">Service</th>
+          <th style="width: 40%;">Config Change</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+
+    const tbody = table.querySelector('tbody');
+    q.recommendationRows.forEach(row => {
+      const tr = document.createElement('tr');
+
+      ['server', 'service', 'change'].forEach(col => {
+        const field = row[col];
+        const td = document.createElement('td');
+        const sel = document.createElement('select');
+        sel.className = 'form-select';
+        sel.innerHTML = `<option value="">Select ${col.charAt(0).toUpperCase() + col.slice(1)}</option>` +
+          field.options.map(opt => `<option value="${opt}" ${userPbqState[field.id] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+
+        sel.onchange = (e) => {
+          userPbqState[field.id] = e.target.value;
+          updateProgressMeter();
+        };
+
+        td.appendChild(sel);
+        tr.appendChild(td);
+      });
+
+      tbody.appendChild(tr);
+    });
+
+    recTable.appendChild(table);
+    part2Box.appendChild(recTable);
+    container.appendChild(part2Box);
+  }
+
+  return container;
+}
+
+function createServerHardeningPBQ(q) {
+  const container = document.createElement('div');
+  container.className = 'pbq-compliance-container';
+
+  if (!state.userAnswers[q.id]) {
+    state.userAnswers[q.id] = {};
+  }
+  const userPbqState = state.userAnswers[q.id];
+
+  let activeServerIdx = 0;
+
+  function renderServerCard() {
+    container.innerHTML = '';
+
+    // Server Tab Bar
+    const tabHeader = document.createElement('div');
+    tabHeader.className = 'pbq-exhibits-tab-bar';
+    tabHeader.style.marginBottom = '1rem';
+
+    const headerTitle = document.createElement('span');
+    headerTitle.className = 'pbq-exhibits-title-label';
+    headerTitle.textContent = 'Select Host:';
+    tabHeader.appendChild(headerTitle);
+
+    q.servers.forEach((srv, idx) => {
+      const tabBtn = document.createElement('button');
+      tabBtn.type = 'button';
+      tabBtn.className = `pbq-exhibit-tab ${idx === activeServerIdx ? 'active' : ''}`;
+      tabBtn.textContent = srv.name + (srv.isDMZ ? ' (DMZ)' : '');
+      tabBtn.onclick = () => {
+        activeServerIdx = idx;
+        renderServerCard();
+      };
+      tabHeader.appendChild(tabBtn);
+    });
+    container.appendChild(tabHeader);
+
+    // Active Server Card
+    const srv = q.servers[activeServerIdx];
+    const card = document.createElement('div');
+    card.className = 'pbq-compliance-box';
+
+    const cardHeader = document.createElement('div');
+    cardHeader.className = 'pbq-compliance-header';
+    cardHeader.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+        <div class="pbq-compliance-title">${srv.name}</div>
+        <span class="badge" style="background:${srv.isDMZ ? 'rgba(239, 68, 68, 0.25)' : 'rgba(2, 132, 199, 0.25)'}; color:${srv.isDMZ ? '#f87171' : '#38bdf8'}; border:1px solid ${srv.isDMZ ? '#ef4444' : '#0284c7'}; padding:0.25rem 0.65rem; border-radius:4px; font-weight:700; font-size:0.8rem;">
+          ${srv.subnet || (srv.isDMZ ? 'DMZ Subnet' : 'Internal LAN Subnet')}
+        </span>
+      </div>
+      <div class="pbq-compliance-subtitle">Assign the primary role, IP address, and select non-compliant protocols to disable.</div>
+    `;
+    card.appendChild(cardHeader);
+
+    // Role & IP row
+    const configRow = document.createElement('div');
+    configRow.style.display = 'grid';
+    configRow.style.gridTemplateColumns = 'repeat(auto-fit, minmax(240px, 1fr))';
+    configRow.style.gap = '1.25rem';
+    configRow.style.padding = '1.25rem 1.25rem 0.75rem 1.25rem';
+
+    // Role Dropdown
+    const roleGroup = document.createElement('div');
+    roleGroup.className = 'pbq-field-group';
+    const roleLabel = document.createElement('label');
+    roleLabel.className = 'pbq-field-label';
+    roleLabel.textContent = 'Primary Role / Service:';
+    roleGroup.appendChild(roleLabel);
+
+    const roleSel = document.createElement('select');
+    roleSel.className = 'form-select';
+    roleSel.innerHTML = `<option value="">-- Select Role --</option>` +
+      srv.roleField.options.map(opt => `<option value="${opt}" ${userPbqState[srv.roleField.id] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+    roleSel.onchange = (e) => {
+      userPbqState[srv.roleField.id] = e.target.value;
+      updateProgressMeter();
+    };
+    roleGroup.appendChild(roleSel);
+    configRow.appendChild(roleGroup);
+
+    // IP Dropdown
+    const ipGroup = document.createElement('div');
+    ipGroup.className = 'pbq-field-group';
+    const ipLabel = document.createElement('label');
+    ipLabel.className = 'pbq-field-label';
+    ipLabel.textContent = 'Assigned IP Address:';
+    ipGroup.appendChild(ipLabel);
+
+    const ipSel = document.createElement('select');
+    ipSel.className = 'form-select';
+    ipSel.innerHTML = `<option value="">-- Select IP --</option>` +
+      srv.ipField.options.map(opt => `<option value="${opt}" ${userPbqState[srv.ipField.id] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+    ipSel.onchange = (e) => {
+      userPbqState[srv.ipField.id] = e.target.value;
+      updateProgressMeter();
+    };
+    ipGroup.appendChild(ipSel);
+    configRow.appendChild(ipGroup);
+
+    card.appendChild(configRow);
+
+    // Checkboxes Header: Non-Compliant Services to Disable
+    const chkSection = document.createElement('div');
+    chkSection.style.padding = '0.5rem 1.25rem 1.25rem 1.25rem';
+    chkSection.innerHTML = `
+      <div style="font-weight:700; font-size:0.95rem; margin-top:0.5rem; margin-bottom:0.75rem; color:var(--text-main);">
+        Non-Compliant Services to Disable (Check to Disable):
+      </div>
+    `;
+
+    const checklist = document.createElement('div');
+    checklist.className = 'pbq-compliance-checklist';
+    checklist.style.padding = '0';
+    checklist.style.gridTemplateColumns = 'repeat(auto-fill, minmax(220px, 1fr))';
+
+    srv.serviceCheckboxes.forEach(chkField => {
+      const itemLabel = document.createElement('label');
+      const isChecked = userPbqState[chkField.id] === 'Checked';
+      itemLabel.className = `pbq-compliance-item ${isChecked ? 'is-checked' : ''}`;
+
+      const chk = document.createElement('input');
+      chk.type = 'checkbox';
+      chk.className = 'pbq-compliance-checkbox';
+      chk.value = 'Checked';
+      chk.checked = isChecked;
+
+      chk.onchange = (e) => {
+        userPbqState[chkField.id] = e.target.checked ? 'Checked' : 'Unchecked';
+        if (e.target.checked) itemLabel.classList.add('is-checked');
+        else itemLabel.classList.remove('is-checked');
+        updateProgressMeter();
+      };
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'pbq-compliance-text';
+      textSpan.textContent = chkField.label;
+
+      itemLabel.appendChild(chk);
+      itemLabel.appendChild(textSpan);
+      checklist.appendChild(itemLabel);
+    });
+
+    chkSection.appendChild(checklist);
+    card.appendChild(chkSection);
+    container.appendChild(card);
+  }
+
+  renderServerCard();
+  return container;
+}
+
+function createTableMatchingPBQ(q) {
+  const outerWrapper = document.createElement('div');
+  outerWrapper.style.display = 'flex';
+  outerWrapper.style.flexDirection = 'column';
+  outerWrapper.style.gap = '1.25rem';
+
+  const userPbqState = state.userAnswers[q.id] || {};
+
+  // Part 1: Additional fields if defined (e.g., Identify the following)
+  const part1Fields = (q.fields || []).filter(f => !f.isTableRow);
+  if (part1Fields.length > 0 && q.part1Title) {
+    const part1Box = document.createElement('div');
+    part1Box.className = 'pbq-compliance-box';
+
+    const p1Header = document.createElement('div');
+    p1Header.className = 'pbq-compliance-header';
+    p1Header.innerHTML = `
+      <div class="pbq-compliance-title">${q.part1Title}</div>
+      ${q.part1Instruction ? `<div class="pbq-compliance-subtitle">${q.part1Instruction}</div>` : ''}
+    `;
+    part1Box.appendChild(p1Header);
+
+    const grid = document.createElement('div');
+    grid.className = 'pbq-fields-grid';
+    grid.style.padding = '1.25rem';
+
+    part1Fields.forEach(field => {
+      const group = document.createElement('div');
+      group.className = 'pbq-field-group';
+
+      const label = document.createElement('label');
+      label.className = 'pbq-field-label';
+      label.textContent = field.label;
+      group.appendChild(label);
+
+      const select = document.createElement('select');
+      select.className = 'form-select';
+      select.innerHTML = `<option value="">Select option</option>` +
+        field.options.map(opt => `<option value="${opt}" ${userPbqState[field.id] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+
+      select.onchange = (e) => {
+        if (!state.userAnswers[q.id]) state.userAnswers[q.id] = {};
+        state.userAnswers[q.id][field.id] = e.target.value;
+        updateProgressMeter();
+      };
+
+      group.appendChild(select);
+      grid.appendChild(group);
+    });
+
+    part1Box.appendChild(grid);
+    outerWrapper.appendChild(part1Box);
+  }
+
+  const container = document.createElement('div');
+  container.className = 'pbq-table-container';
+
+  const tabHeader = document.createElement('div');
+  tabHeader.className = 'pbq-table-header-tab';
+  tabHeader.textContent = q.tableTitle || 'Action Plan';
+  container.appendChild(tabHeader);
+
+  const table = document.createElement('table');
+  table.className = 'pbq-sim-table';
+
+  const isTwoCol = q.tableHeaders && q.tableHeaders.length === 2;
+
+  if (isTwoCol) {
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>${q.tableHeaders[0]}</th>
+          <th style="width: 280px;">${q.tableHeaders[1]}</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+  } else {
+    const headers = q.tableHeaders || ['Risk prioritization', 'Risk finding', 'Risk categorization'];
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th style="width: 170px;">${headers[0]}</th>
+          <th>${headers[1]}</th>
+          <th style="width: 190px;">${headers[2]}</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    `;
+  }
+
+  const tbody = table.querySelector('tbody');
+
+  q.tableRows.forEach(row => {
+    const tr = document.createElement('tr');
+
+    if (isTwoCol || row.controlId || row.id) {
+      // 2-column layout: Finding on left, Control Dropdown on right
+      const tdFinding = document.createElement('td');
+      tdFinding.style.fontWeight = '500';
+      tdFinding.textContent = row.finding;
+
+      const tdControl = document.createElement('td');
+      const selControl = document.createElement('select');
+      selControl.className = 'form-select';
+      const opts = row.options || row.controlOptions || [];
+      const fieldId = row.controlId || row.fieldId || row.id;
+
+      selControl.innerHTML = `<option value="">Select control</option>` +
+        opts.map(opt => `<option value="${opt}" ${userPbqState[fieldId] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+
+      selControl.onchange = (e) => {
+        if (!state.userAnswers[q.id]) state.userAnswers[q.id] = {};
+        state.userAnswers[q.id][fieldId] = e.target.value;
+        updateProgressMeter();
+      };
+      tdControl.appendChild(selControl);
+
+      tr.appendChild(tdFinding);
+      tr.appendChild(tdControl);
+    } else {
+      // 3-column layout: Priority, Finding, Category
+      const tdPriority = document.createElement('td');
+      const selPriority = document.createElement('select');
+      selPriority.className = 'form-select';
+      selPriority.innerHTML = `<option value="">Select</option>` +
+        row.priorityOptions.map(opt => `<option value="${opt}" ${userPbqState[row.priorityId] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+      selPriority.onchange = (e) => {
+        if (!state.userAnswers[q.id]) state.userAnswers[q.id] = {};
+        state.userAnswers[q.id][row.priorityId] = e.target.value;
+        updateProgressMeter();
+      };
+      tdPriority.appendChild(selPriority);
+
+      const tdFinding = document.createElement('td');
+      tdFinding.style.fontWeight = '500';
+      tdFinding.textContent = row.finding;
+
+      const tdCategory = document.createElement('td');
+      const selCategory = document.createElement('select');
+      selCategory.className = 'form-select';
+      selCategory.innerHTML = `<option value="">Select</option>` +
+        row.categoryOptions.map(opt => `<option value="${opt}" ${userPbqState[row.categoryId] === opt ? 'selected' : ''}>${opt}</option>`).join('');
+      selCategory.onchange = (e) => {
+        if (!state.userAnswers[q.id]) state.userAnswers[q.id] = {};
+        state.userAnswers[q.id][row.categoryId] = e.target.value;
+        updateProgressMeter();
+      };
+      tdCategory.appendChild(selCategory);
+
+      tr.appendChild(tdPriority);
+      tr.appendChild(tdFinding);
+      tr.appendChild(tdCategory);
+    }
+
+    tbody.appendChild(tr);
+  });
+
+  container.appendChild(table);
+  outerWrapper.appendChild(container);
+  return outerWrapper;
 }
 
 function createDropdownFieldsPBQ(q) {
@@ -816,7 +1317,12 @@ function submitExam() {
         isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correctOrder);
       } else {
         const userFields = state.userAnswers[q.id] || {};
-        isCorrect = q.fields.every(f => userFields[f.id] === f.correct);
+        isCorrect = q.fields && q.fields.every(f => {
+          if (f.type === 'checkbox') {
+            return (userFields[f.id] || 'Unchecked') === f.correct;
+          }
+          return userFields[f.id] === f.correct;
+        });
       }
     } else {
       isCorrect = checkMCQCorrect(q, state.userAnswers[q.id]);
@@ -952,7 +1458,12 @@ function renderReviewList(filterType) {
         isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correctOrder);
       } else {
         const userFields = state.userAnswers[q.id] || {};
-        isCorrect = q.fields.every(f => userFields[f.id] === f.correct);
+        isCorrect = q.fields && q.fields.every(f => {
+          if (f.type === 'checkbox') {
+            return (userFields[f.id] || 'Unchecked') === f.correct;
+          }
+          return userFields[f.id] === f.correct;
+        });
       }
     } else {
       isCorrect = checkMCQCorrect(q, state.userAnswers[q.id]);
@@ -1016,14 +1527,42 @@ function renderReviewList(filterType) {
     // PBQ answer summary
     let pbqSummaryHtml = '';
     if (q.type === 'pbq') {
-      pbqSummaryHtml = `<p style="margin-bottom:0.75rem;"><strong>PBQ Status:</strong> ${isCorrect ? '<span style="color:var(--success)">Correct Solution</span>' : '<span style="color:var(--danger)">Incorrect Configuration</span>'}</p>`;
+      const userPbq = state.userAnswers[q.id] || {};
+      let fieldBreakdown = '';
+      if (q.fields && q.fields.length) {
+        fieldBreakdown = '<div class="pbq-review-fields" style="margin-top:0.75rem; display:flex; flex-direction:column; gap:0.4rem;">';
+        q.fields.forEach(f => {
+          const uVal = f.type === 'checkbox' ? (userPbq[f.id] || 'Unchecked') : (userPbq[f.id] || '(None)');
+          const isFieldCorrect = uVal === f.correct;
+          const statusIcon = isFieldCorrect ? '<span style="color:var(--success); font-weight:bold;">✓</span>' : '<span style="color:var(--danger); font-weight:bold;">✕</span>';
+          fieldBreakdown += `
+            <div style="font-size:0.85rem; padding:0.4rem 0.65rem; border-radius:4px; background:rgba(255,255,255,0.03); border-left:3px solid ${isFieldCorrect ? 'var(--success)' : 'var(--danger)'};">
+              ${statusIcon} <strong>${f.label}:</strong> Your response: <span style="font-weight:600; color:${isFieldCorrect ? 'var(--success)' : 'var(--danger)'};">${uVal}</span> ${!isFieldCorrect ? `(Expected: <strong>${f.correct}</strong>)` : ''}
+            </div>
+          `;
+        });
+        fieldBreakdown += '</div>';
+      }
+      pbqSummaryHtml = `
+        <div style="margin-bottom:0.75rem;">
+          <p><strong>PBQ Status:</strong> ${isCorrect ? '<span style="color:var(--success)">Correct Solution (+1)</span>' : '<span style="color:var(--danger)">Incorrect Configuration (0)</span>'}</p>
+          ${fieldBreakdown}
+        </div>
+      `;
     }
 
     let imageHtml = '';
-    if (q.image) {
+    if (q.exhibits && q.exhibits.length) {
       imageHtml = `
         <div class="review-image-box">
-          <img src="${q.image}" class="question-image" alt="Question Diagram">
+          ${q.exhibits.map(ex => `<div style="margin-bottom:0.75rem;"><span class="image-header-tag" style="display:inline-block; margin-bottom:0.25rem;">${ex.title}</span><br><img src="${ex.image}" class="question-image" alt="${ex.title}" onclick="openImageZoom('${ex.image}')"></div>`).join('')}
+        </div>
+      `;
+    } else if (q.image && (typeof q.image === 'string' ? q.image.trim() : q.image.length > 0)) {
+      const images = Array.isArray(q.image) ? q.image : [q.image];
+      imageHtml = `
+        <div class="review-image-box">
+          ${images.map(src => `<img src="${src}" class="question-image" alt="Exhibit Diagram" onclick="openImageZoom('${src}')">`).join('')}
         </div>
       `;
     }

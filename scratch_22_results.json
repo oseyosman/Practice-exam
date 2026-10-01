@@ -1,0 +1,412 @@
+{
+  "fc-cs0003-57": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/f926637be12f0e90b7fb31b028163af1.jpg",
+      "https://www.freecram.net/uploads/CS0-003/6a1246f01972f62560f32f1ceebd1068.jpg",
+      "https://www.freecram.net/uploads/CS0-003/2416954cb83b4eae5b9d7a974c078b4c.jpg"
+    ],
+    "answers": [],
+    "explanation": "Explanation:Here are the correct risk prioritizations and risk categorizations for each risk finding, based on the audit report, risk matrix, and calculated scores:1. A list of patient prescription information was emailed to the incorrect recipient.Risk Prioritization: 3Risk Categorization: High (10-25)2. Improperly configured third-party websites pose security risks to internal assets.Risk Prioritization: 8Risk Categorization: Low (0-4)3. A large volume of ICMP traffic is detected from an external source to Server2.Risk Prioritization: 2Risk Categorization: High (10-25)4. Unauthorized software was discovered on technician workstations.Risk Prioritization: 7Risk Categorization: Medium (5-9)5. The internet-facing web server allows access to data without requiring credentials.Risk Prioritization: 4Risk Categorization: Medium (5-9)6. A large number of potentially malicious emails is reaching end-user and shared mailboxes.Risk Prioritization: 1Risk Categorization: High (10-25)7. PHI data was found within the development and test environments.Risk Prioritization: 4Risk Categorization: Medium (5-9)8. Sensitive materials were found on a fax machine in a common area.Risk Prioritization: 6Risk Categorization: Low (0-4)",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/a263e92432cf5b8e1e815296638ff377.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/163eaecb4193033c53ba380f4ff6c4c0.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>A healthcare organization must develop an action plan based on the findings from a risk assessment. The action plan must consist of risk categorization and prioritization.<br/>INSTRUCTIONS<br/>Click on the audit report and risk matrix to review their contents.<br/>Assign a categorization to each risk and determine the order in which the findings must be prioritized for remediation according to the risk rating score.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/f926637be12f0e90b7fb31b028163af1.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/6a1246f01972f62560f32f1ceebd1068.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/2416954cb83b4eae5b9d7a974c078b4c.jpg\"/></div>"
+  },
+  "fc-cs0003-63": {
+    "options": [
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4",
+      "E. 5",
+      "F. 6",
+      "G. 7"
+    ],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/671ae9fbed31314ad0a34fb014a14a4c.jpg"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "ID 4: An internal host (172.16.1.30) pushing data out over HTTPS (Browser.exe) to an unknown external IP - it could be a covert upload.ID 7: A host (172.16.1.25) using FTP (FileZilla) to send data to bank.backup.com - direct file transfer off-site.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> 1</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> 2</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> 3</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> 4</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> 5</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> 6</label></p>\n<p><label class=\"checkbox\"><input class=\"option_G\" name=\"ipt_options\" type=\"checkbox\" value=\"G\"/><strong>G.</strong> 7</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">A group of hacktivists has breached and exfiltrated data from several of a bank's competitors.<br/>Given the following network log output:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/671ae9fbed31314ad0a34fb014a14a4c.jpg\"/><br/>Which of the following represents the greatest concerns with regard to potential data exfiltration?<br/>(Choose two.)</div>"
+  },
+  "fc-cs0003-79": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/1434cf24887cdf8a56b634b861dff521.jpg",
+      "https://www.freecram.net/uploads/CS0-003/ab26168e0b363617c91d24a7d72f3845.jpg",
+      "https://www.freecram.net/uploads/CS0-003/b1b40ff7d022ef4e969739358877374e.jpg",
+      "https://www.freecram.net/uploads/CS0-003/2eb96d2ce7af77e29e027b4dd7184ade.jpg"
+    ],
+    "answers": [],
+    "explanation": "",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/9af4bfec33e61c9b395e73de893aaa96.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>Approximately 100 employees at your company have received a phishing email. As a security analyst, you have been tasked with handling this situation.<br/>INSTRUCTIONS<br/>Review the information provided and determine the following:<br/>1. How many employees clicked on the link in the phishing email?<br/>2. On how many workstations was the malware installed?<br/>3. What is the executable file name of the malware?<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/1434cf24887cdf8a56b634b861dff521.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/ab26168e0b363617c91d24a7d72f3845.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/b1b40ff7d022ef4e969739358877374e.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/2eb96d2ce7af77e29e027b4dd7184ade.jpg\"/></div>"
+  },
+  "fc-cs0003-84": {
+    "options": [
+      "A. Law enforcement",
+      "B. Governance",
+      "C. Legal",
+      "D. Manager",
+      "E. Public relations",
+      "F. Human resources"
+    ],
+    "images": [],
+    "answers": [
+      "C",
+      "E"
+    ],
+    "explanation": "An incident manager should work with the legal and public relations entities to ensure correct processes are adhered to when communicating incident reporting to the general public, as a best practice. The legal entity can provide guidance on the legal implications and obligations of disclosing the incident, such as compliance with data protection laws, contractual obligations, and liability issues. The public relations entity can help craft the appropriate message and tone for the public communication, as well as manage the reputation and image of the organization in the aftermath of the incident. These two entities can help the incident manager balance the need for transparency and accountability with the need for confidentiality and security.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Law enforcement</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Governance</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Legal</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Manager</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Public relations</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Human resources</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">Which of the following entities should an incident manager work with to ensure correct processes are adhered to when communicating incident reporting to the general public, as a best practice?<br/>(Choose two.)</div>"
+  },
+  "fc-cs0003-105": {
+    "options": [
+      "A. Confidentiality",
+      "B. Integrity",
+      "C. Privacy",
+      "D. Anonymity",
+      "E. Non-repudiation",
+      "F. Authorization"
+    ],
+    "images": [],
+    "answers": [
+      "B",
+      "E"
+    ],
+    "explanation": "Digital signatures ensure the integrity and non-repudiation of emails. Integrity ensures that the message has not been altered in transit, as the digital signature would be invalidated if the content were tampered with. Non-repudiation ensures that the sender cannot deny having sent the email, as the digital signature is unique to their identity.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Confidentiality</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Integrity</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Privacy</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Anonymity</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Non-repudiation</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Authorization</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">Executives at an organization email sensitive financial information to external business partners when negotiating valuable contracts. To ensure the legal validity of these messages, the cybersecurity team recommends a digital signature be added to emails sent by the executives.<br/>Which of the following are the primary goals of this recommendation? (Choose two.)</div>"
+  },
+  "fc-cs0003-128": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/18cf98234b18abd777b3523034493103.jpg"
+    ],
+    "answers": [],
+    "explanation": "",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/79eeb32fd229fc7ce4d615d0dfd002ea.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">Hotspot Question<br/>A healthcare organization must develop an action plan based on the findings from a risk assessment. The action plan must consist of a recommended list of security controls.<br/>INSTRUCTIONS<br/>Select the appropriate control to implement for each risk finding. Findings may be used only once.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/18cf98234b18abd777b3523034493103.jpg\"/></div>"
+  },
+  "fc-cs0003-151": {
+    "options": [
+      "A. Law enforcement involvement",
+      "B. Compliance with regulatory requirements",
+      "C. Transparency to stockholders",
+      "D. Defined SLAs regarding services",
+      "E. Industry advocacy group participation",
+      "F. Framework guidelines"
+    ],
+    "images": [],
+    "answers": [
+      "B",
+      "F"
+    ],
+    "explanation": "Compliance with regulatory requirements: Many industries are governed by regulations (e.g., GDPR, HIPAA) that impose specific requirements for incident management communication, including timely reporting and disclosure of security incidents.Framework guidelines: Incident management processes often follow established frameworks (e.g., NIST, ISO 27001) that provide guidelines for communication during incidents, ensuring standardized and effective communication.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Law enforcement involvement</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Compliance with regulatory requirements</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Transparency to stockholders</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Defined SLAs regarding services</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Industry advocacy group participation</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Framework guidelines</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">Which of the following best describe the external requirements that are imposed for incident management communication? (Choose two).</div>"
+  },
+  "fc-cs0003-157": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/946c3ef66ac30faa2eb9fd94d6a6107f.jpg",
+      "https://www.freecram.net/uploads/CS0-003/30069a51d0756616216ec8bb5c09a119.jpg",
+      "https://www.freecram.net/uploads/CS0-003/e4427dd8d93c0cd54c2dd884444f9345.jpg",
+      "https://www.freecram.net/uploads/CS0-003/225c7cf0628fc02b589c240964b7fcbb.jpg",
+      "https://www.freecram.net/uploads/CS0-003/7b2867190a75f7e707dbe74f5d68cd10.jpg"
+    ],
+    "answers": [],
+    "explanation": "Command generating the output in Tab 1 - netstat -boThe netstat -bocommand displays active connections, their states, and the associated process IDs (PIDs). This matches the information shown in Tab 1.Command generating the output in Tab 2 - tasklistThe tasklistcommand lists all running processes with their PIDs, session names, and memory usage, which aligns with the output in Tab 2.File responsible for malicious behavior - cmd.exeBased on the hash comparison in Tab 3 and Tab 4, the MD5 hash of cmd.exedoes not match the baseline, indicating it has been modified. This suggests that cmd.exeis the source of malicious behavior (likely tampered with to facilitate the data exfiltration).",
+    "exp_images": [],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>An organization has noticed large amounts of data are being sent out of its network. An analyst is identifying the cause of the data exfiltration.<br/>INSTRUCTIONS<br/>Select the command that generated the output in tabs 1 and 2.<br/>Review the output text in all tabs and identify the file responsible for the malicious behavior.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/946c3ef66ac30faa2eb9fd94d6a6107f.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/30069a51d0756616216ec8bb5c09a119.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/e4427dd8d93c0cd54c2dd884444f9345.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/225c7cf0628fc02b589c240964b7fcbb.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/7b2867190a75f7e707dbe74f5d68cd10.jpg\"/></div>"
+  },
+  "fc-cs0003-160": {
+    "options": [
+      "A. Uninstall the DNS service",
+      "B. Perform a vulnerability scan",
+      "C. Change the server's IP to a private IP address",
+      "D. Disable the Telnet service",
+      "E. Block port 80 with the host-based firewall",
+      "F. Change the SSH port to a non-standard port"
+    ],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/ef5589a5e1cd6f96c19ffaf7c4024c0d.jpg"
+    ],
+    "answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "You don't need DNS running on a web server. Other servers will provide the entries for that server to be found.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Uninstall the DNS service</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Perform a vulnerability scan</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Change the server's IP to a private IP address</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Disable the Telnet service</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Block port 80 with the host-based firewall</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Change the SSH port to a non-standard port</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">A cybersecurity analyst needs to harden a server that is currently being used as a web server.<br/>The server needs to be accessible when entering www.company.com into the browser.<br/>Additionally, web pages require frequent updates, which are performed by a remote contractor.<br/>Given the following output:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/ef5589a5e1cd6f96c19ffaf7c4024c0d.jpg\"/><br/>Which of the following should the cybersecurity analyst recommend to harden the server?<br/>(Choose two.)</div>"
+  },
+  "fc-cs0003-164": {
+    "options": [
+      "A. Configure the server to prefer TLS 1.3.",
+      "B. Remove cipher suites that use CBC.",
+      "C. Configure the server to prefer ephemeral modes for key exchange.",
+      "D. Require client browsers to present a user certificate for mutual authentication.",
+      "E. Configure the server to require HSTS.",
+      "F. Remove cipher suites that use GCM."
+    ],
+    "images": [],
+    "answers": [
+      "A",
+      "B"
+    ],
+    "explanation": "A padding oracle attack is a type of attack that exploits the padding validation of a cryptographic message to decrypt the ciphertext without knowing the key. A padding oracle is a system that responds to queries about whether a message has a valid padding or not, such as a web server that returns different error messages for invalid padding or invalid MAC. A padding oracle attack can be applied to the CBC mode of operation, where the attacker can manipulate the ciphertext blocks and use the oracle's responses to recover the plaintext. To remediate this issue, the organization should make the following configuration changes:Configure the server to prefer TLS 1.3. TLS 1.3 is the latest version of the Transport Layer Security protocol, which provides secure communication between clients and servers. TLS 1.3 has several security improvements over previous versions, such as:It deprecates weak and obsolete cryptographic algorithms, such as RC4, MD5, SHA-1, DES,3DES, and CBC mode.It supports only strong and modern cryptographic algorithms, such as AES-GCM, ChaCha20- Poly1305, and SHA-256/384.It reduces the number of round trips required for the handshake protocol, which improves performance and latency.It encrypts more parts of the handshake protocol, which enhances privacy and confidentiality. It introduces a zero round-trip time (0-RTT) mode, which allows resuming previous sessions without additional round trips.It supports forward secrecy by default, which means that compromising the long-term keys does not affect the security of past sessions.Remove cipher suites that use CBC. Cipher suites are combinations of cryptographic algorithms that specify how TLS connections are secured. Cipher suites that use CBC mode are vulnerable to padding oracle attacks, as well as other attacks such as BEAST and Lucky 13. Therefore, they should be removed from the server's configuration and replaced with cipher suites that use more secure modes of operation, such as GCM or CCM.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Configure the server to prefer TLS 1.3.</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Remove cipher suites that use CBC.</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Configure the server to prefer ephemeral modes for key exchange.</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Require client browsers to present a user certificate for mutual authentication.</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Configure the server to require HSTS.</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Remove cipher suites that use GCM.</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">While a security analyst for an organization was reviewing logs from web servers. the analyst found several successful attempts to downgrade HTTPS sessions to use cipher modes of operation susceptible to padding oracle attacks. Which of the following combinations of configuration changes should the organization make to remediate this issue? (Choose two.)</div>"
+  },
+  "fc-cs0003-172": {
+    "options": [
+      "A. Dictionary attack",
+      "B. Push phishing",
+      "C. Impossible geo-velocity",
+      "D. Subscriber identity module swapping",
+      "E. Rogue access point",
+      "F. Password spray"
+    ],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/1f3773248cc126524cf2533064714469.jpg"
+    ],
+    "answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "Impossible geo-velocity: This is an event where a single user's account is accessed from different geographical locations within a timeframe that is impossible for normal human travel. In the log, we can see that the user \"jdoe\" is accessing from the United States and then within a few minutes from Russia, which is practically impossible to achieve without the use of some form of automated system or if the account credentials are being used by different individuals in different locations.Push phishing: This could also be an indication of push phishing, where the user is tricked into approving a multi-factor authentication request that they did not initiate. This is less clear from the logs directly, but it could be inferred if the user is receiving MFA requests that they are not initiating and are being approved without their genuine desire to access the resources.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Dictionary attack</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Push phishing</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Impossible geo-velocity</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Subscriber identity module swapping</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Rogue access point</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Password spray</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">A security analyst received an alert regarding multiple successful MFA log-ins for a particular user. When reviewing the authentication logs, the analyst sees the following:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/1f3773248cc126524cf2533064714469.jpg\"/><br/>Which of the following are most likely occurring, base on the MFA logs? (Choose two.)</div>"
+  },
+  "fc-cs0003-192": {
+    "options": [
+      "A. Deploying a WAF",
+      "B. Performing a forensic analysis",
+      "C. Contracting a penetration test",
+      "D. Holding a tabletop exercise",
+      "E. Creating a bug bounty program",
+      "F. Implementing threat modeling"
+    ],
+    "images": [],
+    "answers": [
+      "C",
+      "E"
+    ],
+    "explanation": "To identify existing vulnerabilities in the web application, the best options are to contract a penetration test and create a bug bounty program. A penetration test simulates attacks against the application to uncover security flaws proactively. A bug bounty program incentivizes external security researchers to find and report vulnerabilities, expanding the testing scope without overburdening internal resources.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Deploying a WAF</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Performing a forensic analysis</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Contracting a penetration test</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Holding a tabletop exercise</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Creating a bug bounty program</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Implementing threat modeling</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">A company's internet-facing web application has been compromised several times due to identified design flaws. The company would like to minimize the risk of these incidents from reoccurring and has provided the developers with better security training. However, the company cannot allocate any more internal resources to the issue. Which of the following are the best options to help identify flaws within the system? (Choose two.)</div>"
+  },
+  "fc-cs0003-197": {
+    "options": [
+      "A. Performing dynamic application security testing",
+      "B. Reviewing the code",
+      "C. Fuzzing the application",
+      "D. Debugging the code",
+      "E. Implementing a coding standard",
+      "F. Implementing IDS"
+    ],
+    "images": [],
+    "answers": [
+      "B",
+      "D"
+    ],
+    "explanation": "Reviewing the code and debugging the code are two methods that can help a developer identify and fix runtime errors in the code. Reviewing the code involves checking the syntax, logic, and structure of the code for any errors or inconsistencies. Debugging the code involves running the code in a controlled environment and using tools such as breakpoints, watches, and logs to monitor the execution and find the source of errors. Both methods can help improve the quality and security of the code.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Performing dynamic application security testing</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Reviewing the code</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Fuzzing the application</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Debugging the code</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Implementing a coding standard</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Implementing IDS</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">Several vulnerability scan reports have indicated runtime errors as the code is executing. The dashboard that lists the errors has a command-line interface for developers to check for vulnerabilities.<br/>Which of the following will enable a developer to correct this issue? (Choose two.)</div>"
+  },
+  "fc-cs0003-199": {
+    "options": [
+      "A. System criticality",
+      "B. Alert volume",
+      "C. Unexpected outage",
+      "D. Threat intelligence",
+      "E. Patch availability",
+      "F. Public relations"
+    ],
+    "images": [],
+    "answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "System criticality is a key factor in risk-based vulnerability management. A vulnerability affecting a mission-critical asset may be prioritized higher than its base score suggests because of the potential business impact.Threat intelligence can also change prioritization by providing information about active exploitation, exploit availability, or attacker interest. Vulnerabilities being actively targeted in the wild are often remediated sooner regardless of their original severity score.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> System criticality</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Alert volume</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Unexpected outage</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Threat intelligence</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Patch availability</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Public relations</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">Which of the following explains why a company might reprioritize a vulnerability score? (Choose two.)</div>"
+  },
+  "fc-cs0003-212": {
+    "options": [
+      "A. SOAR",
+      "B. SIEM",
+      "C. MSP",
+      "D. NGFW",
+      "E. XDR",
+      "F. DLP"
+    ],
+    "images": [],
+    "answers": [
+      "A",
+      "B"
+    ],
+    "explanation": "SOAR (Security Orchestration, Automation and Response) and SIEM (Security Information and Event Management) are solutions that can help centralize the workload for the internal security team by collecting, correlating, and analyzing alerts from different sources, such as EDR. SOAR can also automate and streamline incident response workflows, while SIEM can provide dashboards and reports for security monitoring and compliance.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> SOAR</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> SIEM</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> MSP</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> NGFW</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> XDR</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> DLP</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">The Chief Information Security Officer for an organization recently received approval to install a new EDR solution. Following the installation, the number of alerts that require remediation by an analyst has tripled. Which of the following should the organization utilize to best centralize the workload for the internal security team? (Choose two.)</div>"
+  },
+  "fc-cs0003-224": {
+    "options": [
+      "A. ",
+      "B. ",
+      "C. ",
+      "D. "
+    ],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/0fbfd0ce0f320ea68d8545e4d29e4428.jpg"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"radio\"><input class=\"option_A\" name=\"ipt_options\" type=\"radio\" value=\"A\"/><strong>A.</strong> <img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/b6fa408bdec9aa132e06d97084762d9e.jpg\"/></label></p>\n<p><label class=\"radio\"><input class=\"option_B\" name=\"ipt_options\" type=\"radio\" value=\"B\"/><strong>B.</strong> <img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/72e3b1d03a29801fc524a4a3ede0783d.jpg\"/></label></p>\n<p><label class=\"radio\"><input class=\"option_C\" name=\"ipt_options\" type=\"radio\" value=\"C\"/><strong>C.</strong> <img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/917664a34843aabbda79d45681a548f0.jpg\"/></label></p>\n<p><label class=\"radio\"><input class=\"option_D\" name=\"ipt_options\" type=\"radio\" value=\"D\"/><strong>D.</strong> <img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/4b8dd29cb270f4911cdcd58fae66fc26.jpg\"/></label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">The SOC receives a number of complaints regarding a recent uptick in desktop error messages that are associated with workstation access to an internal web application. An analyst, identifying a recently modified XML file on the web server, retrieves a copy of this file for review, which contains the following code:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/0fbfd0ce0f320ea68d8545e4d29e4428.jpg\"/><br/>Which of the following XML schema constraints would stop these desktop error messages from appearing?</div>"
+  },
+  "fc-cs0003-229": {
+    "options": [
+      "A. tcpdump",
+      "B. SIEM",
+      "C. Vulnerability scanner",
+      "D. Wireshark",
+      "E. Nmap",
+      "F. SOAR"
+    ],
+    "images": [],
+    "answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "To capture and analyze network traffic, the two best tools are:tcpdump - A command-line packet capture tool used for network traffic analysis.Wireshark - A GUI-based network packet analysis tool that provides deep inspection capabilities.",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> tcpdump</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> SIEM</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Vulnerability scanner</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Wireshark</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Nmap</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> SOAR</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">An analyst is trying to capture anomalous traffic from a compromised host. Which of the following are the best tools for achieving this objective? (Choose two.)</div>"
+  },
+  "fc-cs0003-240": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/c213962ce886edef631ae0b9777d2b49.jpg"
+    ],
+    "answers": [],
+    "explanation": "",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/528b7fdb1813f9aa68f8ec5316b1d966.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>Welcome to the Enterprise Help Desk System. Please work the ticket escalated to you in the help desk ticket queue.<br/>INSTRUCTIONS<br/>Click on the ticket to see the ticket details. Additional content is available on tabs within the ticket.<br/>First, select the appropriate issue from the drop-down menu. Then, select the MOST likely root cause from second drop-down menu.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/c213962ce886edef631ae0b9777d2b49.jpg\"/></div>"
+  },
+  "fc-cs0003-266": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/dcd221c20102990d4f533ea1ec04da5c.jpg",
+      "https://www.freecram.net/uploads/CS0-003/438b0f2e23627c8f460afd046b8ff580.jpg",
+      "https://www.freecram.net/uploads/CS0-003/3aec2acc54d4c7505f30945e85123be5.jpg",
+      "https://www.freecram.net/uploads/CS0-003/9d5eb641d30e18b2b91138b2be1946c0.jpg",
+      "https://www.freecram.net/uploads/CS0-003/70cda5303c9477ee88b415d2aed1bf39.jpg",
+      "https://www.freecram.net/uploads/CS0-003/19b33b601a6ea1ed6baa010d15a70934.jpg"
+    ],
+    "answers": [],
+    "explanation": "Part 1 Answer:Check on the following:AppServ1 is only using TLS.1.2AppServ4 is only using TLS.1.2AppServ1 is using Apache 2.4.18 or greaterAppServ3 is using Apache 2.4.18 or greaterAppServ4 is using Apache 2.4.18 or greaterPart 2 answer:Recommendations- disable TLS v1.1 on AppServ2 and AppServ3 OR configure HTTPD Security service on both AppServ2 & AppServ3 to strictly use TLS 1.2- upgrade AppServ2 Apache to version 2.4.48 from its current version of 2.3.48- Move ssh service port to port 22 on AppServ4",
+    "exp_images": [],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>You are a cybersecurity analyst tasked with interpreting scan data from Company A's servers.<br/>You must verify the requirements are being met for all of the servers and recommend changes if you find they are not.<br/>The company's hardening guidelines indicate the following:<br/>- TLS 1.2 is the only version of TLS running.<br/>- Apache 2.4.18 or greater should be used.<br/>- Only default ports should be used.<br/>INSTRUCTIONS<br/>Using the supplied data, record the status of compliance with the company's guidelines for each server.<br/>The question contains two parts: make sure you complete Part 1 and Part 2. Make recommendations for issues based ONLY on the hardening guidelines provided.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/dcd221c20102990d4f533ea1ec04da5c.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/438b0f2e23627c8f460afd046b8ff580.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/3aec2acc54d4c7505f30945e85123be5.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/9d5eb641d30e18b2b91138b2be1946c0.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/70cda5303c9477ee88b415d2aed1bf39.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/19b33b601a6ea1ed6baa010d15a70934.jpg\"/></div>"
+  },
+  "fc-cs0003-286": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/7032bf3a77a0b9cf63cd369713f96fb8.jpg",
+      "https://www.freecram.net/uploads/CS0-003/87a070b611576e8db992cdbeb64646c1.jpg",
+      "https://www.freecram.net/uploads/CS0-003/bed50be144479e1f3386bfa9ab55537f.jpg",
+      "https://www.freecram.net/uploads/CS0-003/e1626788a9f4879822ecfc9ad467c62f.jpg",
+      "https://www.freecram.net/uploads/CS0-003/48e2c62e3b3e090b88a6873b9be9b08b.jpg",
+      "https://www.freecram.net/uploads/CS0-003/909b72223cf1e529d58a47d2c85502c6.jpg",
+      "https://www.freecram.net/uploads/CS0-003/06a9fa599a2181205df12b1627fa3a52.jpg",
+      "https://www.freecram.net/uploads/CS0-003/f958d00128c9db4a77b34e0ad0c00a71.jpg",
+      "https://www.freecram.net/uploads/CS0-003/db96c8d18bdc70ba7103a1a8d00b3c21.jpg"
+    ],
+    "answers": [],
+    "explanation": "Kill Chain Item:Phishing email - Email filteringActive links   - VPNMalicious website access - IP blocklistMalware download - Firewall file type filterMalware install - Restricted local user permissionsMalware execution - Updated antivirusFile encryption - BackupsIdentify the following:Malicious executable - Payroll.xlsxMalicious IP Address - 81.161.63.103Date/time malware entered organization- 1 Dec 2019 14:03:19",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/04fd9dc5b7637b4cb0bd7f9ca96547c3.jpg",
+      "https://www.freecram.net/uploads/CS0-003/e7ef9be087bcdffe8f63e3c3f920b114.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>A company recently experienced a security incident. The security team has determined a user clicked on a link embedded in a phishing email that was sent to the entire company. The link resulted in a malware download, which was subsequently installed and run.<br/>INSTRUCTIONS<br/>Part 1<br/>Review the artifacts associated with the security Incident. Identify the name of the malware, the malicious IP address, and the date and time when the malware executable entered the organization.<br/>Part 2<br/>Review the kill chain items and select an appropriate control for each that would improve the security posture of the organization and would have helped to prevent this incident from occurring. Each control may only be used once, and not all controls will be used.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/>Firewall log:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/7032bf3a77a0b9cf63cd369713f96fb8.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/87a070b611576e8db992cdbeb64646c1.jpg\"/><br/>File integrity Monitoring Report:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/bed50be144479e1f3386bfa9ab55537f.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/e1626788a9f4879822ecfc9ad467c62f.jpg\"/><br/>Malware domain list:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/48e2c62e3b3e090b88a6873b9be9b08b.jpg\"/><br/>Vulnerability Scan Report:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/909b72223cf1e529d58a47d2c85502c6.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/06a9fa599a2181205df12b1627fa3a52.jpg\"/><br/>Phishing Email:<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/f958d00128c9db4a77b34e0ad0c00a71.jpg\"/><br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/db96c8d18bdc70ba7103a1a8d00b3c21.jpg\"/></div>"
+  },
+  "fc-cs0003-290": {
+    "options": [
+      "A. Examine the SPF, DKIM, and DMARC fields from the original email",
+      "B. Evaluate scoring fields, such as Spam Confidence Level and Bulk Complaint Level",
+      "C. Evaluate the HELO or EHLO string of the connecting email server",
+      "D. Examine the recipient address field",
+      "E. Review the headers from the forwarded email",
+      "F. Review the Content-Type header"
+    ],
+    "images": [],
+    "answers": [
+      "A",
+      "E"
+    ],
+    "explanation": "",
+    "exp_images": [],
+    "raw_options_html": "<div class=\"qa-options\">\n<p><label class=\"checkbox\"><input class=\"option_A\" name=\"ipt_options\" type=\"checkbox\" value=\"A\"/><strong>A.</strong> Examine the SPF, DKIM, and DMARC fields from the original email</label></p>\n<p><label class=\"checkbox\"><input class=\"option_B\" name=\"ipt_options\" type=\"checkbox\" value=\"B\"/><strong>B.</strong> Evaluate scoring fields, such as Spam Confidence Level and Bulk Complaint Level</label></p>\n<p><label class=\"checkbox\"><input class=\"option_C\" name=\"ipt_options\" type=\"checkbox\" value=\"C\"/><strong>C.</strong> Evaluate the HELO or EHLO string of the connecting email server</label></p>\n<p><label class=\"checkbox\"><input class=\"option_D\" name=\"ipt_options\" type=\"checkbox\" value=\"D\"/><strong>D.</strong> Examine the recipient address field</label></p>\n<p><label class=\"checkbox\"><input class=\"option_E\" name=\"ipt_options\" type=\"checkbox\" value=\"E\"/><strong>E.</strong> Review the headers from the forwarded email</label></p>\n<p><label class=\"checkbox\"><input class=\"option_F\" name=\"ipt_options\" type=\"checkbox\" value=\"F\"/><strong>F.</strong> Review the Content-Type header</label></p>\n</div>",
+    "qa_question_html": "<div class=\"qa-question\">A security analyst must review a suspicious email to determine its legitimacy. Which of the following should be performed? (Choose two.)</div>"
+  },
+  "fc-cs0003-313": {
+    "options": [],
+    "images": [
+      "https://www.freecram.net/uploads/CS0-003/bb42d8ebf97419e37cd164da848251e4.jpg"
+    ],
+    "answers": [],
+    "explanation": "",
+    "exp_images": [
+      "https://www.freecram.net/uploads/CS0-003/bbfb0e5f94f423543ed1c1e892be4ac8.jpg"
+    ],
+    "raw_options_html": "",
+    "qa_question_html": "<div class=\"qa-question\">SIMULATION<br/>You are a penetration tester who is reviewing the system hardening guidelines for a company's distribution center. The company's hardening guidelines indicate the following:<br/>- There must be one primary server or service per device.<br/>- Only default ports should be used.<br/>- Non-secure protocols should be disabled.<br/>- The corporate Internet presence should be placed in a protected subnet.<br/>INSTRUCTIONS<br/>Using the tools available, discover devices on the corporate network and the services that are running on these devices.<br/>You must determine:<br/>- The IP address of each device.<br/>- The primary server or service of each device.<br/>- The protocols that should be disabled based on the hardening guidelines.<br/>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br/><img onload=\"imgLoad(this)\" src=\"https://www.freecram.net/uploads/CS0-003/bb42d8ebf97419e37cd164da848251e4.jpg\"/></div>"
+  }
+}
