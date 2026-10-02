@@ -5249,7 +5249,7 @@ const CYSA_QUESTIONS = [
     "options": [
       "A. To limit further damage from occurring",
       "B. To get services back up and running",
-      "C. To communicate goals and objectives of the\nincident\nresponse plan",
+      "C. To communicate goals and objectives of the incident response plan",
       "D. To prevent data follow-on actions by adversary exfiltration"
     ],
     "answer": "A",
@@ -5385,8 +5385,8 @@ const CYSA_QUESTIONS = [
     "options": [
       "A. This indicator would fire on the majority of Windows devices.",
       "B. Malicious files with a matching hash would be detected.",
-      "C. Security teams would detect rogue svchost. exe processes\nin\ntheir\nenvironment.",
-      "D. Security teams would detect event entries detailing executionof\nknown-malicious\nsvchost. exe processes."
+      "C. Security teams would detect rogue svchost. exe processes in their environment.",
+      "D. Security teams would detect event entries detailing execution of known-malicious svchost. exe processes."
     ],
     "answer": "A",
     "explanation": "Adding the SHA-256 hash of a legitimate Microsoft-signed binary like svchost.exe to detection\nsignatures would result in the indicator firing on the majority of Windows devices. Svchost.exe is a\ncommon and legitimate system process used by Windows, and using its hash as an indicator of\ncompromise (IOC) would generate numerous false positives, as it would match the legitimate\ninstances of svchost.exe running on all Windows systems.",
@@ -5432,7 +5432,7 @@ const CYSA_QUESTIONS = [
     "multiSelect": false,
     "selectCount": 1,
     "domain": "Domain 3.0: Incident Response and Management",
-    "question": "A regulated organization experienced a security breach that exposed a list of customer names with\ncorresponding PH dat\na. Which of the following is the best reason for developing the organization's communication plans?",
+    "question": "A regulated organization experienced a security breach that exposed a list of customer names with\ncorresponding PH data. Which of the following is the best reason for developing the organization's communication plans?",
     "options": [
       "A. For the organization's public relations department to have a standard notification",
       "B. To ensure incidents are immediately reported to a regulatory agency",
@@ -5806,10 +5806,10 @@ const CYSA_QUESTIONS = [
     "domain": "Domain 2.0: Vulnerability Management",
     "question": "A company patches its servers using automation software. Remote SSH or RDP connections are\nallowed to the servers only from the service account used by the automation software. All servers\nare in an internal subnet without direct access to or from the internet. An analyst reviews the\nfollowing vulnerability summary:\nWhich of the following vulnerability IDs should the analyst address first?",
     "options": [
-      "A. Row 1",
-      "B. Row 2",
-      "C. Row 3",
-      "D. Row 4"
+      "A. 1",
+      "B. 2",
+      "C. 3",
+      "D. 4"
     ],
     "answer": "B",
     "explanation": "The vulnerability with the highest CVSS score and an active exploit is Microsoft CVE-2021-34527\n(PrintNightmare). Although only present on two instances, its high severity (8.4) and exploitable\nnature make it a priority. PrintNightmare is a well-known remote code execution vulnerability, which\ncan be a critical risk. According to CompTIA CySA+ and vulnerability management practices,\nprioritizing based on severity and exploitability is essential, even over the number of instances.\nOther vulnerabilities listed are less severe or lack active exploitation.",
