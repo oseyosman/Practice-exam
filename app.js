@@ -38,16 +38,16 @@ const EXAM_METADATA = {
     // Dashboard details
     heroBadge: "CompTIA Certified Cybersecurity Analyst",
     heroTitle: "CS0-003 Master Exam Simulator",
-    heroDesc: "523-question bank featuring 85-question timed simulations, 165-minute duration, Performance-Based Questions (PBQs), FreeCram scraped questions, detailed explanations, and domain analysis.",
-    maxQuestions: "523",
+    heroDesc: "523-question bank featuring 63-question timed simulations, 165-minute duration, Performance-Based Questions (PBQs), FreeCram scraped questions, detailed explanations, and domain analysis.",
+    maxQuestions: "63",
     durationText: "165m",
     passingScoreText: "750 / 900",
     domainsBadgeVal: "4 Domains",
     domainsBadgeLbl: "Security Ops & Response",
-    fullExamDesc: "85 randomized questions (MCQs & PBQs), strict 165-minute timer, no instant answers during exam, final score scaled 100-900.",
-    fullExamBtnText: "Start Full Simulation (85 Qs)",
+    fullExamDesc: "63 randomized questions (MCQs & PBQs), strict 165-minute timer, no instant answers during exam, final score scaled 100-900.",
+    fullExamBtnText: "Start Full Simulation (63 Qs)",
     fullExamDuration: 165 * 60,
-    fullExamCount: 85
+    fullExamCount: 63
   },
   secai: {
     title: "SecAI+",
@@ -206,7 +206,7 @@ function startExam(mode) {
   let baseBank = meta ? [...meta.getQuestions()] : [...CYSA_QUESTIONS];
 
   if (mode === 'full') {
-    const qCount = meta ? meta.fullExamCount : 85;
+    const qCount = meta ? meta.fullExamCount : 63;
     const duration = meta ? meta.fullExamDuration : 165 * 60;
     state.activeQuestions = generateFullQuestionBank(baseBank, qCount);
     state.timeRemaining = duration;

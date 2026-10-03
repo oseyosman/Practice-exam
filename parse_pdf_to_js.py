@@ -279,7 +279,7 @@ def parse_pdf():
     js_content = f"// CompTIA CySA+ (CS0-003) Question Bank - JustCerts Full Set (377 Questions)\n"
     js_content += f"const CYSA_QUESTIONS = {json.dumps(parsed_questions, indent=2)};\n\n"
     js_content += """
-function generateFullQuestionBank(baseQuestions, targetCount = 85) {
+function generateFullQuestionBank(baseQuestions, targetCount = 63) {
   const seen = new Set();
   const unique = baseQuestions.filter(q => {
     if (seen.has(q.id)) return false;

@@ -6627,7 +6627,7 @@ const SECAI_QUESTIONS = [
   }
 ];
 
-function generateFullQuestionBank(baseQuestions, targetCount = 85) {
+function generateFullQuestionBank(baseQuestions, targetCount = 63) {
   const seen = new Set();
   const unique = baseQuestions.filter(q => {
     if (seen.has(q.id)) return false;

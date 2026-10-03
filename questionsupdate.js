@@ -2232,7 +2232,7 @@ const CYSA_QUESTIONS = [
     "question": "Security analysts review logs on multiple servers on a daily basis. Which of the following\nimplementations will give the best central visibility into the events occurring throughout the\ncorporate environment without logging in to the servers individually?",
     "options": [
       "A. Deploy a database to aggregate the logging.",
-      "B. Configure the servers to forward logs to a SIEM-",
+      "B. Configure the servers to forward logs to a SIEM",
       "C. Share the log directory on each server to allow local access,",
       "D. Automate the emailing of logs to the analysts."
     ],
@@ -11313,7 +11313,7 @@ const SECAI_QUESTIONS = [
   }
 ];
 
-function generateFullQuestionBank(baseQuestions, targetCount = 85) {
+function generateFullQuestionBank(baseQuestions, targetCount = 63) {
   const seen = new Set();
   const unique = baseQuestions.filter(q => {
     if (seen.has(q.id)) return false;
