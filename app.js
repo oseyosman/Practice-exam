@@ -47,7 +47,8 @@ const EXAM_METADATA = {
     fullExamDesc: "63 randomized questions (MCQs & PBQs), strict 165-minute timer, no instant answers during exam, final score scaled 100-900.",
     fullExamBtnText: "Start Full Simulation (63 Qs)",
     fullExamDuration: 165 * 60,
-    fullExamCount: 63
+    fullExamCount: 63,
+    pbqDesc: "Master interactive SIEM log analysis, firewall ACL configurations, and digital forensic order of volatility simulations."
   },
   secai: {
     title: "SecAI+",
@@ -76,7 +77,8 @@ const EXAM_METADATA = {
     fullExamDesc: "60 randomized questions (MCQs & PBQs), strict 60-minute timer, no instant answers during exam, final score scaled 100-900.",
     fullExamBtnText: "Start Full Simulation (60 Qs)",
     fullExamDuration: 60 * 60,
-    fullExamCount: 60
+    fullExamCount: 60,
+    pbqDesc: "Master interactive AI architecture control mapping, data encryption & sanitization protocols, and agentic AI threat framework classifications."
   }
 };
 
@@ -122,6 +124,12 @@ function switchActiveExam(examKey) {
   const fullExamBtn = document.getElementById('full-exam-btn');
   if (fullExamDesc) fullExamDesc.textContent = meta.fullExamDesc;
   if (fullExamBtn) fullExamBtn.textContent = meta.fullExamBtnText;
+
+  // Update PBQ card description
+  const pbqDesc = document.getElementById('pbq-card-desc');
+  if (pbqDesc && meta.pbqDesc) {
+    pbqDesc.textContent = meta.pbqDesc;
+  }
 
   // Update domain focused card description
   const descEl = document.getElementById('domain-practice-desc');
@@ -242,6 +250,12 @@ function startExam(mode) {
     state.activeQuestions = shuffleArray(pool);
     // Options always shown in original order (no shuffling)
     state.timeRemaining = 0;
+  }
+
+  if (!state.activeQuestions || state.activeQuestions.length === 0) {
+    alert("No questions found for this mode.");
+    showScreen('dashboard');
+    return;
   }
 
   showScreen('exam');
@@ -532,12 +546,12 @@ function createPBQView(q) {
   title.style.fontFamily = 'var(--font-display)';
   title.style.fontSize = '1.3rem';
   title.style.marginBottom = '0.5rem';
-  title.textContent = q.title;
+  title.textContent = q.title || `PBQ: ${q.domain || 'Practical Simulation'}`;
   wrapper.appendChild(title);
 
   const scenario = document.createElement('div');
   scenario.className = 'pbq-scenario';
-  scenario.textContent = q.scenario;
+  scenario.innerHTML = formatCodeSnippets(q.scenario || q.question || '');
   wrapper.appendChild(scenario);
 
   if (q.logs && q.logs.length) {
@@ -548,6 +562,7 @@ function createPBQView(q) {
   }
 
   // Question Image / Exhibits (if present in PBQ)
+  const rawImgs = q.image || q.images;
   if (q.exhibits && q.exhibits.length) {
     const exhibitContainer = document.createElement('div');
     exhibitContainer.className = 'pbq-exhibits-container';
@@ -590,10 +605,10 @@ function createPBQView(q) {
 
     renderTabs();
     wrapper.appendChild(exhibitContainer);
-  } else if (q.image && (typeof q.image === 'string' ? q.image.trim() : q.image.length > 0)) {
+  } else if (rawImgs && (typeof rawImgs === 'string' ? rawImgs.trim() : rawImgs.length > 0)) {
     const imgContainer = document.createElement('div');
     imgContainer.className = 'question-image-box';
-    const images = Array.isArray(q.image) ? q.image : [q.image];
+    const images = Array.isArray(rawImgs) ? rawImgs : [rawImgs];
     const imgsHtml = images.map((src, idx) => `
       <img src="${src}" class="question-image" alt="Scenario Exhibit ${idx + 1}" onclick="openImageZoom('${src}')">
     `).join('');
@@ -1297,6 +1312,25 @@ function checkMCQCorrect(q, userAns) {
   }
 }
 
+function checkPBQFieldCorrect(q, f, userFields) {
+  if (!userFields) return false;
+  if (f.pairWith && q.fields) {
+    const pairField = q.fields.find(other => other.id === f.pairWith);
+    if (pairField) {
+      const expectedPair = [f.correct, pairField.correct].sort();
+      const userPair = [userFields[f.id] || '', userFields[pairField.id] || ''].sort();
+      return expectedPair[0] === userPair[0] && expectedPair[1] === userPair[1] && !!userFields[f.id];
+    }
+  }
+  if (Array.isArray(f.correct)) {
+    return f.correct.includes(userFields[f.id]);
+  }
+  if (f.type === 'checkbox') {
+    return (userFields[f.id] || 'Unchecked') === f.correct;
+  }
+  return userFields[f.id] === f.correct;
+}
+
 function submitExam() {
   if (state.timerInterval) clearInterval(state.timerInterval);
 
@@ -1317,12 +1351,7 @@ function submitExam() {
         isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correctOrder);
       } else {
         const userFields = state.userAnswers[q.id] || {};
-        isCorrect = q.fields && q.fields.every(f => {
-          if (f.type === 'checkbox') {
-            return (userFields[f.id] || 'Unchecked') === f.correct;
-          }
-          return userFields[f.id] === f.correct;
-        });
+        isCorrect = q.fields && q.fields.length > 0 && q.fields.every(f => checkPBQFieldCorrect(q, f, userFields));
       }
     } else {
       isCorrect = checkMCQCorrect(q, state.userAnswers[q.id]);
@@ -1458,12 +1487,7 @@ function renderReviewList(filterType) {
         isCorrect = JSON.stringify(userOrder) === JSON.stringify(q.correctOrder);
       } else {
         const userFields = state.userAnswers[q.id] || {};
-        isCorrect = q.fields && q.fields.every(f => {
-          if (f.type === 'checkbox') {
-            return (userFields[f.id] || 'Unchecked') === f.correct;
-          }
-          return userFields[f.id] === f.correct;
-        });
+        isCorrect = q.fields && q.fields.length > 0 && q.fields.every(f => checkPBQFieldCorrect(q, f, userFields));
       }
     } else {
       isCorrect = checkMCQCorrect(q, state.userAnswers[q.id]);
@@ -1533,11 +1557,12 @@ function renderReviewList(filterType) {
         fieldBreakdown = '<div class="pbq-review-fields" style="margin-top:0.75rem; display:flex; flex-direction:column; gap:0.4rem;">';
         q.fields.forEach(f => {
           const uVal = f.type === 'checkbox' ? (userPbq[f.id] || 'Unchecked') : (userPbq[f.id] || '(None)');
-          const isFieldCorrect = uVal === f.correct;
+          const isFieldCorrect = checkPBQFieldCorrect(q, f, userPbq);
           const statusIcon = isFieldCorrect ? '<span style="color:var(--success); font-weight:bold;">✓</span>' : '<span style="color:var(--danger); font-weight:bold;">✕</span>';
+          const expectedDesc = f.pairWith ? `(Expected: <strong>${f.correct}</strong> / paired control)` : `(Expected: <strong>${f.correct}</strong>)`;
           fieldBreakdown += `
             <div style="font-size:0.85rem; padding:0.4rem 0.65rem; border-radius:4px; background:rgba(255,255,255,0.03); border-left:3px solid ${isFieldCorrect ? 'var(--success)' : 'var(--danger)'};">
-              ${statusIcon} <strong>${f.label}:</strong> Your response: <span style="font-weight:600; color:${isFieldCorrect ? 'var(--success)' : 'var(--danger)'};">${uVal}</span> ${!isFieldCorrect ? `(Expected: <strong>${f.correct}</strong>)` : ''}
+              ${statusIcon} <strong>${f.label}</strong> Your response: <span style="font-weight:600; color:${isFieldCorrect ? 'var(--success)' : 'var(--danger)'};">${uVal}</span> ${!isFieldCorrect ? expectedDesc : ''}
             </div>
           `;
         });

@@ -11223,47 +11223,205 @@ const SECAI_QUESTIONS = [
     "image": null
   },
   {
+    "id": "cy0-9",
     "qnum": 9,
     "source": "M4S",
-    "question": "Instructions: Use the drop-down menus to define two appropriate security controls for each component of the AI system. Each control may be used only once. An engineer is deploying a new AI system and wants to integrate it into the core system through an API.",
-    "options": [],
-    "answer": "",
-    "explanation": "Solution (from the answer image): Cloud control plane - IAM policies, Resource policies; Prompt firewall - Injection policies, Output monitoring; WAF - Connection rate limits, Input token validation; Model / vector database (right-hand pair) - Guardrails, Input quota; API gateway - Load balancing, Authentication token validation. Basic Concept: This is a Performance-Based Question (PBQ) — a HOTSPOT/simulation item requiring interactive selection in the actual exam. It tests the candidate's ability to map appropriate security controls to AI system components such as API gateway, model endpoint, data layer, and authentication layer. Key Concept — Appropriate Controls by Component: For an API gateway connecting an AI system, typical controls include API key authentication, rate limiting, TLS encryption, and input validation. For the model endpoint, controls include IAM role-based access, audit logging, and guardrails. For data access components, encryption at rest and data masking are appropriate. For the authentication layer, MFA and expiring session tokens are relevant. Why This Matters: The CompTIA SecAI+ Study Guide emphasizes defense-in-depth for AI system integration, ensuring each architectural layer has dedicated, appropriate security controls. The principle of least privilege should guide access control assignments at each component, while availability controls such as rate limiting protect against abuse. Reference: CompTIA SecAI+ Exam Objectives Domain 2 (Securing AI Systems) covers AI system component security controls. Candidates should study the mapping of controls to infrastructure components including API gateways, model serving endpoints, data stores, and identity management layers. In the live exam, select the most specific and directly relevant control for each component based on the component's function and risk profile.",
+    "type": "pbq",
+    "pbqType": "dropdown",
     "domain": "Domain 2.0: Securing AI Systems",
-    "multiSelect": false,
-    "selectCount": 0,
-    "is_pbq": true,
-    "f2t_ref": 63,
-    "images": [
+    "title": "PBQ: AI System Component Security Controls",
+    "scenario": "Instructions: Use the drop-down menus to define two appropriate security controls for each component of the AI system. Each control may be used only once. An engineer is deploying a new AI system and wants to integrate it into the core system through an API.",
+    "image": [
       "images/pbq_m4s9_question.png"
     ],
     "solution_images": [
       "images/pbq_m4s9_solution.png"
     ],
-    "pbq_answer": {
-      "Cloud control plane": [
-        "IAM policies",
-        "Resource policies"
-      ],
-      "Prompt firewall": [
-        "Injection policies",
-        "Output monitoring"
-      ],
-      "WAF": [
-        "Connection rate limits",
-        "Input token validation"
-      ],
-      "Model / vector database (right-hand pair)": [
-        "Guardrails",
-        "Input quota"
-      ],
-      "API gateway": [
-        "Load balancing",
-        "Authentication token validation"
-      ]
-    },
-    "id": "cy0-9",
-    "type": "mcq"
+    "fields": [
+      {
+        "id": "cloud_ctrl_1",
+        "label": "Cloud Control Plane — Security Control 1:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "IAM policies",
+        "pairWith": "cloud_ctrl_2"
+      },
+      {
+        "id": "cloud_ctrl_2",
+        "label": "Cloud Control Plane — Security Control 2:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Resource policies",
+        "pairWith": "cloud_ctrl_1"
+      },
+      {
+        "id": "prompt_fw_1",
+        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 1:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Injection policies",
+        "pairWith": "prompt_fw_2"
+      },
+      {
+        "id": "prompt_fw_2",
+        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 2:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Output monitoring",
+        "pairWith": "prompt_fw_1"
+      },
+      {
+        "id": "waf_1",
+        "label": "Next-Generation Edge Appliance: WAF — Security Control 1:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Connection rate limits",
+        "pairWith": "waf_2"
+      },
+      {
+        "id": "waf_2",
+        "label": "Next-Generation Edge Appliance: WAF — Security Control 2:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Input token validation",
+        "pairWith": "waf_1"
+      },
+      {
+        "id": "model_db_1",
+        "label": "Model / Vector Database — Security Control 1:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Guardrails",
+        "pairWith": "model_db_2"
+      },
+      {
+        "id": "model_db_2",
+        "label": "Model / Vector Database — Security Control 2:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Input quota",
+        "pairWith": "model_db_1"
+      },
+      {
+        "id": "api_gw_1",
+        "label": "API Gateway — Security Control 1:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Load balancing",
+        "pairWith": "api_gw_2"
+      },
+      {
+        "id": "api_gw_2",
+        "label": "API Gateway — Security Control 2:",
+        "options": [
+          "Connection rate limits",
+          "Input quota",
+          "Guardrails",
+          "Input token validation",
+          "Injection policies",
+          "Load balancing",
+          "IAM policies",
+          "Authentication token validation",
+          "Resource policies",
+          "Output monitoring"
+        ],
+        "correct": "Authentication token validation",
+        "pairWith": "api_gw_1"
+      }
+    ],
+    "explanation": "Solution (from the answer image): Cloud control plane - IAM policies, Resource policies; Prompt firewall - Injection policies, Output monitoring; WAF - Connection rate limits, Input token validation; Model / vector database (right-hand pair) - Guardrails, Input quota; API gateway - Load balancing, Authentication token validation. Basic Concept: This is a Performance-Based Question (PBQ) — a HOTSPOT/simulation item requiring interactive selection in the actual exam. It tests the candidate's ability to map appropriate security controls to AI system components such as API gateway, model endpoint, data layer, and authentication layer. Key Concept — Appropriate Controls by Component: For an API gateway connecting an AI system, typical controls include API key authentication, rate limiting, TLS encryption, and input validation. For the model endpoint, controls include IAM role-based access, audit logging, and guardrails. For data access components, encryption at rest and data masking are appropriate. For the authentication layer, MFA and expiring session tokens are relevant. Why This Matters: The CompTIA SecAI+ Study Guide emphasizes defense-in-depth for AI system integration, ensuring each architectural layer has dedicated, appropriate security controls. The principle of least privilege should guide access control assignments at each component, while availability controls such as rate limiting protect against abuse. Reference: CompTIA SecAI+ Exam Objectives Domain 2 (Securing AI Systems) covers AI system component security controls. Candidates should study the mapping of controls to infrastructure components including API gateways, model serving endpoints, data stores, and identity management layers. In the live exam, select the most specific and directly relevant control for each component based on the component's function and risk profile.",
+    "is_pbq": true,
+    "f2t_ref": 63
   },
   {
     "qnum": 10,
@@ -11627,39 +11785,130 @@ const SECAI_QUESTIONS = [
     "image": null
   },
   {
+    "id": "cy0-27",
     "qnum": 27,
     "source": "M4S",
-    "question": "An engineer is analyzing findings from a penetration test that indicate insufficient data encryption. The report also indicates that additional controls must be placed on the data. To protect against loss of intellectual property, the engineer must implement data security. Part 1: Use drop-down menu to select the most appropriate protocol or cipher for each system component. Part 2: Use the drop-down menu to select the most appropriate technique to apply to the modified data.",
-    "options": [],
-    "answer": "",
-    "explanation": "Solution: Part 1 - API gateway: TLS 1.2; Database storage: CAMELLIA; AI model storage: HMAC-SHA512. Part 2 - adding sensitivity:\"SECRET\": Classification; removing ip_addr and name (cookie, uid remain): Anonymization; pin partly replaced with XXXX: Masking; card number replaced by a token: Tokenization; removing only the name (patient_id, dob remain): De-identification. NOTE: the source answer image shows the Anonymization and De-identification rows swapped relative to this written solution; the written rationale is used here. Why these are the intended answers API gateway -> TLS 1.2 The API gateway handles data moving between the client and backend systems. TLS is the only listed transport-security protocol and therefore protects the data in transit . OWASP recommends encrypting sensitive data in transit by using TLS with secure parameters. Database storage -> CAMELLIA CAMELLIA is a symmetric block cipher suitable for encrypting substantial quantities of stored data. It is therefore the valid storage-encryption choice among the listed options. Do not select AES-512 . AES-512 is not a standardized AES variant. NIST defines only AES-128, AES- 192, and AES-256 . AI model storage -> HMAC-SHA512 The scenario separately emphasizes protection against loss or modification of intellectual property. HMAC- SHA512 supplies message authentication and integrity verification, allowing unauthorized modification of the AI model to be detected. HMAC is not confidentiality encryption, but it is the most appropriate listed additional control for protecting model integrity. OWASP specifically identifies HMACs as cryptographic controls for stored-data integrity. Why the other options are not selected * SHA-2 512: Hashing only; no secret key and no encryption. * Elliptical curve: A family of cryptographic techniques, not a specific storage or transport protocol. * ECDH: Used for key agreement, not direct bulk-data encryption. * AES-512: Invalid AES key size. * RSA-2048: Primarily used for asymmetric encryption, signatures, or key transport; inefficient for bulk database or model encryption. * CAMELLIA: Appropriate symmetric encryption for stored data. * HMAC-SHA512: Integrity and authenticity, not confidentiality. Final Part 2 order * De-identification * Anonymization * Tokenization * Classification * Masking De-identification removes an explicitly identifying field-in this case, the person's name-while retaining other fields needed for processing. The remaining patient ID and date of birth could potentially permit re-identification when combined with other information, so this is de-identification rather than complete anonymization. OWASP describes de-identification as deleting, scrambling, or pseudonymizing direct and indirect identifiers. Anonymization removes identifying attributes so that the displayed record is not directly tied to the named individual. Here, both the name and IP address are removed. Tokenization substitutes a sensitive value with a non-sensitive representative token. The original payment-card number is replaced with the hexadecimal-style value 0x0193828829. OWASP recognizes tokenization as a method for reducing exposure of stored sensitive data. Classification labels information according to sensitivity. Adding sensitivity: \"SECRET\" does not conceal or transform the PIN; it categorizes the record so appropriate controls can be applied. OWASP recommends classifying processed, stored, and transmitted data and applying controls based on that classification. Masking obscures only part of a sensitive value while preserving its general format. Changing 999-99- 9999 to 999-99-XXXX is partial masking.",
+    "type": "pbq",
+    "pbqType": "dropdown",
     "domain": "Domain 2.0: Securing AI Systems",
-    "multiSelect": false,
-    "selectCount": 0,
-    "is_pbq": true,
-    "f2t_ref": 94,
-    "images": [
+    "title": "PBQ: Data Encryption Protocols & Data Protection Techniques",
+    "scenario": "An engineer is analyzing findings from a penetration test that indicate insufficient data encryption. The report also indicates that additional controls must be placed on the data. To protect against loss of intellectual property, the engineer must implement data security.\n\nINSTRUCTIONS:\nReview the architecture and data modification logs in the exhibit.\nPart 1: Use the drop-down menus to select the most appropriate protocol or cipher for each system component.\nPart 2: Use the drop-down menus to select the most appropriate technique to apply to each modified record.",
+    "image": [
       "images/pbq_m4s27_question.png"
     ],
     "solution_images": [
       "images/pbq_m4s27_solution.png"
     ],
-    "pbq_answer": {
-      "Part 1 - protocol/cipher": {
-        "API gateway": "TLS 1.2",
-        "Database storage": "CAMELLIA",
-        "AI model storage": "HMAC-SHA512"
+    "fields": [
+      {
+        "id": "part1_api_gw",
+        "label": "Part 1 — API Gateway (In-Transit Protection):",
+        "options": [
+          "SHA-2 512",
+          "HMAC-SHA512",
+          "Elliptical curve",
+          "ECDH",
+          "TLS 1.2",
+          "AES-512",
+          "RSA-2048",
+          "CAMELIA"
+        ],
+        "correct": "TLS 1.2"
       },
-      "Part 2 - technique by data modification": {
-        "pin,name -> adds sensitivity:\"SECRET\"": "Classification",
-        "ip_addr and name removed, cookie and uid remain": "Anonymization",
-        "pin partly replaced with XXXX": "Masking",
-        "card_number replaced by 0x0193828829": "Tokenization",
-        "name removed, patient_id and dob remain": "De-identification"
+      {
+        "id": "part1_db_storage",
+        "label": "Part 1 — Database Storage (At-Rest Bulk Data Encryption):",
+        "options": [
+          "SHA-2 512",
+          "HMAC-SHA512",
+          "Elliptical curve",
+          "ECDH",
+          "TLS 1.2",
+          "AES-512",
+          "RSA-2048",
+          "CAMELIA"
+        ],
+        "correct": "CAMELIA"
+      },
+      {
+        "id": "part1_model_storage",
+        "label": "Part 1 — AI Model Storage (Integrity & Intellectual Property):",
+        "options": [
+          "SHA-2 512",
+          "HMAC-SHA512",
+          "Elliptical curve",
+          "ECDH",
+          "TLS 1.2",
+          "AES-512",
+          "RSA-2048",
+          "CAMELIA"
+        ],
+        "correct": "HMAC-SHA512"
+      },
+      {
+        "id": "part2_record1",
+        "label": "Part 2 — Record 1: Adding sensitivity:\"SECRET\" to (pin: \"999-99-9999\", name: \"john doe\"):",
+        "options": [
+          "Anonymization",
+          "Classification",
+          "De-identification",
+          "Tokenization",
+          "Masking"
+        ],
+        "correct": "Classification"
+      },
+      {
+        "id": "part2_record2",
+        "label": "Part 2 — Record 2: Removing ip_addr & name (cookie: \"abcdef--\", uid: \"1111\" remain):",
+        "options": [
+          "Anonymization",
+          "Classification",
+          "De-identification",
+          "Tokenization",
+          "Masking"
+        ],
+        "correct": "Anonymization"
+      },
+      {
+        "id": "part2_record3",
+        "label": "Part 2 — Record 3: Changing pin from 999-99-9999 to 999-99-XXXX:",
+        "options": [
+          "Anonymization",
+          "Classification",
+          "De-identification",
+          "Tokenization",
+          "Masking"
+        ],
+        "correct": "Masking"
+      },
+      {
+        "id": "part2_record4",
+        "label": "Part 2 — Record 4: Replacing credit card number with 0x0193828829:",
+        "options": [
+          "Anonymization",
+          "Classification",
+          "De-identification",
+          "Tokenization",
+          "Masking"
+        ],
+        "correct": "Tokenization"
+      },
+      {
+        "id": "part2_record5",
+        "label": "Part 2 — Record 5: Removing name only (patient_id: \"10000\", dob: \"1980-jan-05\" remain):",
+        "options": [
+          "Anonymization",
+          "Classification",
+          "De-identification",
+          "Tokenization",
+          "Masking"
+        ],
+        "correct": "De-identification"
       }
-    },
-    "id": "cy0-27",
-    "type": "mcq"
+    ],
+    "explanation": "Solution: Part 1 - API gateway: TLS 1.2; Database storage: CAMELLIA; AI model storage: HMAC-SHA512. Part 2 - adding sensitivity:\"SECRET\": Classification; removing ip_addr and name (cookie, uid remain): Anonymization; pin partly replaced with XXXX: Masking; card number replaced by a token: Tokenization; removing only the name (patient_id, dob remain): De-identification. NOTE: the source answer image shows the Anonymization and De-identification rows swapped relative to this written solution; the written rationale is used here. Why these are the intended answers API gateway -> TLS 1.2 The API gateway handles data moving between the client and backend systems. TLS is the only listed transport-security protocol and therefore protects the data in transit . OWASP recommends encrypting sensitive data in transit by using TLS with secure parameters. Database storage -> CAMELLIA CAMELLIA is a symmetric block cipher suitable for encrypting substantial quantities of stored data. It is therefore the valid storage-encryption choice among the listed options. Do not select AES-512 . AES-512 is not a standardized AES variant. NIST defines only AES-128, AES- 192, and AES-256 . AI model storage -> HMAC-SHA512 The scenario separately emphasizes protection against loss or modification of intellectual property. HMAC- SHA512 supplies message authentication and integrity verification, allowing unauthorized modification of the AI model to be detected. HMAC is not confidentiality encryption, but it is the most appropriate listed additional control for protecting model integrity. OWASP specifically identifies HMACs as cryptographic controls for stored-data integrity. Why the other options are not selected * SHA-2 512: Hashing only; no secret key and no encryption. * Elliptical curve: A family of cryptographic techniques, not a specific storage or transport protocol. * ECDH: Used for key agreement, not direct bulk-data encryption. * AES-512: Invalid AES key size. * RSA-2048: Primarily used for asymmetric encryption, signatures, or key transport; inefficient for bulk database or model encryption. * CAMELLIA: Appropriate symmetric encryption for stored data. * HMAC-SHA512: Integrity and authenticity, not confidentiality. Final Part 2 order * De-identification * Anonymization * Tokenization * Classification * Masking De-identification removes an explicitly identifying field-in this case, the person's name-while retaining other fields needed for processing. The remaining patient ID and date of birth could potentially permit re-identification when combined with other information, so this is de-identification rather than complete anonymization. OWASP describes de-identification as deleting, scrambling, or pseudonymizing direct and indirect identifiers. Anonymization removes identifying attributes so that the displayed record is not directly tied to the named individual. Here, both the name and IP address are removed. Tokenization substitutes a sensitive value with a non-sensitive representative token. The original payment-card number is replaced with the hexadecimal-style value 0x0193828829. OWASP recognizes tokenization as a method for reducing exposure of stored sensitive data. Classification labels information according to sensitivity. Adding sensitivity: \"SECRET\" does not conceal or transform the PIN; it categorizes the record so appropriate controls can be applied. OWASP recommends classifying processed, stored, and transmitted data and applying controls based on that classification. Masking obscures only part of a sensitive value while preserving its general format. Changing 999-99- 9999 to 999-99-XXXX is partial masking.",
+    "is_pbq": true,
+    "f2t_ref": 94
   },
   {
     "qnum": 28,
@@ -12693,45 +12942,135 @@ const SECAI_QUESTIONS = [
     "image": null
   },
   {
+    "id": "cy0-76",
     "qnum": 76,
     "source": "M4S",
-    "question": "Instructions: Click the (+) to assign each threat category into its appropriate framework. An architect is modeling an agentic system to meet security standards.",
-    "options": [],
-    "answer": "",
-    "explanation": "Solution (from the answer image): MAESTRO - Overreliance, Insecure plug-in design; OWASP Top 10 - Broken access control, Identification and authentication failures; OWASP Top 10 LLM - Prompt injection, Model denial of service; STRIDE - Elevation of privilege, Repudiation, Supply chain vulnerabilities, Insecure design. Basic Concept: This is a Performance-Based Question (PBQ) - a simulation item requiring interactive drag-and-drop assignment of threat categories to appropriate frameworks in the actual exam. It tests knowledge of how different AI threat frameworks categorize and address specific threat types for agentic systems. Key Concept - Framework-to-Threat Mapping: MITRE ATLAS covers ML-specific adversarial tactics such as model evasion, data poisoning, model extraction, and prompt injection for agentic systems. OWASP LLM Top 10 addresses application-level LLM vulnerabilities such as insecure output handling, excessive agency, and supply chain risks. NIST AI RMF addresses governance-level risks across the AI lifecycle. STRIDE addresses architectural threats including spoofing, tampering, repudiation, information disclosure, DoS, and elevation of privilege. Why This Matters: Agentic AI systems have a unique threat landscape combining traditional software vulnerabilities with AI-specific attacks. Correctly mapping threat categories to frameworks is essential for comprehensive threat modeling of systems that autonomously execute multi-step tasks with tool access and real-world consequences. Reference: CompTIA SecAI+ Study Guide Domain 4 covers AI governance frameworks and their specific threat categories. Candidates should understand the scope and focus areas of MITRE ATLAS, OWASP LLM Top 10, NIST AI RMF, and traditional security frameworks as they apply to agentic AI system security modeling.",
+    "type": "pbq",
+    "pbqType": "dropdown",
     "domain": "Domain 4.0: AI Governance, Risk, and Compliance",
-    "multiSelect": false,
-    "selectCount": 0,
-    "is_pbq": true,
-    "f2t_ref": 66,
-    "images": [
+    "title": "PBQ: AI Threat Framework Categorization for Agentic Systems",
+    "scenario": "Instructions: Click the drop-down menus to assign each threat category into its appropriate security framework (MAESTRO, OWASP Top 10, OWASP Top 10 LLM, or STRIDE). An architect is modeling an agentic system to meet security standards.",
+    "image": [
       "images/pbq_m4s76_question.png"
     ],
     "solution_images": [
       "images/pbq_m4s76_solution.png"
     ],
-    "pbq_answer": {
-      "MAESTRO": [
-        "Overreliance",
-        "Insecure plug-in design"
-      ],
-      "OWASP Top 10": [
-        "Broken access control",
-        "Identification and authentication failures"
-      ],
-      "OWASP Top 10 LLM": [
-        "Prompt injection",
-        "Model denial of service"
-      ],
-      "STRIDE": [
-        "Elevation of privilege",
-        "Repudiation",
-        "Supply chain vulnerabilities",
-        "Insecure design"
-      ]
-    },
-    "id": "cy0-76",
-    "type": "mcq"
+    "fields": [
+      {
+        "id": "threat_overreliance",
+        "label": "Threat Category: Overreliance",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "MAESTRO"
+      },
+      {
+        "id": "threat_insecure_plugin",
+        "label": "Threat Category: Insecure plug-in design",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "MAESTRO"
+      },
+      {
+        "id": "threat_broken_access",
+        "label": "Threat Category: Broken access control",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "OWASP Top 10"
+      },
+      {
+        "id": "threat_auth_failures",
+        "label": "Threat Category: Identification and authentication failures",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "OWASP Top 10"
+      },
+      {
+        "id": "threat_prompt_injection",
+        "label": "Threat Category: Prompt injection",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "OWASP Top 10 LLM"
+      },
+      {
+        "id": "threat_model_dos",
+        "label": "Threat Category: Model denial of service",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "OWASP Top 10 LLM"
+      },
+      {
+        "id": "threat_priv_escalation",
+        "label": "Threat Category: Elevation of privilege",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "STRIDE"
+      },
+      {
+        "id": "threat_repudiation",
+        "label": "Threat Category: Repudiation",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "STRIDE"
+      },
+      {
+        "id": "threat_supply_chain",
+        "label": "Threat Category: Supply chain vulnerabilities",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "STRIDE"
+      },
+      {
+        "id": "threat_insecure_design",
+        "label": "Threat Category: Insecure design",
+        "options": [
+          "MAESTRO",
+          "OWASP Top 10",
+          "OWASP Top 10 LLM",
+          "STRIDE"
+        ],
+        "correct": "STRIDE"
+      }
+    ],
+    "explanation": "Solution (from the answer image): MAESTRO - Overreliance, Insecure plug-in design; OWASP Top 10 - Broken access control, Identification and authentication failures; OWASP Top 10 LLM - Prompt injection, Model denial of service; STRIDE - Elevation of privilege, Repudiation, Supply chain vulnerabilities, Insecure design. Basic Concept: This is a Performance-Based Question (PBQ) - a simulation item requiring interactive drag-and-drop assignment of threat categories to appropriate frameworks in the actual exam. It tests knowledge of how different AI threat frameworks categorize and address specific threat types for agentic systems. Key Concept - Framework-to-Threat Mapping: MITRE ATLAS covers ML-specific adversarial tactics such as model evasion, data poisoning, model extraction, and prompt injection for agentic systems. OWASP LLM Top 10 addresses application-level LLM vulnerabilities such as insecure output handling, excessive agency, and supply chain risks. NIST AI RMF addresses governance-level risks across the AI lifecycle. STRIDE addresses architectural threats including spoofing, tampering, repudiation, information disclosure, DoS, and elevation of privilege. Why This Matters: Agentic AI systems have a unique threat landscape combining traditional software vulnerabilities with AI-specific attacks. Correctly mapping threat categories to frameworks is essential for comprehensive threat modeling of systems that autonomously execute multi-step tasks with tool access and real-world consequences. Reference: CompTIA SecAI+ Study Guide Domain 4 covers AI governance frameworks and their specific threat categories. Candidates should understand the scope and focus areas of MITRE ATLAS, OWASP LLM Top 10, NIST AI RMF, and traditional security frameworks as they apply to agentic AI system security modeling.",
+    "is_pbq": true,
+    "f2t_ref": 66
   },
   {
     "qnum": 77,
