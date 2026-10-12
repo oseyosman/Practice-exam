@@ -11240,7 +11240,7 @@ const SECAI_QUESTIONS = [
     "fields": [
       {
         "id": "cloud_ctrl_1",
-        "label": "Cloud Control Plane — Security Control 1:",
+        "label": "Cloud Control Plane — Security Control 1 (Top Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11258,7 +11258,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "cloud_ctrl_2",
-        "label": "Cloud Control Plane — Security Control 2:",
+        "label": "Cloud Control Plane — Security Control 2 (Bottom Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11276,7 +11276,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "prompt_fw_1",
-        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 1:",
+        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 1 (Top Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11294,7 +11294,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "prompt_fw_2",
-        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 2:",
+        "label": "Next-Generation Edge Appliance: Prompt Firewall — Security Control 2 (Bottom Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11312,7 +11312,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "waf_1",
-        "label": "Next-Generation Edge Appliance: WAF — Security Control 1:",
+        "label": "Next-Generation Edge Appliance: WAF — Security Control 1 (Top Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11330,7 +11330,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "waf_2",
-        "label": "Next-Generation Edge Appliance: WAF — Security Control 2:",
+        "label": "Next-Generation Edge Appliance: WAF — Security Control 2 (Bottom Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11348,7 +11348,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "model_db_1",
-        "label": "Model / Vector Database — Security Control 1:",
+        "label": "Model / Vector Database — Security Control 1 (Top Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11366,7 +11366,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "model_db_2",
-        "label": "Model / Vector Database — Security Control 2:",
+        "label": "Model / Vector Database — Security Control 2 (Bottom Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11384,7 +11384,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "api_gw_1",
-        "label": "API Gateway — Security Control 1:",
+        "label": "API Gateway — Security Control 1 (Top Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
@@ -11402,7 +11402,7 @@ const SECAI_QUESTIONS = [
       },
       {
         "id": "api_gw_2",
-        "label": "API Gateway — Security Control 2:",
+        "label": "API Gateway — Security Control 2 (Bottom Box):",
         "options": [
           "Connection rate limits",
           "Input quota",
