@@ -11588,12 +11588,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 37,
-    "images": [
-      "images/exhibit_f2t37.png"
-    ],
     "id": "cy0-17",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t37.png"
   },
   {
     "qnum": 18,
@@ -11969,12 +11966,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 17,
-    "images": [
-      "images/exhibit_f2t17.png"
-    ],
     "id": "cy0-30",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t17.png"
   },
   {
     "qnum": 31,
@@ -12248,12 +12242,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 118,
-    "images": [
-      "images/exhibit_f2t118.png"
-    ],
     "id": "cy0-43",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t118.png"
   },
   {
     "qnum": 44,
@@ -12293,12 +12284,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 117,
-    "images": [
-      "images/exhibit_f2t117.png"
-    ],
     "id": "cy0-45",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t117.png"
   },
   {
     "qnum": 46,
@@ -13278,12 +13266,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 2,
-    "images": [
-      "images/exhibit_f2t2.png"
-    ],
     "id": "cy0-86",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t2.png"
   },
   {
     "qnum": 87,
@@ -13974,12 +13959,9 @@ const SECAI_QUESTIONS = [
     "selectCount": 1,
     "is_pbq": false,
     "f2t_ref": 15,
-    "images": [
-      "images/exhibit_f2t15.png"
-    ],
     "id": "cy0-119",
     "type": "mcq",
-    "image": null
+    "image": "images/exhibit_f2t15.png"
   },
   {
     "qnum": 120,
